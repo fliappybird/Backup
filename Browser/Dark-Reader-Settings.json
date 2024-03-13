@@ -38,7 +38,8 @@
         "www.reddit.com",
         "wikiwand.com",
         "you.com",
-        "youtube.com"
+        "youtube.com",
+        "github.dev"
     ],
     "enableContextMenus": false,
     "enableForPDF": true,

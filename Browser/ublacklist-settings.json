@@ -19,7 +19,7 @@
     },
     {
       "name": "Blocklist",
-      "url": "https://tikolu.net/edit/.text/mooluxy-blocklist",
+      "url": "https://github.com/fliappybird/Backup/raw/main/Proxy/search-blocklist.txt",
       "enabled": true
     }
   ],

@@ -11,6 +11,14 @@
     {
       "passKeys": "ftm",
       "pattern": "https?://www.youtube.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://github.dev/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://vscode.dev/*"
     }
   ]
 }
