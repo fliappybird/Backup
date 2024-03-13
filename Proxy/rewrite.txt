@@ -1,0 +1,8 @@
+hostname = *.wikipedia.org, *.ycombinator.com, *.reddit.com, sspai.com, link.zhihu.com
+
+;^https://github.com/ url 302 https://farside.link/gothub/
+^https://(\w*).(m.)?wikipedia.org/wiki url 302 https://www.wikiwand.com/$1
+^https://www.reddit.com/ url 302 https://farside.link/https://www.reddit.com/
+^https://news.ycombinator.com/item\?id= url 302 https://hackerweb.app/#/item/
+^https://sspai.com/link?target= url 302 $1
+^https://link.zhihu.com/?target= url 302 $1

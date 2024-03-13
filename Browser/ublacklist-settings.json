@@ -1,0 +1,33 @@
+{
+  "blacklist": "",
+  "blockColor": "default",
+  "blockWholeSite": true,
+  "dialogTheme": "default",
+  "enablePathDepth": false,
+  "hideBlockLinks": true,
+  "hideControl": false,
+  "highlightColors": [
+    "#ddeeff"
+  ],
+  "linkColor": "default",
+  "skipBlockDialog": false,
+  "subscriptions": [
+    {
+      "name": "ublacklist",
+      "url": "https://git.io/ublacklist",
+      "enabled": true
+    },
+    {
+      "name": "Blocklist",
+      "url": "https://tikolu.net/edit/.text/mooluxy-blocklist",
+      "enabled": true
+    }
+  ],
+  "syncAppearance": false,
+  "syncBlocklist": true,
+  "syncGeneral": false,
+  "syncInterval": 15,
+  "syncSubscriptions": false,
+  "updateInterval": 1440,
+  "version": "8.5.1"
+}

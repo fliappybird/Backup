@@ -1,0 +1,25 @@
+眺览 TillGlance|aomnlmcemihejgfkeplljkcelfpneakg
+uBlock Origin|cjpalhdlnbpafiamejdnhcphjbkeiagm
+Vimium|dbepggeogbaibhgnhhndojpepiihcmeb
+Dark Reader|eimadpbcbfnmbkopoojfekhnkhdbieeh
+Header Editor|eningockdidmgiojffjmkdblpjocbhgh
+YouTube™ dual subtitles|hkbdddpiemdeibjoknnofflfgbgnebcm
+Violentmonkey|jinjaccalgkegednnccohejagnlnfdag
+ClearURLs|lckanjgmijmafbedllaakclkaicjfmnk
+Cici, your browser's AI assistant.|molcibnmfbjmmfbefjfcafdeabfniobi
+Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml
+uBlacklist|pncfbmialoiaghdehhbnbhkkgmjanfhe
+Ease Bookmarks|poefceffmekhjoadknillcbdifahongk
+Simple Tab Sorter|cgfpgnepljlgenjclbekbjdlgcodfmjp
+ContextSearch web-ext|ddippghibegbgpjcaaijbacfhjjeafjh
+Obsidian Web|edoacekkjanmingkbkgjndndibhkegad
+Better History|egehpkpgpgooebopjihjmnpejnjafefi
+AdGuard Browser Assistant|fbohpolgemkbfphodcfgnpjcmedcjhpn
+SQLite Editor and Compiler|gikfdibniklcibhonhhdbnfhkmapibid
+SearchJumper|hgepmblbgodbilmfdjkalkgofdcipkhh
+Tab Session Manager|iaiomicjabeggjcfkbimgmglanimpnae
+RSSHub Radar|kefjpfngnndepjbopdmoebkipbgkggaa
+AI Subtitles & Immersive Translate - Trancy|mjdbhokoopacimoekfgkcoogikbfgngb
+Search all Tabs|ndfnfhnlgoocpbbjjjfmiojdfcgcfomn
+One Click Extensions Manager|pbgjpgbpljobkekbhnnmlikbbfhbhmem
+Unsplash Instant|pejkokffkapolfffcgbmdmhdelanoaih
