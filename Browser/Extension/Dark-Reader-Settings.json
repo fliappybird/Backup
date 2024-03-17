@@ -14,7 +14,6 @@
         "chat.openai.com",
         "docs.craft.do",
         "duckduckgo.com",
-        "github.com",
         "gushiwen.cn",
         "hckrnws.com",
         "hey.com",
@@ -39,7 +38,10 @@
         "wikiwand.com",
         "you.com",
         "youtube.com",
-        "github.dev"
+        "github.dev",
+        "docs.qq.com",
+        "www.polebrief.com",
+        "forms.office.com"
     ],
     "enableContextMenus": false,
     "enableForPDF": true,
@@ -49,7 +51,8 @@
     "enabledFor": [
         "ddys.pro",
         "runningcheese.cn",
-        "v2ex.com"
+        "v2ex.com",
+        "s.v2ex.com"
     ],
     "fetchNews": false,
     "location": {

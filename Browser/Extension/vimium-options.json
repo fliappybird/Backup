@@ -9,16 +9,16 @@
       "pattern": "https?://mail.google.com/*"
     },
     {
-      "passKeys": "ftm",
-      "pattern": "https?://www.youtube.com/*"
-    },
-    {
       "passKeys": "",
       "pattern": "https?://github.dev/*"
     },
     {
       "passKeys": "",
       "pattern": "https?://vscode.dev/*"
+    },
+    {
+      "passKeys": "Nftm",
+      "pattern": "https?://www.youtube.com/*"
     }
   ]
 }

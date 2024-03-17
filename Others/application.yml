@@ -20,10 +20,12 @@ application:
 
     # 仅支持 http/https，不限定响应内容格式
     remote:
-#      - name: 'example rule' #规则名称
-#        path: 'https://example.org/rule.txt' #规则地址
-#      - 'https://example.org/rule2.txt' #旧版写法, 不推荐
-     
+      - name: 'Additional Filters CN'
+        path: 'https://github.com/Crystal-RainSlide/AdditionalFiltersCN/raw/master/CN.txt'
+      - name: 'Additional Filters Intl'
+        path: 'https://github.com/Crystal-RainSlide/AdditionalFiltersCN/raw/master/Intl.txt'
+      - name: 'Additional Filters Other'
+        path: 'https://github.com/Crystal-RainSlide/AdditionalFiltersCN/raw/master/RainSlide.txt'
       - name: 'Adguard Annyoyances optimized'
         path: 'https://filters.adtidy.org/extension/ublock/filters/14_optimized.txt'
       - name: 'Adguard Chinese filter'
@@ -38,24 +40,28 @@ application:
         path: 'https://github.com/AdguardTeam/FiltersRegistry/raw/master/filters/filter_4_Social/filter.txt'
       - name: 'Adguard Social Media filter optimized'
         path: 'https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt'
-      - name: 'Adguard Tracking Protection filter'
-        path: 'https://filters.adtidy.org/extension/ublock/filters/3.txt'
-      - name: 'Adguard URL Tracking Parameters filter'
-        path: 'https://github.com/AdguardTeam/FiltersRegistry/raw/master/filters/filter_17_TrackParam/filter.txt'
+#      - name: 'Adguard Tracking Protection filter'
+#        path: 'https://filters.adtidy.org/extension/ublock/filters/3.txt'
+#      - name: 'Adguard URL Tracking Parameters filter'
+#        path: 'https://github.com/AdguardTeam/FiltersRegistry/raw/master/filters/filter_17_TrackParam/filter.txt'
       - name: 'AdRules AdBlock List Plus Cats-Team'
-        path: 'https://raw.githubusercontent.com/Cats-Team/AdRules/main/adblock_plus.txt'
+        path: 'https://github.com/Cats-Team/AdRules/raw/main/adblock_plus.txt'
+      - name: 'AdRules AdBlock DNS List Plus Cats-Team'
+        path: 'https://github.com/Cats-Team/AdRules/raw/main/dns.txt'
+      - name: 'ad-wars'
+        path: 'https://github.com/jdlingyu/ad-wars/raw/master/hosts'
       - name: 'anti-AD for AdGuard'
-        path: 'https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-adguard.txt'
+        path: 'https://github.com/privacy-protection-tools/anti-AD/raw/master/anti-ad-adguard.txt'
       - name: 'AWAvenue 秋风广告规则 (AWAvenue-Ads-Rule)'
-        path: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt'
-      - name: 'Block Third-Party Fonts'
-        path: 'https://github.com/yokoffing/filterlists/raw/main/block_third_party_fonts.txt'
-      - name: 'Browse Websites Without Logging In'
-        path: 'https://github.com/DandelionSprout/adfilt/raw/master/BrowseWebsitesWithoutLoggingIn.txt'
-      - name: 'bypass-paywalls-clean-filters'
-        path: 'https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt'
+        path: 'https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/main/AWAvenue-Ads-Rule.txt'
+      - name: 'Block HTTP DNS'
+        path: 'https://github.com/blackmatrix7/ios_rule_script/raw/release/rule/AdGuard/BlockHttpDNS/BlockHttpDNS.txt'
+      #- name: 'bypass-paywalls-clean-filters'
+       # path: 'https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt'
       - name: 'Dandelion Sprouts Annoyances List'
         path: 'https://github.com/DandelionSprout/adfilt/raw/master/AnnoyancesList'
+      - name: 'DandelionSprout Social Media & Share Filter List'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/SocialShareList.txt'
       - name: 'Dandelion Sprouts Browse Websites Without Logging In'
         path: 'https://github.com/DandelionSprout/adfilt/raw/master/BrowseWebsitesWithoutLoggingIn.txt'
       - name: 'DD-AD'
@@ -77,19 +83,23 @@ application:
       - name: 'Fanboy Annoyances optimized'
         path: 'https://filters.adtidy.org/extension/ublock/filters/122_optimized.txt'
       - name: 'HaGeZis Ultimate DNS Blocklist'
-        path: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/ultimate.txt'
+        path: 'https://github.com/hagezi/dns-blocklists/raw/main/adblock/ultimate.txt'
+      - name: 'hblock'
+        path: 'https://hblock.molinero.dev/hosts_adblock.txt'
+      - name: 'HalfLife ad block list'
+        path: 'https://github.com/o0HalfLife0o/list/raw/master/ad-pc.txt'
       - name: 'I Dont Care About Cookies'
         path: 'https://www.i-dont-care-about-cookies.eu/abp/'
       - name: 'Legitimate URL Shortener List'
         path: 'https://github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt'
+      - name: 'No App Download'
+        path: 'https://github.com/Noyllopa/NoAppDownload/raw/master/NoAppDownload.txt'
       - name: 'Oisd Big'
         path: 'https://big.oisd.nl/'
-      - name: 'o0HalfLife0o ad block list'
-        path: 'https://github.com/o0HalfLife0o/list/raw/master/ad-pc.txt'
       - name: 'Peter Lowes Ad and tracking server list'
-        path: 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus'
-      - name: 'Social Media & Share Filter List'
-        path: 'https://github.com/DandelionSprout/adfilt/raw/master/SocialShareList.txt'
+        path: 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=0&startday=01&startmonth=01&startyear=2000&mimetype=plaintext'
+      - name: 'StevenBlack hosts'
+        path: 'https://github.com/StevenBlack/hosts/raw/master/alternates/social/hosts'
       - name: 'Twitch: Pure Viewing Experience'
         path: 'https://github.com/DandelionSprout/adfilt/raw/master/TwitchPureViewing'
       - name: 'uBlock Filters - AD'
@@ -106,29 +116,26 @@ application:
         path: 'https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/quick-fixes.min.txt'
       - name: 'uBlock Filters - Unbreak'
         path: 'https://ublockorigin.pages.dev/filters/unbreak.min.txt'
-      - name: 'YouTube Clear View'
-        path: 'https://github.com/yokoffing/filterlists/raw/main/youtube_clear_view.txt'
       - name: 'yokoffing annoyance list'
         path: 'https://github.com/yokoffing/filterlists/raw/main/annoyance_list.txt'
       - name: 'yokoffing block third party fonts'
         path: 'https://github.com/yokoffing/filterlists/raw/main/block_third_party_fonts.txt'
+      - name: 'yhosts'
+        path: 'https://github.com/VeleSila/yhosts/raw/master/hosts.txt'
       - name: '1Host Pro'
         path: 'https://o0.pages.dev/Pro/adblock.txt'
-      - name: '大圣净化'
-        path: 'https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts'
-      - name: 'NoAppDownload'
-        path: 'https://raw.githubusercontent.com/Noyllopa/NoAppDownload/master/NoAppDownload.txt'
-
+  
     #本地规则请将文件放置到项目路径rule目录中
     local:
-#      - name: 'local rule'
-#        path: 'local-rule.txt'
+      - name: 'Personal Block List'
+        path: 'personal-block-list.txt'
   output:
     file_header: |  #输出文件头, 占位符${name}将被替换为文件名，如all.txt,  ${date} 将被替换为当前日期
       [ADFS Adblock List]
-      ! Title: ${name}
-      ! Last Modified: ${date}
-      ! Homepage: https://github.com/fordes123/ad-filters-subscriber/
+      ! Title: AdBlock List - ${name}
+      ! Description: Compilation of Some Most Used AdBlock Lists
+      ! TimeUpdated: ${date}+08:00
+      ! Homepage: https://github.com/fliappybird/AD-Block
     path: rule   #规则文件输出路径，相对路径默认从 项目目录开始
     files:
       all.txt: #输出文件名

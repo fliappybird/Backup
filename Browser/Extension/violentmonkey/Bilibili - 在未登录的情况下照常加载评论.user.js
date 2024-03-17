@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Bilibili - 在未登录的情况下照常加载评论
 // @namespace    https://bilibili.com/
-// @version      2.4
-// @description  在未登录的情况下照常加载评论 | V2.4 修复旧式评论区底部组件可能阻碍点击的问题
+// @version      2.5
+// @description  在未登录的情况下照常加载评论 | V2.5 移除对专栏评论区的DOM修改
 // @license      GPL-3.0
 // @author       DD1969
 // @match        https://www.bilibili.com/video/*
@@ -102,7 +102,7 @@
     currentSortType = sortTypeConstant.HOT;
 
     // special modification on old comment module
-    if (articleRE.test(window.location.href) || festivalRE.test(window.location.href)) {
+    if (festivalRE.test(window.location.href)) {
       await new Promise(resolve => {
         const timer = setInterval(() => {
           const replyCount = document.querySelector('.comment-wrapper .b-head .b-head-t.results')?.textContent;

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Nova YouTube
 // @namespace       https://github.com/raingart/Nova-YouTube-extension/
-// @version         0.49.0
+// @version         0.49.1
 // @description     Powerful control on YouTube
 // @description:zh-CN 最好的玉棒 youtube
 
@@ -328,12 +328,12 @@ COMMENTS_SELECTOR = 'html:not(:fullscreen) #page-manager #comments:not([hidden])
 counterAttrName = 'data-counter';
 NOVA.runOnPageLoad(() => {
 if (NOVA.currentPage == 'watch') {
-NOVA.waitSelector('ytd-comments-header-renderer #title #count', { destroy_after_page_leaving: true })
-.then(count => {
+NOVA.waitSelector('ytd-comments-header-renderer #title #count:not(:empty)', { destroy_after_page_leaving: true })
+.then(countEl => {
+if (count = NOVA.extractAsNum.int(countEl.textContent)) {
 document.body.querySelector(COMMENTS_SELECTOR)
-?.setAttribute(counterAttrName,
-NOVA.prettyRoundInt(parseInt(count.textContent.replace(/,/g, '')))
-);
+?.setAttribute(counterAttrName, NOVA.numberFormat.abbr(count));
+}
 });
 }
 });
@@ -1114,7 +1114,7 @@ function toggleLoop() {
 if (!NOVA.videoElement) return console.error('btn > videoElement empty:', NOVA.videoElement);
 NOVA.videoElement.loop = !NOVA.videoElement.loop;
 btn.style.opacity = NOVA.videoElement.loop ? 1 : .5;
-NOVA.triggerOSD('Loop is ' + Boolean(NOVA.videoElement.loop));
+NOVA.showOSD('Loop is ' + Boolean(NOVA.videoElement.loop));
 }
 });
 },
@@ -1318,7 +1318,7 @@ display: block !important;
 opacity: 1 !important;
 height: ${height} !important;
 padding: 0;
-background-color: #0f0f0f; 
+background-color: #0f0f0f;
 }
 ${SELECTOR_CONTAINER} .ytp-chrome-bottom {
 transform: translateY(${height});
@@ -1704,7 +1704,7 @@ box-sizing: border-box;
 padding: 0;
 margin: 0;
 }
-${SELECTOR}-chapters span:not(:first-child) {
+${SELECTOR}-chapters span:not([time="0:00"]) {
 border-left: ${CHAPTERS_MARK_WIDTH_PX} solid rgba(255,255,255,.7);
 }
 .${CHP_JUMP_TOGGLE_CLASS_VALUE} {
@@ -2005,7 +2005,7 @@ position: fixed;
 top: 0;
 right: 0;
 overflow: hidden;
-margin: 36px 30px; 
+margin: 36px 30px;
 box-shadow: 0 0 15px #000;
 max-width: var(--width);
 max-height: var(--height);
@@ -2079,7 +2079,7 @@ navigator.clipboard.write([new ClipboardItem({ [mime]: blob })]);
 } catch (error) {
 }
 if (user_settings.player_buttons_custom_screenshot_to_clipboard && navigator.clipboard?.write) {
-return NOVA.triggerOSD('Screenshot copied to clipboard');
+return NOVA.showOSD('Screenshot copied to clipboard');
 }
 if (!container.id) {
 container.id = SELECTOR_SCREENSHOT_ID;
@@ -2193,7 +2193,7 @@ rotateVideo();
 }
 });
 function rotateVideo() {
-let angle = parseInt(NOVA.videoElement.style.transform.replace(/\D+/, '')) || 0;
+let angle = NOVA.extractAsNum.int(NOVA.videoElement.style.transform) || 0;
 const scale = (angle === 0 || angle === 180) ? movie_player.clientHeight / NOVA.videoElement.clientWidth : 1;
 angle += 90;
 NOVA.videoElement.style.transform = (angle === 360) ? '' : `rotate(${angle}deg) scale(${scale})`;
@@ -2405,7 +2405,7 @@ const maxWidth = (NOVA.currentPage == 'watch'
 )
 ? screen.width
 : window.innerWidth;
-if (+(qualityData.label.replace(/[^0-9]/g, '') || 0) <= (maxWidth * 1.3)) {
+if ((NOVA.extractAsNum.int(qualityData.label) || 0) <= (maxWidth * 1.3)) {
 qualityItem.addEventListener('click', () => {
 movie_player.setPlaybackQualityRange(quality, quality);
 }, { capture: true });
@@ -2511,7 +2511,7 @@ switchRate();
 speedBtn.addEventListener('click', switchRate);
 NOVA.videoElement.addEventListener('ratechange', function () {
 speedBtn.setAttribute('tooltip', genTooltip());
-if (!user_settings['video-rate']) NOVA.triggerOSD(this.playbackRate + 'x');
+if (!user_settings['video-rate']) NOVA.showOSD(this.playbackRate + 'x');
 });
 function switchRate() {
 if (Object.keys(rateOrig).length) {
@@ -2782,14 +2782,14 @@ player_buttons_custom_screenshot_subtitle_color: {
 _tagName: 'input',
 type: 'color',
 value: '#ffffff',
-label: 'Subtitle color',
+label: 'Screenshot subtitle color',
 'data-dependent': { 'player_buttons_custom_items': ['screenshot'] },
 },
 player_buttons_custom_screenshot_subtitle_shadow_color: {
 _tagName: 'input',
 type: 'color',
 value: '#000000',
-label: 'Subtitle shadow color',
+label: 'Screenshot subtitle shadow color',
 'data-dependent': { 'player_buttons_custom_items': ['screenshot'] },
 },
 range_speed_unlimit: {
@@ -2879,34 +2879,27 @@ ul.id = SELECTOR_BUTTON_LIST_ID;
 let listItem = [];
 listItem.push({
 name: 'subtitles',
-getCurrentState: async () => {
-await waitMoviePlayer('toggleSubtitlesOn');
+getCurrentState: () => {
 movie_player.toggleSubtitlesOn();
 return true;
 },
-customInit: async () => {
-await waitMoviePlayer('toggleSubtitlesOn');
-return movie_player.toggleSubtitlesOn();
+customApply: () => {
+NOVA.waitSelector('#movie_player video')
+.then(video => {
+video.addEventListener('canplay', async () => {
+movie_player.toggleSubtitlesOn();
+}, { capture: true, once: true });
+});
 },
 });
 if (user_settings['video-quality']) {
-listItem.push({
-name: 'quality', getCurrentState: async () => {
-await waitMoviePlayer('getPlaybackQuality');
-return movie_player.getPlaybackQuality();
-}
-});
+listItem.push({ name: 'quality', getCurrentState: movie_player.getPlaybackQuality });
 }
 if (user_settings['video-rate']) {
 listItem.push({ name: 'speed', getCurrentState: () => NOVA.videoElement.playbackRate });
 }
 if (user_settings['video-volume']) {
-listItem.push({
-name: 'volume', getCurrentState: async () => {
-await waitMoviePlayer('getVolume');
-return Math.round(movie_player.getVolume());
-}
-});
+listItem.push({ name: 'volume', getCurrentState: () => Math.round(movie_player.getVolume()) });
 }
 if (user_settings['player-resume-playback']) {
 listItem.push({ name: 'ignore-playback', label: 'unsave playback time', getCurrentState: () => true });
@@ -2918,7 +2911,11 @@ if (user_settings['transcript']) {
 listItem.push({ name: 'transcript' });
 }
 if (user_settings['video-zoom']) {
-listItem.push({ name: 'zoom', getCurrentState: () => parseFloat(document.body.querySelector('.html5-video-container').style.transform.replace(/\D+/, '')) });
+listItem.push({
+name: 'zoom', getCurrentState: () => NOVA.extractAsNum.float(
+document.body.querySelector('.html5-video-container').style.transform
+)
+});
 }
 listItem.forEach(async element => {
 const storage = NOVA.storage_obj_manager._getParam(element.name);
@@ -2933,8 +2930,8 @@ li.innerHTML =
 ${element.label || element.name} <span>${storage || ''}</span>
 </label>`;
 li.title = storage ? `Currently stored value ${storage}` : 'none';
-if (Boolean(storage) && element.hasOwnProperty('customInit') && typeof element.customInit === 'function') {
-element.customInit();
+if (Boolean(storage) && element.hasOwnProperty('customApply') && typeof element.customApply === 'function') {
+element.customApply();
 }
 checkbox.addEventListener('change', () => {
 let state;
@@ -2990,9 +2987,6 @@ btnTitleStateUpdate(Boolean(state));
 }
 }
 return ul;
-async function waitMoviePlayer(fn_name = required()) {
-return await NOVA.waitUntil(() => typeof movie_player === 'object' && typeof movie_player[fn_name] === 'function', 500);
-}
 }
 function initStyles() {
 NOVA.css.push(
@@ -3257,7 +3251,7 @@ else {
 seekTime(+user_settings.time_jump_step + currentTime);
 msg = `+${user_settings.time_jump_step} sec` + separator + NOVA.formatTimeOut.HMS.digit(currentTime);
 }
-NOVA.triggerOSD(msg);
+NOVA.showOSD(msg);
 }
 function seekTime(sec) {
 if (typeof movie_player.seekBy === 'function') {
@@ -3490,6 +3484,7 @@ SELECTOR_BTN_LIST_ID = SELECTOR_BTN_CLASS_NAME + '-list',
 SELECTOR_BTN_LIST = '#' + SELECTOR_BTN_LIST_ID,
 dropdownMenu = document.createElement('ul'),
 SELECTOR_BTN_TITLE_ID = SELECTOR_BTN_CLASS_NAME + '-title',
+SELECTOR_BTN_TITLE = '#' + SELECTOR_BTN_TITLE_ID,
 dropdownSpan = document.createElement('span');
 NOVA.runOnPageLoad(() => {
 if (NOVA.currentPage == 'watch') {
@@ -3498,6 +3493,27 @@ dropdownMenu.innerHTML = '';
 containerBtn.addEventListener('click', generateMenu, { capture: true, once: true });
 }
 });
+NOVA.css.push(
+`${SELECTOR_BTN_TITLE} {
+display: block;
+height: inherit;
+}
+${SELECTOR_BTN_TITLE}[tooltip]:hover::before {
+content: attr(tooltip);
+position: absolute;
+top: -3em;
+transform: translateX(-30%);
+line-height: normal;
+background-color: rgba(28,28,28,.9);
+border-radius: .3em;
+padding: 5px 9px;
+color: #fff;
+font-weight: bold;
+white-space: nowrap;
+}
+html[data-cast-api-enabled] ${SELECTOR_BTN_TITLE}[tooltip]:hover::before {
+font-weight: normal;
+}`);
 NOVA.css.push(
 SELECTOR_BTN + ` {
 overflow: visible !important;
@@ -3535,7 +3551,7 @@ color: #fff;
 ${SELECTOR_BTN_LIST} li:hover { background-color: #c00; }`);
 containerBtn.className = `ytp-button ${SELECTOR_BTN_CLASS_NAME} ${SELECTOR_BTN_CLASS_NAME}`;
 dropdownSpan.id = SELECTOR_BTN_TITLE_ID;
-dropdownSpan.title = 'Nova video download';
+dropdownSpan.setAttribute('tooltip', 'Nova video download');
 dropdownSpan.innerHTML =
 `<svg viewBox="0 0 120 120" width="100%" height="100%" style="scale: .6;">
 <g fill="currentColor">
@@ -3854,14 +3870,16 @@ d.click();
 d.remove();
 }
 function fmtBitrate(size) {
-return fmtSize(size, ['kbps', 'Mbps', 'Gbps']);
+return fmtSize(size, ['kbps', 'Mbps', 'Gbps'], 1000);
 }
-function fmtSize(size, units = ['kB', 'MB', 'GB'], divisor = 1000) {
-for (let i = 0; i < units.length; ++i) {
+function fmtSize(size, units = ['kB', 'MB', 'GB'], divisor = 1024) {
+size = Math.abs(+size);
+if (size === 0) return 'n/a';
 size /= divisor;
+for (let i = 0; i < units.length; ++i) {
 if (size < 10) return Math.round(size * 100) / 100 + units[i];
-if (size < 100) return Math.round(size * 10) / 10 + units[i];
-if (size < 1000 || i == units.length - 1) return Math.round(size) + units[i];
+else if (size < 100) return Math.round(size * 10) / 10 + units[i];
+else if (size < 1000 || i == (units.length - 1)) return Math.round(size) + units[i];
 }
 }
 },
@@ -3919,7 +3937,7 @@ if (Timer.disable || isNaN(this.duration)) return;
 if ((+Timer.progressTime / this.duration) > ((Math.trunc(user_settings.auto_likes_percent) / 100) || .8)) {
 Timer.disable = true;
 setLike();
-NOVA.triggerOSD('Auto-like is activation');
+NOVA.showOSD('Auto-like is activation');
 }
 });
 video.addEventListener('canplay', () => {
@@ -3934,13 +3952,13 @@ NOVA.waitSelector(`${SELECTOR_LIKE_BTN}[aria-pressed="true"]`, { destroy_after_p
 .then(() => {
 if (Timer.disable) return;
 Timer.disable = true;
-NOVA.triggerOSD('Auto-like is deactivated');
+NOVA.showOSD('Auto-like is deactivated');
 });
 if (user_settings.auto_likes_for_subscribed) {
 NOVA.waitSelector('#subscribe-button [subscribed]', { destroy_after_page_leaving: true })
 .then(() => {
 Timer.disable = false;
-NOVA.triggerOSD('Auto-like is enable');
+NOVA.showOSD('Auto-like is enable');
 });
 }
 });
@@ -4035,12 +4053,19 @@ if (res?.error) return alert(`Error [${res.code}]: ${res.reason}\n` + res.error)
 res?.items?.forEach(item => {
 let outList = [];
 if (user_settings.video_view_count && item.statistics.viewCount) {
-outList.push(NOVA.prettyRoundInt(item.statistics.viewCount), 'views');
+switch (user_settings.video_view_count) {
+case 'friendly':
+outList.push(NOVA.numberFormat.friendly(item.statistics.viewCount), 'views');
+break;
+default:
+outList.push(NOVA.numberFormat.abbr(item.statistics.viewCount), 'views');
+break;
+}
 }
 if (item.liveStreamingDetails) {
 if (movie_player.getVideoData().isLive || item.snippet.liveBroadcastContent == 'live') {
 outList.push('Active Livestream',
-NOVA.dateformat.apply(new Date(item.liveStreamingDetails.actualStartTime), [user_settings.video_date_format])
+NOVA.dateFormat.apply(new Date(item.liveStreamingDetails.actualStartTime), [user_settings.video_date_format])
 );
 }
 else if (item.liveStreamingDetails.actualEndTime) {
@@ -4054,16 +4079,16 @@ document.body.querySelector('ytd-watch-flexy')?.playerData?.videoDetails?.isLive
 : 'Premiered'
 );
 if (!sameDate) outList.push('from');
-outList.push(NOVA.dateformat.apply(timeStart, [user_settings.video_date_format]));
+outList.push(NOVA.dateFormat.apply(timeStart, [user_settings.video_date_format]));
 if (!sameDate) {
 outList.push('until',
-NOVA.dateformat.apply(timeEnd, [user_settings.video_date_format])
+NOVA.dateFormat.apply(timeEnd, [user_settings.video_date_format])
 );
 }
 }
 else if (item.snippet.liveBroadcastContent == 'upcoming') {
 outList.push('Scheduled',
-NOVA.dateformat.apply(new Date(item.liveStreamingDetails.scheduledStartTime), [user_settings.video_date_format])
+NOVA.dateFormat.apply(new Date(item.liveStreamingDetails.scheduledStartTime), [user_settings.video_date_format])
 );
 }
 }
@@ -4073,7 +4098,7 @@ if (user_settings.video_date_format == 'ago') {
 outList.push(NOVA.formatTimeOut.ago(publishedDate), 'ago');
 }
 else {
-outList.push(NOVA.dateformat.apply(publishedDate, [user_settings.video_date_format]));
+outList.push(NOVA.dateFormat.apply(publishedDate, [user_settings.video_date_format]));
 }
 }
 if (outList.length) {
@@ -4101,9 +4126,13 @@ return el;
 },
 options: {
 video_view_count: {
-_tagName: 'input',
-label: 'Show views count',
-type: 'checkbox',
+_tagName: 'select',
+label: 'Show views count format',
+options: [
+{ label: 'disable', value: false, },
+{ label: '9.9K', value: 'abbr', selected: true },
+{ label: '9,999', value: 'friendly' },
+],
 },
 video_date_format: {
 _tagName: 'select',
@@ -4218,7 +4247,7 @@ container.insertAdjacentHTML(position,
 <span class="yt-spec-button-shape-next__icon" style="height:100%">
 <svg viewBox="0 0 24 24" height="100%" width="100%">
 <g fill="currentColor">
-<path d="M20 12V13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13V12M12 17C9.79086 17 8 15.2091 8 13V7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7V13C16 15.2091 14.2091 17 12 17Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 12V13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13V12M12 17C9.79086 17 8 15.2091 8 13V7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7V13C16 15.2091 14.2091 17 12 17Z" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>
 </span>
@@ -4339,7 +4368,7 @@ api_key: user_settings['user-api-key'],
 .then(res => {
 if (res?.error) return alert(`Error [${res.code}]: ${res.reason}\n` + res.error);
 res?.items?.forEach(item => {
-if (videoCount = NOVA.prettyRoundInt(item.statistics.videoCount)) {
+if (videoCount = NOVA.numberFormat.abbr(item.statistics.videoCount)) {
 insertToHTML({ 'text': videoCount, 'container': container });
 sessionStorage.setItem(CACHE_PREFIX + channelId, videoCount);
 } else console.warn('API is change', item);
@@ -4826,7 +4855,7 @@ target.href = decodeURIComponent(q);
 });
 window.nova_plugins.push({
 id: 'description-timestamps-scroll',
-title: 'No scroll to top on timestamps',
+title: 'Disable scroll to top on click timestamps',
 'title:zh': '没有在时间戳上滚动到播放器',
 'title:ja': 'タイムスタンプでプレーヤーにスクロールしない',
 'title:pt': 'Sem rolar para o jogador em timestamps',
@@ -4966,7 +4995,7 @@ return result;
 function insertToHTML({ data = required(), container = required() }) {
 if (!(container instanceof HTMLElement)) return console.error('container not HTMLElement:', container);
 const percent = Math.trunc(data.dislikes * 100 / (data.likes + data.dislikes));
-const text = `${NOVA.prettyRoundInt(data.dislikes)} (${percent}%)`;
+const text = `${NOVA.numberFormat.abbr(data.dislikes)} (${percent}%)`;
 (document.getElementById(SELECTOR_ID) || (function () {
 const el = document.createElement('span');
 el.id = SELECTOR_ID;
@@ -5583,11 +5612,11 @@ closed_callback();
 }, 500);
 }
 },
-triggerOSD(text) {
+showOSD(text) {
 if (!text || !['watch', 'embed'].includes(this.currentPage)) return;
 if (typeof this.fadeBezel === 'number') clearTimeout(this.fadeBezel);
 const bezelEl = document.body.querySelector('.ytp-bezel-text');
-if (!bezelEl) return console.error(`triggerOSD ${text}=>${bezelEl}`);
+if (!bezelEl) return console.error(`showOSD ${text}=>${bezelEl}`);
 const
 bezelContainer = bezelEl.parentElement.parentElement,
 CLASS_VALUE = 'ytp-text-root',
@@ -5637,22 +5666,26 @@ descriptionExpand();
 const selectorTimestampLink = 'a[href*="&t="]';
 let
 timestampsCollect = [],
-nowComment,
+unreliableSorting,
 prevSec = -1;
 [
 (
 document.body.querySelector('ytd-watch-flexy')?.playerData?.videoDetails?.shortDescription
 || document.body.querySelector('ytd-watch-metadata #description.ytd-watch-metadata')?.textContent
 ),
-...[...document.body.querySelectorAll(`#comments #comment #comment-content ${selectorTimestampLink} + *:last-child`)]
-.map(el => ({
+...([...document.body.querySelectorAll(`#comments #comment #comment-content:has(${selectorTimestampLink})`)]
+.map(el => [...el.querySelectorAll(selectorTimestampLink)]
+.map(a => ({
 'source': 'comment',
-'text': el.closest('#comment-content')?.textContent,
-})),
+'text': `${a.textContent} ${a.nextSibling.textContent}`,
+}))
+)
+?.sort((a, b) => b.length - a.length)
+?.shift()
+|| [])
 ]
 .forEach(data => {
-if (timestampsCollect.length > 1) return;
-nowComment = Boolean(data?.source);
+unreliableSorting = Boolean(data?.source);
 (data?.text || data)
 ?.split('\n')
 .forEach(line => {
@@ -5666,10 +5699,10 @@ const
 sec = NOVA.formatTimeOut.hmsToSec(timestamp),
 timestampPos = line.indexOf(timestamp);
 if (
-(nowComment ? true : (sec > prevSec && sec < +video_duration))
+(unreliableSorting ? true : (sec > prevSec && sec < +video_duration))
 && (timestampPos < 5 || (timestampPos + timestamp.length) === line.length)
 ) {
-if (nowComment) prevSec = sec;
+if (unreliableSorting) prevSec = sec;
 timestampsCollect.push({
 'sec': sec,
 'time': timestamp,
@@ -5688,7 +5721,7 @@ if (timestampsCollect.length == 1 && (timestampsCollect[0].sec < (video_duration
 return timestampsCollect;
 }
 else if (timestampsCollect.length > 1) {
-if (nowComment) {
+if (unreliableSorting) {
 timestampsCollect = timestampsCollect.sort((a, b) => a.sec - b.sec);
 }
 return timestampsCollect;
@@ -5833,10 +5866,10 @@ HMS: {
 parseTime(time_sec) {
 const ts = Math.abs(+time_sec);
 return {
-d: Math.round(ts / 86400),
-h: Math.round((ts % 86400) / 3600),
-m: Math.round((ts % 3600) / 60),
-s: Math.round(ts % 60),
+d: Math.trunc(ts / 86400),
+h: Math.trunc((ts % 86400) / 3600),
+m: Math.trunc((ts % 3600) / 60),
+s: Math.trunc(ts % 60),
 };
 },
 digit(time_sec = required()) {
@@ -5872,8 +5905,8 @@ time = Math.round(seconds / interval.sec);
 return `${(now < 0 ? '-' : '') + time} ${interval.label}${time !== 1 ? 's' : ''}`;
 },
 },
-dateformat(format = 'YYYY/MM/DD') {
-if (!(this instanceof Date)) return console.error('dateformat - is not Date type:', this);
+dateFormat(format = 'YYYY/MM/DD') {
+if (!(this instanceof Date)) return console.error('dateFormat - is not Date type:', this);
 const
 twoDigit = n => n.toString().padStart(2, '0'),
 date = this.getDate(),
@@ -5913,19 +5946,25 @@ break;
 return out;
 });
 },
-prettyRoundInt(num) {
-num = +num;
-if (num === 0) return '';
-if (num < 1000) return num;
-const sizes = ['', 'K', 'M', 'B'];
-const i = Math.round(Math.log(Math.abs(num)) / Math.log(1000));
-return sizes[i]
-? round(num / 1000 ** i, num < 10000 ? 1 : 0) + sizes[i]
-: num;
-function round(n, precision = 2) {
+numberFormat: {
+abbr(num) {
+num = Math.abs(+num);
+if (num === 0 || isNaN(num)) return '';
+else if (num < 1000) return Math.trunc(num);
+else if (num < 1e4) return round(num / 1000) + 'K';
+else if (num < 990000) return Math.round(num / 1000) + 'K';
+else if (num < 990000000) return Math.round(num / 1e5) / 10 + 'M';
+else return Math.round(num / 1e8) / 10 + 'B';
+function round(n, precision = 1) {
 const prec = 10 ** precision;
 return Math.round(n * prec) / prec;
 }
+},
+friendly: num => new Intl.NumberFormat().format(Math.round(num * 10) / 10),
+},
+extractAsNum: {
+float: str => (n = str?.replace(/[^0-9.]/g, '')) && +n,
+int: str => (n = str?.replace(/\D+/g, '')) && +n,
 },
 updateUrl: (new_url = required()) => window.history.replaceState(null, null, new_url),
 queryURL: {
@@ -5968,7 +6007,7 @@ if (!api_key && (!Array.isArray(YOUTUBE_API_KEYS) || !YOUTUBE_API_KEYS?.length))
 localStorage.hasOwnProperty(API_STORE_NAME) && localStorage.removeItem(API_STORE_NAME);
 return console.error('YOUTUBE_API_KEYS empty:', YOUTUBE_API_KEYS);
 }
-const referRandKey = arr => api_key || 'AIzaSy' + arr[Math.round(Math.random() * arr.length)];
+const referRandKey = arr => api_key || 'AIzaSy' + arr[Math.trunc(Math.random() * arr.length)];
 const query = Object.keys(params)
 .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
 .join('&');
@@ -6447,7 +6486,7 @@ title: 'Copy URL to clipboard',
 run_on_pages: 'results, channel, playlist, watch, embed',
 section: 'other',
 _runtime: user_settings => {
-const SELECTOR_ID = 'nova-copy-notification';
+const SELECTOR_ID = 'nova-copy-notify';
 document.addEventListener('keydown', evt => {
 const hotkeyMod = user_settings.copy_url_hotkey || 'ctrlKey';
 if (hotkeyMod == 'ctrlKey' && window.getSelection && window.getSelection().toString()) return;
@@ -6474,13 +6513,13 @@ break
 }
 if (url) {
 navigator.clipboard.writeText(url);
-showNotification('URL copied');
+shownotify('URL copied');
 }
 }
 });
-function showNotification(msg) {
-if (typeof showNotification.fade === 'number') clearTimeout(showNotification.fade);
-const notification = (document.getElementById(SELECTOR_ID) || (function () {
+function shownotify(msg) {
+if (typeof shownotify.fade === 'number') clearTimeout(shownotify.fade);
+const notify = (document.getElementById(SELECTOR_ID) || (function () {
 const el = document.createElement('div');
 el.id = SELECTOR_ID;
 let initcss = {
@@ -6516,13 +6555,13 @@ break;
 Object.assign(el.style, initcss);
 return document.body.appendChild(el);
 })());
-notification.textContent = msg;
-notification.style.opacity = +user_settings.copy_url_opacity || 1;
-notification.style.visibility = 'visible';
-showNotification.fade = setTimeout(() => {
-notification.style.transition = 'opacity 200ms ease-in';
-notification.style.opacity = 0;
-setTimeout(() => notification.style.visibility = 'hidden', 1000);
+notify.textContent = msg;
+notify.style.opacity = +user_settings.copy_url_opacity || 1;
+notify.style.visibility = 'visible';
+shownotify.fade = setTimeout(() => {
+notify.style.transition = 'opacity 200ms ease-in';
+notify.style.opacity = 0;
+setTimeout(() => notify.style.visibility = 'hidden', 1000);
 }, 600);
 }
 },
@@ -6544,7 +6583,7 @@ options: [
 },
 copy_url_position: {
 _tagName: 'select',
-label: 'Notification position',
+label: 'notify position',
 options: [
 {
 label: '↖', value: 'top-left',
@@ -7066,7 +7105,7 @@ NOVA.waitSelector('#movie_player video')
 .then(video => {
 const sliderContainer = insertSlider.apply(video);
 video.addEventListener('ratechange', function () {
-NOVA.triggerOSD(this.playbackRate + 'x');
+NOVA.showOSD(this.playbackRate + 'x');
 if (Object.keys(sliderContainer).length) {
 sliderContainer.slider.value = this.playbackRate;
 sliderContainer.slider.title = `Speed (${this.playbackRate})`;
@@ -7091,7 +7130,6 @@ NOVA.runOnPageLoad(async () => {
 if (NOVA.currentPage == 'watch' || NOVA.currentPage == 'embed') {
 if (user_settings['save-channel-state']) {
 if (userRate = await NOVA.storage_obj_manager.getParam('speed')) {
-playerRate.set(userRate);
 video.addEventListener('canplay', () => playerRate.set(userRate), { capture: true, once: true });
 }
 }
@@ -7580,7 +7618,7 @@ _runtime: user_settings => {
 NOVA.waitSelector('#movie_player video')
 .then(video => {
 video.addEventListener('volumechange', function () {
-NOVA.triggerOSD(Math.round(this.volume * 100) + '%');
+NOVA.showOSD(Math.round(this.volume * 100) + '%');
 playerVolume.buildVolumeSlider();
 if (user_settings.volume_mute_unsave) {
 playerVolume.saveInSession(movie_player.getVolume());
@@ -7691,7 +7729,7 @@ source.connect(this.node);
 this.node.connect(this.audioCtx.destination);
 }
 if (this.node.gain.value <= 6) this.node.gain.value += 1;
-NOVA.triggerOSD(movie_player.getVolume() * this.node.gain.value + '%');
+NOVA.showOSD(movie_player.getVolume() * this.node.gain.value + '%');
 }
 else {
 if (this.audioCtx && this.node.gain.value !== 1) {
@@ -7932,6 +7970,7 @@ title: 'Pin player while scrolling',
 run_on_pages: 'watch, -mobile',
 section: 'player',
 desc: 'Show mini player when scrolling down',
+'plugins-conflict': 'player-pip',
 _runtime: user_settings => {
 if (!('IntersectionObserver' in window)) return alert('Nova\n\nPin player Error!\nIntersectionObserver not supported.');
 const
@@ -8382,9 +8421,9 @@ let availableQualityLevels;
 await NOVA.waitUntil(() => (availableQualityLevels = movie_player.getAvailableQualityLevels()) && availableQualityLevels.length, 50);
 if (user_settings.video_quality_premium
 && (qualityToSet = [...movie_player.getAvailableQualityData()]
-.find(q => q.quality == selectedQuality
-&& q.isPlayable
-&& q.qualityLabel?.toLocaleLowerCase().includes('premium'))?.qualityLabel
+.find(q => //q.quality == selectedQuality
+q.isPlayable &&
+q.qualityLabel?.toLocaleLowerCase().includes('premium'))?.qualityLabel
 )
 ) {
 return setPremium(qualityToSet);
@@ -8419,12 +8458,15 @@ async function setPremium(qualityLabel = required()) {
 const SELECTOR_CONTAINER = '#movie_player';
 const settingsButton = await NOVA.waitSelector(`${SELECTOR_CONTAINER} .ytp-chrome-bottom button.ytp-settings-button[aria-expanded="false"]`);
 settingsButton.click();
-const qualityMenuButton = await NOVA.waitSelector(`${SELECTOR_CONTAINER} .ytp-settings-menu [role="menuitem"]:last-child`);
+//const qualityMenuButton = await NOVA.waitSelector(`${SELECTOR_CONTAINER} .ytp-settings-menu [role="menuitem"]:last-child`);
+const qualityMenuButton = [...document.body.querySelectorAll(`${SELECTOR_CONTAINER} .ytp-settings-menu [role="menuitem"] .ytp-menuitem-content`)]
+.find(menuItem => menuItem.textContent.toLocaleLowerCase().includes('auto') || (NOVA.extractAsNum.int(menuItem.textContent) >= 144));
 qualityMenuButton.click();
 const qualityItem = [...document.body.querySelectorAll('.ytp-quality-menu [role="menuitemradio"]')]
 .find(menuItem => menuItem.textContent.includes(qualityLabel));
-await qualityItem.click();
-document.body.querySelector('body').click();
+await NOVA.delay(1500);
+qualityItem.click();
+document.body.click();
 document.body.querySelector('video').focus();
 setQuality.quality_lock = true;
 }
@@ -8461,7 +8503,7 @@ options: [
 },
 video_quality_premium: {
 _tagName: 'input',
-label: 'Use Premium if available',
+label: 'Use Premium bitrate if available',
 type: 'checkbox',
 },
 video_quality_manual_save_in_tab: {
@@ -8905,7 +8947,7 @@ title: 'default - #FFF',
 });
 window.nova_plugins.push({
 id: 'video-unblock-region',
-title: 'Try unblock if video not available in your country',
+title: 'Redirect video not available in your country',
 'title:zh': '尝试解锁您所在地区的视频',
 'title:ja': 'お住まいの地域の動画のブロックを解除してみてください',
 'title:pt': 'Tente desbloquear vídeos para sua região',
@@ -9181,7 +9223,7 @@ function novaNotification(prefix = '') {
 if (!user_settings.sponsor_block_notification) return;
 const msg = `${prefix} ${NOVA.formatTimeOut.HMS.digit(segmentEnd - segmentStart)} [${categoryNameLabel[category]}] • ${NOVA.formatTimeOut.HMS.digit(segmentStart)} - ${NOVA.formatTimeOut.HMS.digit(segmentEnd)}`;
 console.info(videoId, msg);
-NOVA.triggerOSD(msg);
+NOVA.showOSD(msg);
 }
 });
 });
@@ -9476,7 +9518,7 @@ opacity: 1;
 .ytp-ad-player-overlay,
 #playlist:hover,
 #masthead-container:hover,
-iframe, 
+iframe,
 #guide,
 [class*="popup"],
 [role="navigation"],
@@ -9695,7 +9737,7 @@ lastChapTime = chapterList[nextChapterIndex]?.sec;
 if (chapterData = chapterList[nextChapterIndex - 1]) {
 const separator = ' • ';
 const msg = chapterData.title + separator + chapterData.time;
-NOVA.triggerOSD(msg);
+NOVA.showOSD(msg);
 }
 }
 });
@@ -9712,9 +9754,6 @@ NOVA.waitSelector('.ytp-bezel-text')
 new MutationObserver(mutationRecordsArray => {
 if (target.textContent) {
 if ((target.textContent?.endsWith('%')
-&& (parseInt(target.textContent) <= 100
-|| (user_settings.volume_unlimit && parseInt(target.textContent) <= 600)
-)
 )
 || target.textContent?.endsWith('x')
 || target.textContent?.startsWith('+')
@@ -9801,7 +9840,7 @@ return this.container;
 },
 show({ pt = 100, suffix = '', timeout_ms = 800, clear_previous_text }) {
 if (typeof this.fade === 'number') clearTimeout(this.fade);
-const hudContainer = this.container || this.create();
+const notify = this.container || this.create();
 if (this.oldMsg) {
 this.spanOSD.innerText += '\n' + pt + suffix;
 }
@@ -9826,17 +9865,17 @@ case 'bar-vertical':
 this.spanOSD.style.height = pt + '%';
 break;
 case 'bar-top':
-hudContainer.style.background = `linear-gradient(to right, ${COLOR_OSD}50 ${pt}%, rgba(0,0,0,.8) ${pt}%)`;
+notify.style.background = `linear-gradient(to right, ${COLOR_OSD}50 ${pt}%, rgba(0,0,0,.8) ${pt}%)`;
 this.spanOSD.style.width = pt + '%';
 break;
 }
-hudContainer.style.transition = 'none';
-hudContainer.style.opacity = 1;
-hudContainer.style.visibility = 'visible';
+notify.style.transition = 'none';
+notify.style.opacity = 1;
+notify.style.visibility = 'visible';
 this.fade = setTimeout(() => {
-hudContainer.style.transition = 'opacity 200ms ease-in';
-hudContainer.style.opacity = 0;
-setTimeout(() => hudContainer.style.visibility = 'hidden', 1000);
+notify.style.transition = 'opacity 200ms ease-in';
+notify.style.opacity = 0;
+setTimeout(() => notify.style.visibility = 'hidden', 1000);
 }, timeout_ms);
 }
 };
@@ -9869,6 +9908,25 @@ label: 'bar-vertical', value: 'bar-vertical',
 'label:ua': 'вертикальна панель',
 },
 ],
+},
+player_indicator_opacity: {
+_tagName: 'input',
+label: 'Opacity',
+'label:zh': '不透明度',
+'label:ja': '不透明度',
+'label:pt': 'Opacidade',
+'label:fr': 'Opacité',
+'label:tr': 'opaklık',
+'label:de': 'Opazität',
+'label:pl': 'Przezroczystość',
+'label:ua': 'Прозорість',
+type: 'number',
+title: 'less value - more transparency',
+placeholder: '0-1',
+step: .1,
+min: .1,
+max: .9,
+value: .3,
 },
 player_indicator_color: {
 _tagName: 'input',
@@ -9907,25 +9965,6 @@ min: .1,
 max: 10,
 value: 1.8,
 'data-dependent': { 'player_indicator_chapter': true },
-},
-player_indicator_opacity: {
-_tagName: 'input',
-label: 'Opacity',
-'label:zh': '不透明度',
-'label:ja': '不透明度',
-'label:pt': 'Opacidade',
-'label:fr': 'Opacité',
-'label:tr': 'opaklık',
-'label:de': 'Opazität',
-'label:pl': 'Przezroczystość',
-'label:ua': 'Прозорість',
-type: 'number',
-title: 'less value - more transparency',
-placeholder: '0-1',
-step: .1,
-min: .1,
-max: .9,
-value: .3,
 },
 }
 });
@@ -10226,13 +10265,13 @@ container.style.removeProperty('transform');
 else if (zoom_pt !== 100 && !container.classList.contains(ZOOM_CLASS_NAME)) {
 container.classList.add(ZOOM_CLASS_NAME);
 }
-NOVA.triggerOSD(`Zoom: ${zoom_pt}%`);
+NOVA.showOSD(`Zoom: ${zoom_pt}%`);
 if (zoom_pt === zoomPercent) return;
 zoomPercent = zoom_pt;
 container.style.setProperty('transform', `scale(${zoom_pt / 100})`);
 }
 function geVideoMaxWidthPercent() {
-return movie_player.clientWidth / NOVA.videoElement.videoHeight * 100;
+return Math.trunc(movie_player.clientWidth / NOVA.videoElement.videoHeight * 100);
 }
 NOVA.css.push(
 `.${ZOOM_CLASS_NAME} {
@@ -10465,9 +10504,8 @@ const vids_list = (document.body.querySelector('ytd-app')?.data?.response || win
 ?.contents[0].itemSectionRenderer
 ?.contents[0].playlistVideoListRenderer?.contents
 || document.body.querySelector('ytd-watch-flexy')?.__data.playlistData?.contents
-|| document.body.querySelector('ytd-watch-flexy')?.data?.playlist?.playlist?.contents
-;
-const duration = vids_list?.reduce((acc, vid) => acc + (isNaN(vid.playlistVideoRenderer?.lengthSeconds) ? 0 : parseInt(vid.playlistVideoRenderer.lengthSeconds)), 0);
+|| document.body.querySelector('ytd-watch-flexy')?.data?.playlist?.playlist?.contents;
+const duration = vids_list?.reduce((acc, vid) => acc + (+vid.playlistVideoRenderer?.lengthSeconds || 0), 0);
 if (duration) {
 return outFormat(duration);
 }
@@ -10827,7 +10865,7 @@ ${SELECTOR}[type=checkbox] {
 height: var(--height);
 line-height: 1.6em;
 border-radius: 3em;
-background-color: var(--paper-toggle-button-unchecked-bar-color, #000000);
+background-color: var(--paper-toggle-button-unchecked-bar-color, #000);
 appearance: none;
 -webkit-appearance: none;
 position: relative;
@@ -11090,12 +11128,12 @@ label: 'remove', value: 'disable',
 });
 window.nova_plugins.push({
 id: 'livechat-toggle-mode',
-title: '"Live chat" mode instead of "Top chat"',
+title: '"Livechat" mode instead of "Top chat"',
 run_on_pages: 'live_chat, -mobile',
 restart_on_location_change: true,
-section: 'playlist',
+section: 'sidebar',
 _runtime: user_settings => {
-NOVA.waitSelector('#chat-messages #menu a:last-child[aria-selected="false"]')
+NOVA.waitSelector('#chat-messages #menu a[aria-selected="false"]')
 .then(async btn => {
 await btn.click();
 });
@@ -11138,7 +11176,7 @@ link.data.commandMetadata.webCommandMetadata.webPageType = 'WEB_PAGE_TYPE_WATCH'
 });
 window.nova_plugins.push({
 id: 'livechat-visibility',
-title: 'Collapse live chat',
+title: 'Collapse livechat',
 'title:zh': '隐藏实时聊天',
 'title:ja': 'ライブチャットを非表示',
 'title:pt': 'Ocultar livechat',
@@ -12306,7 +12344,7 @@ return btn;
 window.nova_plugins.push({
 id: 'thumbs-title-lang',
 title: "Show title's original language",
-run_on_pages: 'home, results, feed, channel, watch',
+run_on_pages: 'feed, channel, watch',
 section: 'thumbs',
 opt_api_key_warn: true,
 'plugins-conflict': 'thumbnails-title-normalize',
@@ -12324,7 +12362,10 @@ thumbsSelectors = [
 .map(i => `${i}:has(a#thumbnail[${SELECTOR_THUMBS_PATCHED_ATTR}][href*="%id%"]) #video-title`)
 .join(',');
 NOVA.css.push(
-`*:hover > #video-title[${SELECTOR_THUMBS_PATCHED_ATTR}],
+`#video-title[${SELECTOR_THUMBS_PATCHED_ATTR}] {
+color: #86d2ed
+}
+*:hover > #video-title[${SELECTOR_THUMBS_PATCHED_ATTR}],
 *:not(:hover) > #video-title[${SELECTOR_THUMBS_PATCHED_ATTR}] + #video-title {
 display: none !important;
 }`);
@@ -12407,7 +12448,6 @@ newTitleEl.textContent = text;
 });
 const Plugins = {
 run: ({ user_settings, app_ver }) => {
-console.debug('plugins_executor', ...arguments);
 if (!window.nova_plugins?.length) return console.error('nova_plugins empty', window.nova_plugins);
 if (!user_settings) return console.error('user_settings empty', user_settings);
 NOVA.currentPage = (function () {
