@@ -1,4 +1,3 @@
-
 ## Apple
 ;host-suffix, acfeedbackws.icloud.com, REJECT
 ;host-suffix, advertising.apple.com, REJECT
@@ -31,16 +30,17 @@ host-keyword, feedbackws, REJECT
 host-suffix, lookup-api.apple.com, proxy
 host-suffix, lookup-api.apple.com.edgekey.net, proxy
 host-suffix, e16991.b.akamaiedge.net, proxy
-;host-suffix, mzstatic.com, direct
-;host-keyword, apple, direct
-;host-keyword, icloud, direct
-;host-keyword, itunes, direct
+host-suffix, mzstatic.com, direct
+host-keyword, apple, direct
+host-keyword, icloud, direct
+host-keyword, itunes, direct
 
 ## Foreign
 host-keyword, firefox, direct
 host-keyword, mozilla, direct
 host-keyword, pikpak, direct
 host-keyword, vscode, direct
+host-suffix, bing.com, proxy
 host-suffix, ben-evans.com, direct
 host-suffix, cloudflare.com, direct
 host-suffix, deepl.com, direct
@@ -95,6 +95,10 @@ host-suffix, unclegg.com, direct
 host-suffix, unt.ag, direct
 ;host-suffix, waqi.info, direct
 host-suffix, wangpei.net, direct
+host-suffix, hackway.org, direct
+host-suffix, thiscute.world, direct
+host-keyword, itobsnssdk.com, direct
+host-keyword, cdn.jsdelivr.net, direct
 
 ### GitHub Proxy
 host-keyword, gh-proxy, direct
