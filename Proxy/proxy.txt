@@ -27,11 +27,9 @@
 ;host-suffix, weather-analytics-events.apple.com, REJECT
 ;host-suffix, xp.apple.com, REJECT
 host-keyword, feedbackws, REJECT
-PROCESS-NAME,LookupViewService
-PROCESS-NAME,/System/Library/PrivateFrameworks/Lookup.framework/Versions/A/XPCServices/LookupViewService.xpc/Contents/MacOS/LookupViewService
-DOMAIN,lookup-api.apple.com
-DOMAIN,lookup-api.apple.com.edgekey.net
-DOMAIN,e16991.b.akamaiedge.net
+host,lookup-api.apple.com
+host,lookup-api.apple.com.edgekey.net
+host,e16991.b.akamaiedge.net
 host-suffix, mzstatic.com, direct
 host-keyword, apple, direct
 host-keyword, icloud, direct
