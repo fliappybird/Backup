@@ -40,19 +40,21 @@
         "youtube.com",
         "github.dev",
         "docs.qq.com",
-        "www.polebrief.com",
-        "forms.office.com"
+        "forms.office.com",
+        "notion.so",
+        "cfree.nbing.eu.org",
+        "chatkit.app",
+        "xfltd.org"
     ],
     "enableContextMenus": false,
     "enableForPDF": true,
     "enableForProtectedPages": true,
-    "enabled": true,
+    "enabled": false,
     "enabledByDefault": true,
     "enabledFor": [
         "ddys.pro",
         "runningcheese.cn",
-        "v2ex.com",
-        "s.v2ex.com"
+        "*.v2ex.com"
     ],
     "fetchNews": false,
     "location": {

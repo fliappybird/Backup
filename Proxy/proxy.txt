@@ -31,6 +31,7 @@ host,lookup-api.apple.com, proxy
 host,lookup-api.apple.com.edgekey.net, proxy
 host,e16991.b.akamaiedge.net, proxy
 host-suffix, mzstatic.com, direct
+host-suffix, mail.me.com, direct
 host-keyword, apple, direct
 host-keyword, icloud, direct
 host-keyword, itunes, direct
@@ -39,34 +40,12 @@ host-keyword, itunes, direct
 host-keyword, firefox, direct
 host-keyword, mozilla, direct
 host-keyword, pikpak, direct
-host-keyword, notion, direct
 host, www.bing.com, proxy
 host, cn.bing.com, direct
-host-suffix, ben-evans.com, direct
-host-suffix, cloudflare.com, direct
-host-suffix, craft.io, direct
 host-suffix, deepl.com, direct
-host-suffix, hckrnws.com, direct
-host-suffix, jkg.tw, direct
-host-suffix, julian.digital, direct
-host-suffix, kxcdn.com, direct
-host-suffix, ling.school, direct
-host-suffix, listenbox.app, direct
-host-suffix, macosicons.com, direct
-host-suffix, markmanson.net, direct
-host-suffix, nateliason.com, direct
 host-suffix, nextdns.io, direct
-host-suffix, perell.com, direct
-host-suffix, pudding.cool, direct
-host-suffix, unsplash.com, direct
-host-suffix, visualstudio.com, direct
-host-suffix, vocabulary.com, direct
-host-suffix, vscode-cdn.net, direct
-host-suffix, visualstudio.com, direct
-host-suffix, workflowy.com, direct
 
 ## Domestic
-host-keyword, digicert, direct
 host-keyword, ocsp, direct
 host-suffix, caixidigicert.com, direct
 host-suffix, classicalchineseliterature.org, direct
@@ -99,14 +78,28 @@ host-suffix, unclegg.com, direct
 host-suffix, unt.ag, direct
 ;host-suffix, waqi.info, direct
 host-suffix, wangpei.net, direct
+host-suffix, wp.com, direct
 host-suffix, hackway.org, direct
 host-suffix, thiscute.world, direct
 host-keyword, itobsnssdk.com, direct
-host-keyword, cdn.jsdelivr.net, direct
 host-suffix, matomo.gptocean.com, direct
 host-suffix, terobox.com, direct
 host-keyword, openkey, direct
 host-suffix, immersivetranslate.com, direct
+host-suffix, qwps.com, direct
+host-suffix, wps.com, direct
+host-suffix, disqus.com, direct
+host-suffix, wangdoc.com, direct
+host-suffix, geotrust.com, direct
+host-suffix, o--o.xyz, direct
+host-suffix, 51acg.buzz, direct
+host-suffix, 1050qm.com, direct
+host-suffix, 1000qm.vip, direct
+host-keyword, cunhua, direct
+host-suffix, sjs474.com, direct
+host-keyword, sijishe, direct
+host-suffix, urlimage.cc, direct
+host-suffix, ax1x.com, direct
 
 ### GitHub Proxy
 host-keyword, gh-proxy, direct
@@ -161,3 +154,6 @@ host-suffix, picffzy.com, direct
 host-suffix, szrtcpa.com, direct
 host-suffix, viqeo.tv, direct
 host-suffix, yaplayer.one, direct
+host-suffix, maxcdn.com, direct
+host-suffix, fontawesome.com, direct
+host-suffix, imagehaha.com, direct
