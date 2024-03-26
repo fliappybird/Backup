@@ -352,7 +352,7 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", false); // [FF71+]
 //
 // Disable saving passwords and password alerts.
 user_pref("signon.rememberSignons", false);
-user_pref("signon.generation.enabled", false);
+user_pref("signon.generation.enabled", true);
 user_pref("signon.management.page.breach-alerts.enabled", false);
 user_pref("signon.management.page.breachAlertUrl", "");
 // -------------------------------------
@@ -364,7 +364,7 @@ user_pref("security.ask_for_password", 2);
 user_pref("security.password_lifetime", 5); // [DEFAULT: 30]
 // -------------------------------------
 // Disable auto-filling username & password form fields
-user_pref("signon.autofillForms", false);
+// user_pref("signon.autofillForms", false);
 // -------------------------------------
 // Disable formless login capture for Password Manager [FF51+]
 user_pref("signon.formlessCapture.enabled", false);
@@ -518,7 +518,7 @@ user_pref("dom.disable_window_move_resize", true);
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Remove temp files opened from non-PB windows with an external application
-user_pref("browser.download.start_downloads_in_tmp_dir", true); // [FF102+]
+// user_pref("browser.download.start_downloads_in_tmp_dir", true); // [FF102+]
 // -------------------------------------
 // Disable sending additional analytics to web servers
 user_pref("beacon.enabled", false);
@@ -563,7 +563,7 @@ user_pref("browser.urlbar.filter.javascript", false);
 // DOWNLOADS
 //
 // Enable user interaction for security by always asking where to download
-user_pref("browser.download.useDownloadDir", false);
+user_pref("browser.download.useDownloadDir", true);
 // -------------------------------------
 // Disable downloads panel opening on every download [FF96+]
 user_pref("browser.download.alwaysOpenPanel", false);
@@ -731,7 +731,7 @@ user_pref("webgl.disabled", true);
 // Disable location bar suggestion types
 // user_pref("browser.urlbar.suggest.history", false);
 // user_pref("browser.urlbar.suggest.bookmark", false);
-// user_pref("browser.urlbar.suggest.openpage", false);
+user_pref("browser.urlbar.suggest.openpage", false);
 // user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
 user_pref("browser.urlbar.suggest.weather", false);
 // -------------------------------------
@@ -1186,7 +1186,7 @@ user_pref("browser.contentblocking.category", "strict");
 // user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
 // user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-user_pref("browser.download.start_downloads_in_tmp_dir", true);
+// user_pref("browser.download.start_downloads_in_tmp_dir", true);
 user_pref("browser.helperApps.deleteTempFileOnExit", true);
 user_pref("browser.uitour.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", true);
@@ -1206,7 +1206,7 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("browser.sessionstore.interval", 60000);
 
 /** SHUTDOWN & SANITIZING ***/
-user_pref("privacy.history.custom", true);
+// user_pref("privacy.history.custom", true);
 
 /** SEARCH / URL BAR ***/
 // user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
@@ -1331,7 +1331,7 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 user_pref("browser.urlbar.trending.featureGate", false);
 
 /** NEW TAB PAGE ***/
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
+// user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 
 /** POCKET ***/
@@ -1401,6 +1401,7 @@ user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
+
 // Edge-Frfox - user.js
 // https://github.com/bmFtZQ/edge-frfox
 // This file contains the settings required for the theme to function correctly.
@@ -1452,3 +1453,8 @@ user_pref("font.name.monospace.zh-TW", "Monaco");
 // user_pref("font.name-list.monospace.zh-CN, "PT Mono");
 
 user_pref("uc.tweak.context-menu.hide-firefox-account", true);
+user_pref("browser.search.suggest.enabled.private", true);
+user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
+user_pref("signon.firefoxRelay.feature", "disabled");
+user_pref("media.autoplay.default", 5);
+user_pref("browser.download.lastDir", "/Users/u/Downloads");
