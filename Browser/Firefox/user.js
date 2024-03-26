@@ -328,7 +328,7 @@ user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: fal
 user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
 // -------------------------------------
 // Disable urlbar clipboard suggestions [FF118+]
-// user_pref("browser.urlbar.clipboard.featureGate", false); // [DEFAULT: false]
+user_pref("browser.urlbar.clipboard.featureGate", true); // [DEFAULT: false]
 // -------------------------------------
 // Disable search and form history
 user_pref("browser.formfill.enable", true);
@@ -551,7 +551,7 @@ user_pref("pdfjs.disabled", false); // [DEFAULT: false]
 user_pref("pdfjs.enableScripting", false); // [FF86+]
 // -------------------------------------
 // Disable middle click on new tab button opening URLs or searches using clipboard [FF115+]
-user_pref("browser.tabs.searchclipboardfor.middleclick", false); // [DEFAULT: false NON-LINUX]
+user_pref("browser.tabs.searchclipboardfor.middleclick", true); // [DEFAULT: false NON-LINUX]
 // -------------------------------------
 // Disable the default checkedness for "Save card and address to Firefox" checkboxes
 user_pref("dom.payments.defaults.saveAddress", false);
@@ -1397,18 +1397,7 @@ user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this
 // credit: https://github.com/AveYo/fox/blob/cf56d1194f4e5958169f9cf335cd175daa48d349/Natural%20Smooth%20Scrolling%20for%20user.js
 // recommended for 120hz+ displays
 // largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
-user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
-user_pref("general.smoothScroll", true); // DEFAULT
-user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
-user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 2.0);
-user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
-user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
-user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
-user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
+
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
@@ -1446,6 +1435,7 @@ user_pref("general.autoScroll", false);
 user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.bookmarks.addedImportButton", true);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
+user_pref("browser.display.use_document_fonts", 1);
 user_pref("font.default.x-western", "sans-serif");
 user_pref("font.name.sans-serif.x-western", "Lucida Grande");
 user_pref("font.name.serif.x-western", "Georgia");
