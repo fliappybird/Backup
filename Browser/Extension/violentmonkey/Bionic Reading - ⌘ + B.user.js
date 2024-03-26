@@ -7,11 +7,7 @@
 // @description:zh    网页英文前部加粗脚本 Ctrl + B / ⌘ + B 开启关闭
 // @icon              data:image/vnd.microsoft.icon;base64,AAABAAEAICACAAEAAQAwAQAAFgAAACgAAAAgAAAAQAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABvb28Ab29vAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////////////////////8AAfH/AABx/wAAMf8AADH/D/gR/w/8Ef8P/BH/D/wR/w/8Ef8P+DH/AAAx/wAAcf8AAPD/AABwfw/wMA8P+DEPD/gxjw/4P/8P8D//AAA//wAAf/8AAP//AAP////////////////////////////8=
 // @author            itorr
-// @include				*.hckrnws.com/*
-// @include				*/pretty-news.vercel.app/*
-// @include				https://giansegato.com/*
-// @include				https://news.ycombinator.com/*
-/* / @include				https://old.reddit.com/* */
+// @match             *://*/*
 // @exclude           /\.(js|java|c|cpp|h|py|css|less|scss|json|yaml|yml|xml)(?:\?.+)$/
 // @license           MIT
 // @run-at            document-end
@@ -25,7 +21,7 @@
 
 const defaultConfig = {
     autoBionic: true,
-    skipLinks: false,
+    skipLinks: true,
     skipWords: false,
     scale: 0.5,
     maxBionicLength: null,
@@ -73,7 +69,7 @@ const styleEl = document.createElement('style');
 styleEl.innerHTML = `
 bbb{
     // font-weight:bold;
-	color:red;
+    color: red;
     opacity: ${config.opacity};
 }
 html[data-site="greasyfork"] a bionic{
