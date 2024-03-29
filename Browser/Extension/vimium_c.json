@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "3/26/2024, 4:25:43 PM",
-	"time": 1711441543345,
+	"@time": "3/29/2024, 2:04:35 PM",
+	"time": 1711692275700,
 	"environment": {
-		"extension": "1.99.994",
+		"extension": "1.99.997",
 		"platform": "mac",
-		"chromium": 122
+		"firefox": 124
 	},
 	"clipSub": [
 		"p=^git@([^/:]+):=https://$1/=",

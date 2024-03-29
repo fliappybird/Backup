@@ -95,11 +95,23 @@ host-suffix, o--o.xyz, direct
 host-suffix, 51acg.buzz, direct
 host-suffix, 1050qm.com, direct
 host-suffix, 1000qm.vip, direct
-host-keyword, cunhua, direct
 host-suffix, sjs474.com, direct
 host-keyword, sijishe, direct
 host-suffix, urlimage.cc, direct
 host-suffix, ax1x.com, direct
+host-suffix, imgdd.com, direct
+host-keyword, fuliba, proxy
+host-suffix, noisevip.cn, direct
+host-suffix, haoshici.com, direct
+host-suffix, k3k9.com, direct
+host-suffix, arcloi.xyz, direct
+host-suffix, cnys.tv, direct
+host-suffix, thorium.rocks, direct
+host-suffix, chkaja.com, direct
+host-suffix, socialgirls.im, direct
+host-suffix, biturl.top, direct
+host-suffix, picsum.photos, direct
+host-suffix, cubik65536.top, direct
 
 ### GitHub Proxy
 host-keyword, gh-proxy, direct

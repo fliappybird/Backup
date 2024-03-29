@@ -1,5 +1,5 @@
 {
-    "lastModified": 1711172439031,
+    "lastModified": 1711611803548,
     "prefConfig": {
         "altKey": false,
         "altToHighlight": true,
@@ -118,7 +118,9 @@
         "tilesZoom": 100,
         "tipsZoom": 100,
         "typeOpenTime": 250,
-        "zoomDrag": 100
+        "zoomDrag": 100,
+        "cssText": "",
+        "blacklist": false
     },
     "sitesConfig": [
         {
@@ -342,7 +344,7 @@
                 },
                 {
                     "name": "vx",
-                    "url": "[\"V2ex\", \"Gv2ex\"]"
+                    "url": "[\"V2ex\",\"Gv2ex\"]"
                 }
             ],
             "type": "Wiki"
@@ -616,6 +618,20 @@
                     "url": "https://www.google.com/search?hl=en&safe=off&gl=us&pws=0&filter=0&q=%s"
                 },
                 {
+                    "name": "Bing",
+                    "url": "https://www.bing.com/search?safesearch=off&hta=off&rdr=1&setmkt=en-us&setlang=en-us&q=%s"
+                },
+                {
+                    "name": "Roogle",
+                    "url": "https://www.google.com/search?hl=en&safe=off&gl=us&pws=0&filter=0&q=%s+site:reddit.com",
+                    "icon": "https://reddit.com/favicon.ico"
+                },
+                {
+                    "icon": "https://cdn.search.brave.com/serp/v1/static/brand/16c26cd189da3f0f7ba4e55a584ddde6a7853c9cc340ff9f381afc6cb18e9a1e-favicon-32x32.png",
+                    "name": "Brave",
+                    "url": "https://search.brave.com/search?safesearch=off&country=all&q=%s"
+                },
+                {
                     "hideNotMatch": true,
                     "match": "https://www\\.google\\..*/search",
                     "name": "Google advanced",
@@ -626,11 +642,6 @@
                     "url": "https://duckduckgo.com/?kl=wt-wt&kp=-2&kaf=-1&kj=e3e3e3&k7=e3e3e3&kae=c&ka=b&k1=-1&q=%s"
                 },
                 {
-                    "icon": "https://cdn.search.brave.com/serp/v1/static/brand/16c26cd189da3f0f7ba4e55a584ddde6a7853c9cc340ff9f381afc6cb18e9a1e-favicon-32x32.png",
-                    "name": "Brave",
-                    "url": "https://search.brave.com/search?safesearch=off&country=all&q=%s"
-                },
-                {
                     "name": "SearX",
                     "url": "https://searx.be/search?q=%s"
                 },
@@ -638,10 +649,6 @@
                     "icon": "https://you.com/favicon/favicon-32x32.png",
                     "name": "You",
                     "url": "https://you.com/search?q=%s"
-                },
-                {
-                    "name": "Bing",
-                    "url": "https://www.bing.com/search?safesearch=off&hta=off&rdr=1&setmkt=en-us&setlang=en-us&q=%s"
                 },
                 {
                     "name": "Yahoo",
@@ -727,7 +734,7 @@
                 },
                 {
                     "name": "Google Search in site",
-                    "url": "https://www.google.com/search?hl=en&safe=off&gl=us&pws=0&filter=0&q=%s20site%3A%h&ie=utf-8&oe=utf-8"
+                    "url": "https://www.google.com/search?hl=en&safe=off&gl=us&pws=0&filter=0&q=%s%20site%3A%h"
                 }
             ],
             "type": "Search in page"
@@ -1099,12 +1106,8 @@
                     "url": "%sr.replace(/[^\\w\\-_\\.~!\\*'\\(\\);:@&=\\+\\$,\\/\\?#\\[\\]%]/g,\"\")"
                 },
                 {
-                    "name": "Bing Search in site",
-                    "url": "https://www.bing.com/search?q=%s%20site%3A%h"
-                },
-                {
-                    "name": "Duckduckgo Search in site",
-                    "url": "https://duckduckgo.com/?q=%s%20site%3A%h"
+                    "name": "Google Search in site",
+                    "url": "[\"Google Search in site\"]"
                 },
                 {
                     "name": "Metacritic rating",

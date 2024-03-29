@@ -445,8 +445,8 @@ user_pref("security.pki.crlite_mode", 0);
 // user_pref("security.mixed_content.block_display_content", true); // Defense-in-depth
 // -------------------------------------
 // Enable HTTPS-Only mode in all windows
-user_pref("dom.security.https_only_mode", true); // [FF76+]
-// user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
+// user_pref("dom.security.https_only_mode", true); // [FF76+]
+user_pref("dom.security.https_only_mode_pbm", false); // [FF80+]
 // -------------------------------------
 // Enable HTTPS-Only mode for local resources [FF77+]
 // user_pref("dom.security.https_only_mode.upgrade_local", true);
@@ -1364,7 +1364,11 @@ user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this
 user_pref("general.autoScroll", false);
 user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.bookmarks.addedImportButton", true);
+user_pref("browser.theme.dark-private-windows", false);
+user_pref("browser.fullscreen.autohide", true);
+user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
+user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 user_pref("browser.display.use_document_fonts", 1);
 user_pref("font.default.x-western", "sans-serif");
 user_pref("font.name.sans-serif.x-western", "Lucida Grande");
@@ -1384,10 +1388,8 @@ user_pref("browser.search.suggest.enabled.private", true);
 user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
 user_pref("signon.firefoxRelay.feature", "disabled");
 user_pref("media.autoplay.default", 5);
-// user_pref("browser.download.lastDir", "/Users/u/Downloads");
-user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
-user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 user_pref("widget.macos.native-context-menus", true);
+user_pref("browser.translations.panelShown", false);
 // ---------------------------------------------------------
 
 // ** Theme Default Options ****************************************************
@@ -1481,10 +1483,10 @@ user_pref("userChrome.autohide.navbar",                     true);
 
 // user_pref("userChrome.hidden.tab_icon",                     true);
 // user_pref("userChrome.hidden.tab_icon.always",              true);
-// user_pref("userChrome.hidden.tabbar",                       true);
+user_pref("userChrome.hidden.tabbar",                       true);
 // user_pref("userChrome.hidden.navbar",                       true);
 // user_pref("userChrome.hidden.private_indicator",            true);
-// user_pref("userChrome.hidden.titlebar_container",           true);
+user_pref("userChrome.hidden.titlebar_container",           true);
 // user_pref("userChrome.hidden.sidebar_header",               true);
 // user_pref("userChrome.hidden.sidebar_header.vertical_tab_only", true);
 // user_pref("userChrome.hidden.urlbar_iconbox",               true);

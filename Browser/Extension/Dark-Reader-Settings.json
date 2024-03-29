@@ -1,12 +1,38 @@
 {
-    "automation": {
-        "behavior": "OnOff",
-        "enabled": true,
-        "mode": "system"
+    "schemeVersion": 2,
+    "enabled": false,
+    "fetchNews": false,
+    "theme": {
+        "mode": 1,
+        "brightness": 100,
+        "contrast": 90,
+        "grayscale": 0,
+        "sepia": 0,
+        "useFont": false,
+        "fontFamily": "Helvetica Neue",
+        "textStroke": 0,
+        "engine": "dynamicTheme",
+        "stylesheet": "",
+        "darkSchemeBackgroundColor": "#181a1b",
+        "darkSchemeTextColor": "#e8e6e3",
+        "lightSchemeBackgroundColor": "#dcdad7",
+        "lightSchemeTextColor": "#181a1b",
+        "scrollbarColor": "",
+        "selectionColor": "auto",
+        "styleSystemControls": false,
+        "lightColorScheme": "Default",
+        "darkColorScheme": "Default",
+        "immediateModify": false
     },
-    "changeBrowserTheme": false,
+    "presets": [],
     "customThemes": [],
-    "detectDarkTheme": true,
+    "enabledByDefault": true,
+    "enabledFor": [
+        "ddys.pro",
+        "runningcheese.cn",
+        "v2ex.com",
+        "s.v2ex.com"
+    ],
     "disabledFor": [
         "anonymousplanet.org",
         "browserbench.org",
@@ -44,52 +70,29 @@
         "notion.so",
         "cfree.nbing.eu.org",
         "chatkit.app",
-        "xfltd.org"
+        "xfltd.org",
+        "github.com",
+        "piped.video"
     ],
-    "enableContextMenus": false,
-    "enableForPDF": true,
-    "enableForProtectedPages": true,
-    "enabled": false,
-    "enabledByDefault": true,
-    "enabledFor": [
-        "ddys.pro",
-        "runningcheese.cn",
-        "*.v2ex.com"
-    ],
-    "fetchNews": false,
-    "location": {
-        "latitude": null,
-        "longitude": null
-    },
-    "presets": [],
-    "previewNewDesign": true,
-    "schemeVersion": 2,
+    "changeBrowserTheme": false,
     "syncSettings": false,
     "syncSitesFixes": true,
-    "theme": {
-        "mode": 1,
-        "brightness": 100,
-        "contrast": 90,
-        "grayscale": 0,
-        "sepia": 0,
-        "useFont": false,
-        "fontFamily": "Helvetica Neue",
-        "textStroke": 0,
-        "engine": "dynamicTheme",
-        "stylesheet": "",
-        "darkSchemeBackgroundColor": "#181a1b",
-        "darkSchemeTextColor": "#e8e6e3",
-        "lightSchemeBackgroundColor": "#dcdad7",
-        "lightSchemeTextColor": "#181a1b",
-        "scrollbarColor": "",
-        "selectionColor": "auto",
-        "styleSystemControls": false,
-        "lightColorScheme": "Default",
-        "darkColorScheme": "Default",
-        "immediateModify": false
+    "automation": {
+        "behavior": "OnOff",
+        "enabled": true,
+        "mode": "system"
     },
     "time": {
         "activation": "18:00",
         "deactivation": "9:00"
-    }
+    },
+    "location": {
+        "latitude": null,
+        "longitude": null
+    },
+    "previewNewDesign": true,
+    "enableForPDF": true,
+    "enableForProtectedPages": true,
+    "enableContextMenus": false,
+    "detectDarkTheme": true
 }
