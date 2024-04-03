@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "3/29/2024, 2:04:35 PM",
-	"time": 1711692275700,
+	"@time": "4/3/2024, 10:54:30 AM",
+	"time": 1712112870369,
 	"environment": {
 		"extension": "1.99.997",
 		"platform": "mac",
@@ -19,10 +19,6 @@
 	"exclusionListenHash": false,
 	"exclusionRules": [
 		{
-			"passKeys": "",
-			"pattern": "^https?://docs\\.qq\\.com/"
-		},
-		{
 			"passKeys": "f m n t ",
 			"pattern": "^https?://www\\.youtube\\.com/"
 		},
@@ -33,6 +29,10 @@
 		{
 			"passKeys": "",
 			"pattern": "^https?://vscode\\.dev/"
+		},
+		{
+			"passKeys": ". ",
+			"pattern": ":https://github.com/"
 		}
 	],
 	"grabBackFocus": true,
@@ -210,20 +210,6 @@
 "上一封,上页,上一页,上一章,前一页,上一张,.btn-prev,[data-slp-action=prevSlide]:not(div),prev,previous,back,older,<,‹,←,«,≪,<<",
 	"searchEngines": [
 		"b|吧|把|bi|必应: https://www.bing.com/search?safesearch=off&hta=off&rdr=1&setmkt=en-us&setlang=en-us&q=$s blank=https://www.bing.com/",
-		"w.e: http://en.wikipedia.org/wiki/$s{_}",
-		"w.e|wiki.en|en.wiki|e.w: \\",
-		"  https://en.wikipedia.org/w/index.php?title=Special:Search&search=$s \\",
-		"  Wikipedia (en-US)",
-		"m|百度Wap|Wap百度|没|吗|wap|m.b|m.baidu|wap.baidu: \\",
-		"  http://m.baidu.com/pu=sz%401328_100/s?word=$s \\",
-		"  m.baidu.com/ re=/\\/s\\?(?:word=|.*?\\&word=)([^#&]*)/i \\",
-		"  百度 Wap",
-		"b.i|b.image|image: \\",
-		"  http://image.baidu.com/search/index?tn=baiduimage&ie=utf-8&word=$s \\",
-		"  百度图片",
-		"b.t|t.b|tieba|贴吧|贴: http://tieba.baidu.com/f?kw=$s 百度贴吧",
-		"b.x|b.xs|bx|bxs|bxueshu: https://xueshu.baidu.com/s?ie=utf-8&wd=%s \\",
-		"  blank=https://xueshu.baidu.com/ 百度学术",
 		"g|go|gg|ggg|Google|google|个: https://www.google.com/search?ie=utf-8&q=$s \\",
 		"  www.google.com re=/^(?:\\.[a-z]{2,4})?\\/search\\b.*?[#&?]q=([^#&]*)/i \\",
 		"  blank=https://www.google.com Google",
@@ -240,11 +226,8 @@
 		"  http://www.w3school.com.cn/tags/tag_$S{$1}.asp W3school Tag",
 		"w3s.attr|w3s.att|html.attr|attr.w3s: \\",
 		"  http://www.w3school.com.cn/tags/att_$S{$1_$2}.asp W3school Tag Attr",
-		"t.i: http://m.tiebaimg.com/timg?wapp&quality=80&size=b400_2000&src=$s \\",
-		"  百度贴吧图片",
 		"bili: http://www.bilibili.com/search?keyword=$s",
 		"bili|bilibili|b.tv|Bilibili: http://search.bilibili.com/all?keyword=$s Bilibili",
-		"acfun|Acfun: http://www.acfun.tv/search/#query=$s Acfun",
 		"t|tr|g.t|g.tr|他|它: https://translate.google.com/?ie=utf-8#auto/zh-CN/$s \\",
 		"  Google 翻译",
 		"tt|tp|tu: https://translate.google.com/translate?depth=1&sl=en&u=$s \\",
@@ -291,11 +274,6 @@
 		"",
 		"y|yt: https://www.youtube.com/results?search_query=%s \\",
 		"  blank=https://www.youtube.com/ YouTube",
-		"b.m|bm|map|b.map|bmap|地图|百度地图: \\",
-		"  https://api.map.baidu.com/geocoder?output=html&address=%s&src=vimium-c\\",
-		"  blank=https://map.baidu.com/",
-		"gd|gaode|高德地图: https://www.gaode.com/search?query=%s \\",
-		"  blank=https://www.gaode.com",
 		"g.m|gm|gmap: https://www.google.com/maps?q=%s \\",
 		"  blank=https://www.google.com/maps Google Maps",
 		"br|brave: https://search.brave.com/search?q=%s Brave",
@@ -319,5 +297,5 @@
 	],
 	"searchUrl": "https://www.google.com/search?hl=en&safe=off&gl=us&pws=0&q=$s Google",
 	"showActionIcon": false,
-	"vimSync": true
+	"vimSync": false
 }
