@@ -662,12 +662,12 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Enable RFP
-user_pref("privacy.resistFingerprinting", false); // [FF41+]
+user_pref("privacy.resistFingerprinting", true); // [FF41+]
 // user_pref("privacy.resistFingerprinting.pbmode", true); // [FF114+]
 // -------------------------------------
 // Set new window size rounding max values [FF55+]
-user_pref("privacy.window.maxInnerWidth", 1400);
-user_pref("privacy.window.maxInnerHeight", 900);
+// user_pref("privacy.window.maxInnerWidth", 1400);
+// user_pref("privacy.window.maxInnerHeight", 900);
 // -------------------------------------
 // Disable mozAddonManager Web API [FF57+]
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
@@ -683,7 +683,7 @@ user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 // user_pref("browser.display.use_system_colors", false); // [DEFAULT: false NON-WINDOWS]
 // -------------------------------------
 // Enforce non-native widget theme
-user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
+// user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
 // -------------------------------------
 // Enforce links targeting new windows to open in a new tab instead
 // 1=most recent window or tab, 2=new window, 3=new tab
@@ -693,7 +693,7 @@ user_pref("browser.link.open_newwindow", 3); // [DEFAULT: 3]
 user_pref("browser.link.open_newwindow.restriction", 0);
 // -------------------------------------
 // Disable WebGL (Web Graphics Library)
-user_pref("webgl.disabled", false);
+// user_pref("webgl.disabled", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // OPTIONAL OPSEC
@@ -883,10 +883,10 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2); // Virtual Reality
 // -------------------------------------
 // Disable canvas capture stream
-user_pref("canvas.capturestream.enabled", false);
+// user_pref("canvas.capturestream.enabled", false);
 // -------------------------------------
 // Disable offscreen canvas
-user_pref("gfx.offscreencanvas.enabled", false);
+// user_pref("gfx.offscreencanvas.enabled", false);
 // -------------------------------------
 // Disable non-modern cipher suites
 // user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false);
@@ -1087,7 +1087,7 @@ user_pref("browser.disableResetPrompt", true); // [HIDDEN PREF]
 // user_pref("security.mixed_content.block_active_content", ""); // [DEFAULT: true since at least FF60]
 user_pref("security.ssl.enable_ocsp_stapling", false); // [DEFAULT: true FF26+]
 // user_pref("webgl.disable-fail-if-major-performance-caveat", ""); // [DEFAULT: true FF86+]
-user_pref("webgl.enable-webgl2", false);
+// user_pref("webgl.enable-webgl2", false);
 // user_pref("webgl.min_capability_mode", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -1122,7 +1122,7 @@ user_pref("security.family_safety.mode", 0);
 // FF119
 //
 // Use en-US locale regardless of the system or region locale
-user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
+// user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
 // -------------------------------------
 // Disable skipping DoH when parental controls are enabled [FF70+]
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
