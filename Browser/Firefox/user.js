@@ -774,8 +774,8 @@ user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
 // user_pref("security.sandbox.gpu.level", 1);
 // -------------------------------------
 // Enable Site Isolation
-// user_pref("fission.autostart", true);
-// user_pref("gfx.webrender.all", true);
+user_pref("fission.autostart", true);
+user_pref("gfx.webrender.all", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // OPTIONAL HARDENING
@@ -838,7 +838,7 @@ user_pref("services.blocklist.gfx.collection", "");
 user_pref("services.blocklist.gfx.signer", "");
 // -------------------------------------
 // Enforce no referer spoofing
-user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
+// user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
 // -------------------------------------
 // Enforce a security delay on some confirmation dialogs such as install, open/save
 user_pref("security.dialog_enable_delay", 1000); // [DEFAULT: 1000]
@@ -883,10 +883,10 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2); // Virtual Reality
 // -------------------------------------
 // Disable canvas capture stream
-user_pref("canvas.capturestream.enabled", false);
+// user_pref("canvas.capturestream.enabled", false);
 // -------------------------------------
 // Disable offscreen canvas
-user_pref("gfx.offscreencanvas.enabled", false);
+// user_pref("gfx.offscreencanvas.enabled", false);
 // -------------------------------------
 // Disable non-modern cipher suites
 // user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false);
@@ -1211,7 +1211,7 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 // user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 // user_pref("browser.search.suggest.enabled", false);
-user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+// user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 // user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 // user_pref("browser.formfill.enable", false);
 user_pref("security.insecure_connection_text.enabled", true);
