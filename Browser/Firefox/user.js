@@ -260,12 +260,12 @@ user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
 user_pref("network.prefetch-next", true);
 // -------------------------------------
 // Disable DNS prefetching
-user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetch", false);
 // user_pref("network.dns.disablePrefetchFromHTTPS", true); // [DEFAULT: true]
 // -------------------------------------
 // Disable predictor / prefetching
 user_pref("network.predictor.enabled", true);
-user_pref("network.predictor.enable-prefetch", false); // [FF48+] [DEFAULT: false]
+user_pref("network.predictor.enable-prefetch", true); // [FF48+] [DEFAULT: false]
 // -------------------------------------
 // Disable link-mouseover opening connection to linked server
 user_pref("network.http.speculative-parallel-limit", 6);
@@ -344,14 +344,14 @@ user_pref("browser.search.separatePrivateDefault", false); // [FF70+]
 user_pref("browser.search.separatePrivateDefault.ui.enabled", false); // [FF71+]
 // -------------------------------------
 // Disable merino
-// user_pref("browser.urlbar.merino.enabled", true);
+user_pref("browser.urlbar.merino.enabled", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // PASSWORDS
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Disable saving passwords and password alerts.
-// user_pref("signon.rememberSignons", false);
+user_pref("signon.rememberSignons", true);
 user_pref("signon.generation.enabled", true);
 user_pref("signon.management.page.breach-alerts.enabled", false);
 user_pref("signon.management.page.breachAlertUrl", "");
@@ -364,7 +364,7 @@ user_pref("security.ask_for_password", 2);
 user_pref("security.password_lifetime", 5); // [DEFAULT: 30]
 // -------------------------------------
 // Disable auto-filling username & password form fields
-// user_pref("signon.autofillForms", false);
+user_pref("signon.autofillForms", true);
 // -------------------------------------
 // Disable formless login capture for Password Manager [FF51+]
 user_pref("signon.formlessCapture.enabled", false);
@@ -373,7 +373,7 @@ user_pref("signon.formlessCapture.enabled", false);
 // 0 = don't allow sub-resources to open HTTP authentication credentials dialogs
 // 1 = don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 // 2 = allow sub-resources to open HTTP authentication credentials dialogs (default)
-user_pref("network.auth.subresource-http-auth-allow", 1);
+user_pref("network.auth.subresource-http-auth-allow", 2);
 // -------------------------------------
 // Enforce no automatic authentication on Microsoft sites [FF91+] [WINDOWS 10+]
 // user_pref("network.http.windows-sso.enabled", false); // [DEFAULT: false]
@@ -445,8 +445,8 @@ user_pref("security.pki.crlite_mode", 0);
 // user_pref("security.mixed_content.block_display_content", true); // Defense-in-depth
 // -------------------------------------
 // Enable HTTPS-Only mode in all windows
-// user_pref("dom.security.https_only_mode", true); // [FF76+]
-user_pref("dom.security.https_only_mode_pbm", false); // [FF80+]
+user_pref("dom.security.https_only_mode", true); // [FF76+]
+// user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
 // -------------------------------------
 // Enable HTTPS-Only mode for local resources [FF77+]
 // user_pref("dom.security.https_only_mode.upgrade_local", true);
@@ -502,9 +502,9 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // user_pref("media.peerconnection.ice.no_host", true);
 // -------------------------------------
 // Disable GMP (Gecko Media Plugins)
-user_pref("media.gmp-provider.enabled", false);
-user_pref("media.gmp-manager.url", "");
-user_pref("media.gmp-gmpopenh264.enabled", false);
+// user_pref("media.gmp-provider.enabled", false);
+// user_pref("media.gmp-manager.url", "");
+// user_pref("media.gmp-gmpopenh264.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DOM (DOCUMENT OBJECT MODEL)
@@ -518,7 +518,7 @@ user_pref("dom.disable_window_move_resize", true);
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Remove temp files opened from non-PB windows with an external application
-// user_pref("browser.download.start_downloads_in_tmp_dir", true); // [FF102+]
+user_pref("browser.download.start_downloads_in_tmp_dir", false); // [FF102+]
 // -------------------------------------
 // Disable sending additional analytics to web servers
 user_pref("beacon.enabled", false);
@@ -558,7 +558,7 @@ user_pref("dom.payments.defaults.saveAddress", false);
 user_pref("dom.payments.defaults.saveCreditCard", false);
 // -------------------------------------
 // Disable Displaying Javascript in History URLs
-user_pref("browser.urlbar.filter.javascript", false);
+user_pref("browser.urlbar.filter.javascript", true);
 //
 // DOWNLOADS
 //
@@ -566,7 +566,7 @@ user_pref("browser.urlbar.filter.javascript", false);
 user_pref("browser.download.useDownloadDir", true);
 // -------------------------------------
 // Disable downloads panel opening on every download [FF96+]
-user_pref("browser.download.alwaysOpenPanel", false);
+user_pref("browser.download.alwaysOpenPanel", true);
 // -------------------------------------
 // Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
@@ -604,7 +604,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Enable Firefox to clear items on shutdown
-// user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+user_pref("privacy.sanitize.sanitizeOnShutdown", false);
 //
 // SANITIZE ON SHUTDOWN: IGNORES "ALLOW" SITE EXCEPTIONS
 //
@@ -662,12 +662,12 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Enable RFP
-// user_pref("privacy.resistFingerprinting", true); // [FF41+]
+user_pref("privacy.resistFingerprinting", false); // [FF41+]
 // user_pref("privacy.resistFingerprinting.pbmode", true); // [FF114+]
 // -------------------------------------
 // Set new window size rounding max values [FF55+]
-// user_pref("privacy.window.maxInnerWidth", 1400);
-// user_pref("privacy.window.maxInnerHeight", 900);
+user_pref("privacy.window.maxInnerWidth", 1400);
+user_pref("privacy.window.maxInnerHeight", 900);
 // -------------------------------------
 // Disable mozAddonManager Web API [FF57+]
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
@@ -683,17 +683,17 @@ user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 // user_pref("browser.display.use_system_colors", false); // [DEFAULT: false NON-WINDOWS]
 // -------------------------------------
 // Enforce non-native widget theme
-// user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
+user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
 // -------------------------------------
 // Enforce links targeting new windows to open in a new tab instead
 // 1=most recent window or tab, 2=new window, 3=new tab
-// user_pref("browser.link.open_newwindow", 3); // [DEFAULT: 3]
+user_pref("browser.link.open_newwindow", 3); // [DEFAULT: 3]
 // -------------------------------------
 // Set all open window methods to abide by "browser.link.open_newwindow"
-// user_pref("browser.link.open_newwindow.restriction", 0);
+user_pref("browser.link.open_newwindow.restriction", 0);
 // -------------------------------------
 // Disable WebGL (Web Graphics Library)
-// user_pref("webgl.disabled", true);
+user_pref("webgl.disabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // OPTIONAL OPSEC
@@ -717,7 +717,7 @@ user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 // user_pref("security.nocertdb", true); //
 // -------------------------------------
 // Disable favicons in history and bookmarks
-// user_pref("browser.chrome.site_icons", false);
+user_pref("browser.chrome.site_icons", true);
 // -------------------------------------
 // Exclude "Undo Closed Tabs" in Session Restore
 // user_pref("browser.sessionstore.max_tabs_undo", 0);
@@ -774,8 +774,8 @@ user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
 // user_pref("security.sandbox.gpu.level", 1);
 // -------------------------------------
 // Enable Site Isolation
-// user_pref("fission.autostart", true);
-// user_pref("gfx.webrender.all", true);
+user_pref("fission.autostart", true);
+user_pref("gfx.webrender.all", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // OPTIONAL HARDENING
@@ -812,7 +812,7 @@ user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
 // user_pref("browser.eme.ui.enabled", false);
 // -------------------------------------
 // Disable IPv6 if using a VPN
-// user_pref("network.dns.disableIPv6", true);
+user_pref("network.dns.disableIPv6", true);
 // -------------------------------------
 // Control when to send a cross-origin referer
 // * 0=always (default), 1=only if base domains match, 2=only if hosts match
@@ -838,7 +838,7 @@ user_pref("services.blocklist.gfx.collection", "");
 user_pref("services.blocklist.gfx.signer", "");
 // -------------------------------------
 // Enforce no referer spoofing
-// user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
+user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
 // -------------------------------------
 // Enforce a security delay on some confirmation dialogs such as install, open/save
 user_pref("security.dialog_enable_delay", 1000); // [DEFAULT: 1000]
@@ -856,7 +856,7 @@ user_pref("security.tls.version.enable-deprecated", false); // [DEFAULT: false]
 user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // -------------------------------------
 // Disable Quarantined Domains [FF115+]
-// user_pref("extensions.quarantinedDomains.enabled", false); // [DEFAULT: true]
+user_pref("extensions.quarantinedDomains.enabled", false); // [DEFAULT: true]
 // -------------------------------------
 // prefsCleaner: previously active items removed from arkenfox 115-117
 // user_pref("accessibility.force_disabled", "");
@@ -883,10 +883,10 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2); // Virtual Reality
 // -------------------------------------
 // Disable canvas capture stream
-// user_pref("canvas.capturestream.enabled", false);
+user_pref("canvas.capturestream.enabled", false);
 // -------------------------------------
 // Disable offscreen canvas
-// user_pref("gfx.offscreencanvas.enabled", false);
+user_pref("gfx.offscreencanvas.enabled", false);
 // -------------------------------------
 // Disable non-modern cipher suites
 // user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false);
@@ -1046,9 +1046,9 @@ user_pref("browser.search.update", false);
 //
 // CONTENT BEHAVIOR
 //
-// user_pref("accessibility.typeaheadfind", false); // enable "Find As You Type"
+user_pref("accessibility.typeaheadfind", false); // enable "Find As You Type"
 // user_pref("clipboard.autocopy", false); // disable autocopy default [LINUX]
-// user_pref("layout.spellcheckDefault", 0); // 0=none, 1-multi-line, 2=multi-line & single-line
+user_pref("layout.spellcheckDefault", 1); // 0=none, 1-multi-line, 2=multi-line & single-line
 //
 // FIREFOX HOME CONTENT
 //
@@ -1087,7 +1087,7 @@ user_pref("browser.disableResetPrompt", true); // [HIDDEN PREF]
 // user_pref("security.mixed_content.block_active_content", ""); // [DEFAULT: true since at least FF60]
 user_pref("security.ssl.enable_ocsp_stapling", false); // [DEFAULT: true FF26+]
 // user_pref("webgl.disable-fail-if-major-performance-caveat", ""); // [DEFAULT: true FF86+]
-// user_pref("webgl.enable-webgl2", false);
+user_pref("webgl.enable-webgl2", false);
 // user_pref("webgl.min_capability_mode", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -1122,7 +1122,7 @@ user_pref("security.family_safety.mode", 0);
 // FF119
 //
 // Use en-US locale regardless of the system or region locale
-// user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
+user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
 // -------------------------------------
 // Disable skipping DoH when parental controls are enabled [FF70+]
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
@@ -1352,44 +1352,65 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
+// only sharpen scrolling
+user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
+user_pref("mousewheel.min_line_scroll_amount", 10); // 10-40; adjust this number to your liking; default=5
+user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
+user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); // default=.25
+user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // default=.4
+// recommended for 120hz+ displays
+// largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
 user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
 user_pref("general.smoothScroll", true); // DEFAULT
+user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 2.0);
+user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
+user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
+user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
 user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
 
-// ---------------------------------------------------------
-user_pref("general.autoScroll", false);
-user_pref("browser.urlbar.trimHttps", true);
-user_pref("browser.bookmarks.addedImportButton", true);
-user_pref("browser.theme.dark-private-windows", false);
-user_pref("browser.fullscreen.autohide", true);
-user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
-user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
-user_pref("browser.toolbars.bookmarks.visibility", "newtab");
+// ------------------------ Personal Config  ---------------------------------
+// user_pref("browser.bookmarks.addedImportButton", true);
 user_pref("browser.display.use_document_fonts", 1);
-user_pref("font.default.x-western", "sans-serif");
-user_pref("font.name.sans-serif.x-western", "Lucida Grande");
-user_pref("font.name.serif.x-western", "Georgia");
-user_pref("font.name.monospace.x-western", "Monaco");
-user_pref("font.name.sans-serif.zh-CN", "Hiragino Sans");
-user_pref("font.name.serif.zh-CN", "PT Serif");
-user_pref("font.name.monospace.zh-CN", "Monaco");
-user_pref("font.name.sans-serif.zh-HK", "Hiragino Sans");
-user_pref("font.name.serif.zh-HK", "PT Serif");
-user_pref("font.name.monospace.zh-HK", "Monaco");
-user_pref("font.name.sans-serif.zh-TW", "Hiragino Sans");
-user_pref("font.name.serif.zh-TW", "PT Serif");
-user_pref("font.name.monospace.zh-TW", "Monaco");
-// user_pref("font.name-list.monospace.zh-CN, "PT Mono");
+user_pref("browser.fullscreen.autohide", true);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
+user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
 user_pref("browser.search.suggest.enabled.private", true);
-user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
-user_pref("signon.firefoxRelay.feature", "disabled");
-user_pref("media.autoplay.default", 5);
-user_pref("widget.macos.native-context-menus", true);
+user_pref("browser.theme.dark-private-windows", false);
+user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 user_pref("browser.translations.panelShown", false);
+user_pref("browser.urlbar.suggest.addons", false);
+user_pref("browser.urlbar.suggest.mdn", false);
+user_pref("browser.urlbar.suggest.pocket", false)
+user_pref("browser.urlbar.suggest.treading", false);
+user_pref("browser.urlbar.suggest.yelp", false);
+user_pref("browser.urlbar.trimHttps", true);
+user_pref("font.default.x-western", "sans-serif");
+// user_pref("font.name-list.monospace.zh-CN, "PT Mono");
+user_pref("font.name.monospace.x-western", "Monaco");
+user_pref("font.name.monospace.zh-CN", "Monaco");
+user_pref("font.name.monospace.zh-HK", "Monaco");
+user_pref("font.name.monospace.zh-TW", "Monaco");
+user_pref("font.name.sans-serif.x-western", "Lucida Grande");
+user_pref("font.name.sans-serif.zh-CN", "Hiragino Sans");
+user_pref("font.name.sans-serif.zh-HK", "Hiragino Sans");
+user_pref("font.name.sans-serif.zh-TW", "Hiragino Sans");
+user_pref("font.name.serif.x-western", "Georgia");
+user_pref("font.name.serif.zh-CN", "PT Serif");
+user_pref("font.name.serif.zh-HK", "PT Serif");
+user_pref("font.name.serif.zh-TW", "PT Serif");
+user_pref("general.autoScroll", false);
+user_pref("media.autoplay.default", 5);
+user_pref("signon.firefoxRelay.feature", "disabled");
+user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
+user_pref("widget.macos.native-context-menus", true);
 // ---------------------------------------------------------
 
 // ** Theme Default Options ****************************************************

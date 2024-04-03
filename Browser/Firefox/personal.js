@@ -14,7 +14,6 @@ user_pref("browser.shopping.experience2023.opted", 2);
 user_pref("browser.shopping.experience2023.active", false);
 
 user_pref("corroborator.enabled", false);
-// Disable WebVTT logging and test events
 user_pref("media.webvtt.debug.logging", false);
 user_pref("media.webvtt.testing.events", false);
 user_pref("browser.contentblocking.database.enabled", false);
@@ -77,8 +76,6 @@ user_pref("browser.safebrowsing.downloads.remote.url", "");
 // Disable SB checks for unwanted software
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
-// Disable "ignore this warning" on SB warnings [FF45+]
-// user_pref("browser.safebrowsing.allowOverride", false);
 // Google connections
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous", false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous_host", false);
@@ -111,7 +108,6 @@ user_pref("browser.places.speculativeConnect.enabled", true);
 // Disable DNS-over-HTTPS (DoH)[FF60+]
 user_pref("network.trr.mode", 5);
 user_pref("network.trr.confirmationNS", "");
-// -------------------------------------
 // Disable skipping DoH when parental controls are enabled
 user_pref("network.trr.uri", "");
 user_pref("network.trr.custom_uri", "");
@@ -171,6 +167,7 @@ user_pref("browser.download.useDownloadDir", true);
 user_pref("browser.download.always_ask_before_handling_new_types", false);
 
 user_pref("extensions.webextensions.restrictedDomains", "");
+user_pref("extensions.webservice.discoverURL", "");
 
 user_pref("privacy.sanitize.sanitizeOnShutdown", false);
 
@@ -183,14 +180,17 @@ user_pref("privacy.resistFingerprinting.letterboxing", false);
 user_pref("browser.chrome.site_icons", true);
 user_pref("browser.download.forbid_open_with", true);
 user_pref("browser.urlbar.suggest.addons", false);
-user_pref("browser.urlbar.suggest.mdn", true);
-user_pref("browser.urlbar.suggest.pocket", true)
+user_pref("browser.urlbar.suggest.mdn", false);
+user_pref("browser.urlbar.suggest.pocket", false)
 user_pref("browser.urlbar.suggest.weather", false);
 user_pref("browser.urlbar.suggest.treading", false);
 user_pref("browser.urlbar.suggest.yelp", false);
 
 user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
 user_pref("extensions.formautofill.creditCards.enabled", false);
+// Enable Site Isolation
+user_pref("fission.autostart", true);
+user_pref("gfx.webrender.all", true);
 
 // Disable Firefox blocklist
 user_pref("extensions.blocklist.enabled", false); // [DEFAULT: true]

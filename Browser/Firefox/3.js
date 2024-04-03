@@ -200,7 +200,6 @@ user_pref("gecko.handlerService.schemes.irc.0.name", "");
 user_pref("gecko.handlerService.schemes.ircs.0.uriTemplate", "");
 user_pref("gecko.handlerService.schemes.ircs.0.name", "");
 user_pref("browser.translation.engine", "");
-// -------------------------------------
 // Disable connections to Mozilla servers
 user_pref("services.settings.server", "");
 //
