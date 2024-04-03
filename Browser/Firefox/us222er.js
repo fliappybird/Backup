@@ -260,12 +260,12 @@ user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
 user_pref("network.prefetch-next", true);
 // -------------------------------------
 // Disable DNS prefetching
-user_pref("network.dns.disablePrefetch", false);
+user_pref("network.dns.disablePrefetch", true);
 // user_pref("network.dns.disablePrefetchFromHTTPS", true); // [DEFAULT: true]
 // -------------------------------------
 // Disable predictor / prefetching
 user_pref("network.predictor.enabled", true);
-user_pref("network.predictor.enable-prefetch", true); // [FF48+] [DEFAULT: false]
+user_pref("network.predictor.enable-prefetch", false); // [FF48+] [DEFAULT: false]
 // -------------------------------------
 // Disable link-mouseover opening connection to linked server
 user_pref("network.http.speculative-parallel-limit", 6);
@@ -344,14 +344,14 @@ user_pref("browser.search.separatePrivateDefault", false); // [FF70+]
 user_pref("browser.search.separatePrivateDefault.ui.enabled", false); // [FF71+]
 // -------------------------------------
 // Disable merino
-user_pref("browser.urlbar.merino.enabled", true);
+// user_pref("browser.urlbar.merino.enabled", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // PASSWORDS
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Disable saving passwords and password alerts.
-user_pref("signon.rememberSignons", true);
+// user_pref("signon.rememberSignons", false);
 user_pref("signon.generation.enabled", true);
 user_pref("signon.management.page.breach-alerts.enabled", false);
 user_pref("signon.management.page.breachAlertUrl", "");
@@ -364,7 +364,7 @@ user_pref("security.ask_for_password", 2);
 user_pref("security.password_lifetime", 5); // [DEFAULT: 30]
 // -------------------------------------
 // Disable auto-filling username & password form fields
-user_pref("signon.autofillForms", true);
+// user_pref("signon.autofillForms", false);
 // -------------------------------------
 // Disable formless login capture for Password Manager [FF51+]
 user_pref("signon.formlessCapture.enabled", false);
@@ -445,8 +445,8 @@ user_pref("security.pki.crlite_mode", 0);
 // user_pref("security.mixed_content.block_display_content", true); // Defense-in-depth
 // -------------------------------------
 // Enable HTTPS-Only mode in all windows
-user_pref("dom.security.https_only_mode", true); // [FF76+]
-// user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
+// user_pref("dom.security.https_only_mode", true); // [FF76+]
+user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
 // -------------------------------------
 // Enable HTTPS-Only mode for local resources [FF77+]
 // user_pref("dom.security.https_only_mode.upgrade_local", true);
@@ -518,7 +518,7 @@ user_pref("dom.disable_window_move_resize", true);
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Remove temp files opened from non-PB windows with an external application
-user_pref("browser.download.start_downloads_in_tmp_dir", false); // [FF102+]
+// user_pref("browser.download.start_downloads_in_tmp_dir", true); // [FF102+]
 // -------------------------------------
 // Disable sending additional analytics to web servers
 user_pref("beacon.enabled", false);
@@ -558,7 +558,7 @@ user_pref("dom.payments.defaults.saveAddress", false);
 user_pref("dom.payments.defaults.saveCreditCard", false);
 // -------------------------------------
 // Disable Displaying Javascript in History URLs
-user_pref("browser.urlbar.filter.javascript", true);
+user_pref("browser.urlbar.filter.javascript", false);
 //
 // DOWNLOADS
 //
@@ -566,7 +566,7 @@ user_pref("browser.urlbar.filter.javascript", true);
 user_pref("browser.download.useDownloadDir", true);
 // -------------------------------------
 // Disable downloads panel opening on every download [FF96+]
-user_pref("browser.download.alwaysOpenPanel", true);
+user_pref("browser.download.alwaysOpenPanel", false);
 // -------------------------------------
 // Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
@@ -604,7 +604,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Enable Firefox to clear items on shutdown
-user_pref("privacy.sanitize.sanitizeOnShutdown", false);
+// user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 //
 // SANITIZE ON SHUTDOWN: IGNORES "ALLOW" SITE EXCEPTIONS
 //
@@ -662,15 +662,15 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Enable RFP
-user_pref("privacy.resistFingerprinting", false); // [FF41+]
+// user_pref("privacy.resistFingerprinting", true); // [FF41+]
 // user_pref("privacy.resistFingerprinting.pbmode", true); // [FF114+]
 // -------------------------------------
 // Set new window size rounding max values [FF55+]
-user_pref("privacy.window.maxInnerWidth", 1400);
-user_pref("privacy.window.maxInnerHeight", 900);
+// user_pref("privacy.window.maxInnerWidth", 1400);
+// user_pref("privacy.window.maxInnerHeight", 900);
 // -------------------------------------
 // Disable mozAddonManager Web API [FF57+]
-user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
+// user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 // -------------------------------------
 // Enable RFP letterboxing [FF67+]
 // user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
@@ -683,17 +683,17 @@ user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 // user_pref("browser.display.use_system_colors", false); // [DEFAULT: false NON-WINDOWS]
 // -------------------------------------
 // Enforce non-native widget theme
-user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
+// user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
 // -------------------------------------
 // Enforce links targeting new windows to open in a new tab instead
 // 1=most recent window or tab, 2=new window, 3=new tab
-user_pref("browser.link.open_newwindow", 3); // [DEFAULT: 3]
+// user_pref("browser.link.open_newwindow", 3); // [DEFAULT: 3]
 // -------------------------------------
 // Set all open window methods to abide by "browser.link.open_newwindow"
-user_pref("browser.link.open_newwindow.restriction", 0);
+// user_pref("browser.link.open_newwindow.restriction", 0);
 // -------------------------------------
 // Disable WebGL (Web Graphics Library)
-user_pref("webgl.disabled", false);
+// user_pref("webgl.disabled", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // OPTIONAL OPSEC
@@ -717,7 +717,7 @@ user_pref("webgl.disabled", false);
 // user_pref("security.nocertdb", true); //
 // -------------------------------------
 // Disable favicons in history and bookmarks
-user_pref("browser.chrome.site_icons", true);
+// user_pref("browser.chrome.site_icons", false);
 // -------------------------------------
 // Exclude "Undo Closed Tabs" in Session Restore
 // user_pref("browser.sessionstore.max_tabs_undo", 0);
@@ -838,7 +838,7 @@ user_pref("services.blocklist.gfx.collection", "");
 user_pref("services.blocklist.gfx.signer", "");
 // -------------------------------------
 // Enforce no referer spoofing
-user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
+// user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
 // -------------------------------------
 // Enforce a security delay on some confirmation dialogs such as install, open/save
 user_pref("security.dialog_enable_delay", 1000); // [DEFAULT: 1000]
@@ -856,7 +856,7 @@ user_pref("security.tls.version.enable-deprecated", false); // [DEFAULT: false]
 user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // -------------------------------------
 // Disable Quarantined Domains [FF115+]
-user_pref("extensions.quarantinedDomains.enabled", false); // [DEFAULT: true]
+// user_pref("extensions.quarantinedDomains.enabled", false); // [DEFAULT: true]
 // -------------------------------------
 // prefsCleaner: previously active items removed from arkenfox 115-117
 // user_pref("accessibility.force_disabled", "");
@@ -883,10 +883,10 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2); // Virtual Reality
 // -------------------------------------
 // Disable canvas capture stream
-user_pref("canvas.capturestream.enabled", false);
+// user_pref("canvas.capturestream.enabled", false);
 // -------------------------------------
 // Disable offscreen canvas
-user_pref("gfx.offscreencanvas.enabled", false);
+// user_pref("gfx.offscreencanvas.enabled", false);
 // -------------------------------------
 // Disable non-modern cipher suites
 // user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false);
@@ -968,7 +968,7 @@ user_pref("dom.push.serverURL", "");
 user_pref("dom.push.userAgentID", "");
 // -------------------------------------
 // Disable WebRTC (Web Real-Time Communication)
-// user_pref("media.peerconnection.enabled", false);
+user_pref("media.peerconnection.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T BOTHER: FINGERPRINTING
@@ -1046,9 +1046,9 @@ user_pref("browser.search.update", false);
 //
 // CONTENT BEHAVIOR
 //
-user_pref("accessibility.typeaheadfind", false); // enable "Find As You Type"
+// user_pref("accessibility.typeaheadfind", false); // enable "Find As You Type"
 // user_pref("clipboard.autocopy", false); // disable autocopy default [LINUX]
-user_pref("layout.spellcheckDefault", 1); // 0=none, 1-multi-line, 2=multi-line & single-line
+// user_pref("layout.spellcheckDefault", 0); // 0=none, 1-multi-line, 2=multi-line & single-line
 //
 // FIREFOX HOME CONTENT
 //
@@ -1087,7 +1087,7 @@ user_pref("browser.disableResetPrompt", true); // [HIDDEN PREF]
 // user_pref("security.mixed_content.block_active_content", ""); // [DEFAULT: true since at least FF60]
 user_pref("security.ssl.enable_ocsp_stapling", false); // [DEFAULT: true FF26+]
 // user_pref("webgl.disable-fail-if-major-performance-caveat", ""); // [DEFAULT: true FF86+]
-user_pref("webgl.enable-webgl2", false);
+// user_pref("webgl.enable-webgl2", false);
 // user_pref("webgl.min_capability_mode", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -1122,7 +1122,7 @@ user_pref("security.family_safety.mode", 0);
 // FF119
 //
 // Use en-US locale regardless of the system or region locale
-user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
+// user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
 // -------------------------------------
 // Disable skipping DoH when parental controls are enabled [FF70+]
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
@@ -1167,7 +1167,7 @@ user_pref("network.dns.max_high_priority_threads", 8);
 user_pref("network.ssl_tokens_cache_capacity", 10240);
 
 /** SPECULATIVE LOADING ***/
-// user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetch", true);
 // user_pref("network.prefetch-next", false);
 //user_pref("network.predictor.enabled", false);
 
@@ -1202,7 +1202,7 @@ user_pref("security.tls.enable_0rtt_data", false);
 
 /** DISK AVOIDANCE ***/
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
-// user_pref("browser.sessionstore.interval", 60000);
+user_pref("browser.sessionstore.interval", 60000);
 
 /** SHUTDOWN & SANITIZING ***/
 // user_pref("privacy.history.custom", true);
@@ -1211,9 +1211,9 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 // user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 // user_pref("browser.search.suggest.enabled", false);
-user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+// user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 // user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
-// user_pref("browser.formfill.enable", false);
+// // user_pref("browser.formfill.enable", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
@@ -1315,8 +1315,8 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 
 /** COOKIE BANNER HANDLING ***/
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+user_pref("cookiebanners.service.mode", 1);
+user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 
 /** FULLSCREEN NOTICE ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -1352,65 +1352,44 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
-// only sharpen scrolling
-user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
-user_pref("mousewheel.min_line_scroll_amount", 10); // 10-40; adjust this number to your liking; default=5
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
-user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); // default=.25
-user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // default=.4
-// recommended for 120hz+ displays
-// largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
 user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
 user_pref("general.smoothScroll", true); // DEFAULT
-user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 2.0);
-user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
-user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
-user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
 user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
 
-// ------------------------ Personal Config  ---------------------------------
-// user_pref("browser.bookmarks.addedImportButton", true);
-user_pref("browser.display.use_document_fonts", 1);
-user_pref("browser.fullscreen.autohide", true);
-user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
-user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
-user_pref("browser.search.suggest.enabled.private", true);
-user_pref("browser.theme.dark-private-windows", false);
-// user_pref("browser.toolbars.bookmarks.visibility", "newtab");
-user_pref("browser.translations.panelShown", false);
-user_pref("browser.urlbar.suggest.addons", false);
-user_pref("browser.urlbar.suggest.mdn", false);
-user_pref("browser.urlbar.suggest.pocket", false)
-user_pref("browser.urlbar.suggest.treading", false);
-user_pref("browser.urlbar.suggest.yelp", false);
-user_pref("browser.urlbar.trimHttps", true);
-user_pref("font.default.x-western", "sans-serif");
-// user_pref("font.name-list.monospace.zh-CN, "PT Mono");
-user_pref("font.name.monospace.x-western", "Monaco");
-user_pref("font.name.monospace.zh-CN", "Monaco");
-user_pref("font.name.monospace.zh-HK", "Monaco");
-user_pref("font.name.monospace.zh-TW", "Monaco");
-user_pref("font.name.sans-serif.x-western", "Lucida Grande");
-user_pref("font.name.sans-serif.zh-CN", "Hiragino Sans GB");
-user_pref("font.name.sans-serif.zh-HK", "Hiragino Sans");
-user_pref("font.name.sans-serif.zh-TW", "Hiragino Sans");
-user_pref("font.name.serif.x-western", "Georgia");
-user_pref("font.name.serif.zh-CN", "PT Serif");
-user_pref("font.name.serif.zh-HK", "PT Serif");
-user_pref("font.name.serif.zh-TW", "PT Serif");
+// ---------------------------------------------------------
 user_pref("general.autoScroll", false);
-user_pref("media.autoplay.default", 5);
-user_pref("signon.firefoxRelay.feature", "disabled");
+user_pref("browser.urlbar.trimHttps", true);
+user_pref("browser.bookmarks.addedImportButton", true);
+user_pref("browser.theme.dark-private-windows", false);
+user_pref("browser.fullscreen.autohide", true);
+user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
+user_pref("browser.toolbars.bookmarks.visibility", "newtab");
+user_pref("browser.display.use_document_fonts", 1);
+user_pref("font.default.x-western", "sans-serif");
+user_pref("font.name.sans-serif.x-western", "Lucida Grande");
+user_pref("font.name.serif.x-western", "Georgia");
+user_pref("font.name.monospace.x-western", "Monaco");
+user_pref("font.name.sans-serif.zh-CN", "Hiragino Sans");
+user_pref("font.name.serif.zh-CN", "PT Serif");
+user_pref("font.name.monospace.zh-CN", "Monaco");
+user_pref("font.name.sans-serif.zh-HK", "Hiragino Sans");
+user_pref("font.name.serif.zh-HK", "PT Serif");
+user_pref("font.name.monospace.zh-HK", "Monaco");
+user_pref("font.name.sans-serif.zh-TW", "Hiragino Sans");
+user_pref("font.name.serif.zh-TW", "PT Serif");
+user_pref("font.name.monospace.zh-TW", "Monaco");
+// user_pref("font.name-list.monospace.zh-CN, "PT Mono");
+user_pref("browser.search.suggest.enabled.private", true);
 user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
+user_pref("signon.firefoxRelay.feature", "disabled");
+user_pref("media.autoplay.default", 5);
 user_pref("widget.macos.native-context-menus", true);
+user_pref("browser.translations.panelShown", false);
 // ---------------------------------------------------------
 
 // ** Theme Default Options ****************************************************
@@ -1477,7 +1456,7 @@ user_pref("userChrome.rounding.square_tab",           false);
 // -- User Chrome --------------------------------------------------------------
 // user_pref("userChrome.theme.private",                       true);
 // user_pref("userChrome.theme.proton_color.dark_blue_accent", true);
-user_pref("userChrome.theme.monospace",                     true);
+// user_pref("userChrome.theme.monospace",                     true);
 // user_pref("userChrome.theme.transparent.frame",             true);
 // user_pref("userChrome.theme.transparent.menu",              true);
 // user_pref("userChrome.theme.transparent.panel",             true);
@@ -1493,7 +1472,7 @@ user_pref("userChrome.theme.monospace",                     true);
 // user_pref("userChrome.autohide.tab.blur",                   true);
 // user_pref("userChrome.autohide.tabbar",                     true);
 user_pref("userChrome.autohide.navbar",                     true);
-user_pref("userChrome.autohide.bookmarkbar",                true);
+// user_pref("userChrome.autohide.bookmarkbar",                true);
 // user_pref("userChrome.autohide.sidebar",                    true);
 // user_pref("userChrome.autohide.fill_urlbar",                true);
 // user_pref("userChrome.autohide.back_button",                true);
@@ -1508,7 +1487,7 @@ user_pref("userChrome.hidden.tabbar",                       true);
 // user_pref("userChrome.hidden.navbar",                       true);
 // user_pref("userChrome.hidden.private_indicator",            true);
 user_pref("userChrome.hidden.titlebar_container",           true);
-user_pref("userChrome.hidden.sidebar_header",               true);
+// user_pref("userChrome.hidden.sidebar_header",               true);
 // user_pref("userChrome.hidden.sidebar_header.vertical_tab_only", true);
 // user_pref("userChrome.hidden.urlbar_iconbox",               true);
 // user_pref("userChrome.hidden.urlbar_iconbox.label_only",    true);
@@ -1519,7 +1498,7 @@ user_pref("userChrome.hidden.sidebar_header",               true);
 // user_pref("userChrome.centered.tab",                        true);
 // user_pref("userChrome.centered.tab.label",                  true);
 // user_pref("userChrome.centered.urlbar",                     true);
-user_pref("userChrome.centered.bookmarkbar",                true);
+// user_pref("userChrome.centered.bookmarkbar",                true);
 
 // user_pref("userChrome.counter.tab",                         true);
 // user_pref("userChrome.counter.bookmark_menu",               true);
@@ -1724,3 +1703,62 @@ user_pref("browser.urlbar.suggest.calculator", true);
 // Firefox screenshot
 // https://blog.nightly.mozilla.org/2024/01/22/happy-new-year-these-weeks-in-firefox-issue-152/
 // user_pref("screenshots.browser.component.enabled", true);
+
+// ** Scrolling Settings *******************************************************
+// == Only Sharpen Scrolling ===================================================
+//         Pref                                             Value      Original
+/*
+user_pref("mousewheel.min_line_scroll_amount",                 10); //        5
+user_pref("general.smoothScroll.mouseWheel.durationMinMS",     80); //       50
+user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); //   "0.25"
+user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); //    "0.4"
+*/
+
+// == Smooth Scrolling ==========================================================
+// ** Scrolling Options ********************************************************
+// based on natural smooth scrolling v2 by aveyo
+// this preset will reset couple extra variables for consistency
+//         Pref                                              Value                 Original
+/*
+user_pref("apz.allow_zooming",                               true);            ///     true
+user_pref("apz.force_disable_desktop_zooming_scrollbars",   false);            ///    false
+user_pref("apz.paint_skipping.enabled",                      true);            ///     true
+user_pref("apz.windows.use_direct_manipulation",             true);            ///     true
+user_pref("dom.event.wheel-deltaMode-lines.always-disabled", true);            ///    false
+user_pref("general.smoothScroll.currentVelocityWeighting", "0.12");            ///   "0.25" <- 1. If scroll too slow, set to "0.15"
+user_pref("general.smoothScroll.durationToIntervalRatio",    1000);            ///      200
+user_pref("general.smoothScroll.lines.durationMaxMS",         100);            ///      150
+user_pref("general.smoothScroll.lines.durationMinMS",           0);            ///      150
+user_pref("general.smoothScroll.mouseWheel.durationMaxMS",    100);            ///      200
+user_pref("general.smoothScroll.mouseWheel.durationMinMS",      0);            ///       50
+user_pref("general.smoothScroll.mouseWheel.migrationPercent", 100);            ///      100
+user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);   ///      120
+user_pref("general.smoothScroll.msdPhysics.enabled",                  true);   ///    false
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 200);   ///     1250
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant",     200);   ///     1000
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS",         10);   ///       12
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio",  "1.20");   ///    "1.3"
+user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant",   1000);   ///     2000
+user_pref("general.smoothScroll.other.durationMaxMS",         100);            ///      150
+user_pref("general.smoothScroll.other.durationMinMS",           0);            ///      150
+user_pref("general.smoothScroll.pages.durationMaxMS",         100);            ///      150
+user_pref("general.smoothScroll.pages.durationMinMS",           0);            ///      150
+user_pref("general.smoothScroll.pixels.durationMaxMS",        100);            ///      150
+user_pref("general.smoothScroll.pixels.durationMinMS",          0);            ///      150
+user_pref("general.smoothScroll.scrollbars.durationMaxMS",    100);            ///      150
+user_pref("general.smoothScroll.scrollbars.durationMinMS",      0);            ///      150
+user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6");            ///    "0.4"
+user_pref("layers.async-pan-zoom.enabled",                   true);            ///     true
+user_pref("layout.css.scroll-behavior.spring-constant",   "250.0");            ///   "250.0"
+user_pref("mousewheel.acceleration.factor",                     3);            ///       10
+user_pref("mousewheel.acceleration.start",                     -1);            ///       -1
+user_pref("mousewheel.default.delta_multiplier_x",            100);            ///      100
+user_pref("mousewheel.default.delta_multiplier_y",            100);            ///      100
+user_pref("mousewheel.default.delta_multiplier_z",            100);            ///      100
+user_pref("mousewheel.min_line_scroll_amount",                  0);            ///        5
+user_pref("mousewheel.system_scroll_override.enabled",       true);            ///     true <- 2. If scroll too fast, set to false
+user_pref("mousewheel.system_scroll_override_on_root_content.enabled", false); ///     true
+user_pref("mousewheel.transaction.timeout",                  1500);            ///     1500
+user_pref("toolkit.scrollbox.horizontalScrollDistance",         4);            ///        5
+user_pref("toolkit.scrollbox.verticalScrollDistance",           3);            ///        3
+*/
