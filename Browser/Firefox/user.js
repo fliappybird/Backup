@@ -40,8 +40,8 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); //
 // -------------------------------------
 // Clear default topsites
 user_pref("browser.newtabpage.activity-stream.default.sites", "");
-// user_pref("browser.topsites.contile.enabled", false);
-// user_pref("browser.topsites.useRemoteSetting", false);
+user_pref("browser.topsites.contile.enabled", false);
+user_pref("browser.topsites.useRemoteSetting", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // GEOLOCATION
@@ -344,7 +344,7 @@ user_pref("browser.search.separatePrivateDefault", false); // [FF70+]
 user_pref("browser.search.separatePrivateDefault.ui.enabled", false); // [FF71+]
 // -------------------------------------
 // Disable merino
-user_pref("browser.urlbar.merino.enabled", true);
+// user_pref("browser.urlbar.merino.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // PASSWORDS
@@ -774,8 +774,8 @@ user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
 // user_pref("security.sandbox.gpu.level", 1);
 // -------------------------------------
 // Enable Site Isolation
-// user_pref("fission.autostart", true);
-// user_pref("gfx.webrender.all", true);
+user_pref("fission.autostart", true);
+user_pref("gfx.webrender.all", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // OPTIONAL HARDENING
@@ -838,7 +838,7 @@ user_pref("services.blocklist.gfx.collection", "");
 user_pref("services.blocklist.gfx.signer", "");
 // -------------------------------------
 // Enforce no referer spoofing
-user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
+// user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
 // -------------------------------------
 // Enforce a security delay on some confirmation dialogs such as install, open/save
 user_pref("security.dialog_enable_delay", 1000); // [DEFAULT: 1000]
@@ -968,7 +968,7 @@ user_pref("dom.push.serverURL", "");
 user_pref("dom.push.userAgentID", "");
 // -------------------------------------
 // Disable WebRTC (Web Real-Time Communication)
-// user_pref("media.peerconnection.enabled", false);
+user_pref("media.peerconnection.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T BOTHER: FINGERPRINTING
@@ -1074,7 +1074,7 @@ user_pref("browser.tabs.firefox-view", false); // Firefox-view
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon [FF69+]
-user_pref("browser.urlbar.showSearchTerms.enabled", false);
+user_pref("browser.urlbar.showSearchTerms.enabled", true);
 user_pref("browser.sessionstore.interval", 30000); // minimum interval between session save operations
 user_pref("network.manage-offline-status", false);
 user_pref("browser.preferences.moreFromMozilla", false);
