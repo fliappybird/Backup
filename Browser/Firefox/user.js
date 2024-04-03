@@ -662,7 +662,7 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Enable RFP
-user_pref("privacy.resistFingerprinting", true); // [FF41+]
+// user_pref("privacy.resistFingerprinting", true); // [FF41+]
 // user_pref("privacy.resistFingerprinting.pbmode", true); // [FF114+]
 // -------------------------------------
 // Set new window size rounding max values [FF55+]
@@ -883,10 +883,10 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2); // Virtual Reality
 // -------------------------------------
 // Disable canvas capture stream
-// user_pref("canvas.capturestream.enabled", false);
+user_pref("canvas.capturestream.enabled", false);
 // -------------------------------------
 // Disable offscreen canvas
-// user_pref("gfx.offscreencanvas.enabled", false);
+user_pref("gfx.offscreencanvas.enabled", false);
 // -------------------------------------
 // Disable non-modern cipher suites
 // user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false);
@@ -1087,7 +1087,7 @@ user_pref("browser.disableResetPrompt", true); // [HIDDEN PREF]
 // user_pref("security.mixed_content.block_active_content", ""); // [DEFAULT: true since at least FF60]
 user_pref("security.ssl.enable_ocsp_stapling", false); // [DEFAULT: true FF26+]
 // user_pref("webgl.disable-fail-if-major-performance-caveat", ""); // [DEFAULT: true FF86+]
-// user_pref("webgl.enable-webgl2", false);
+user_pref("webgl.enable-webgl2", false);
 // user_pref("webgl.min_capability_mode", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
