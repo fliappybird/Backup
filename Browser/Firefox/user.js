@@ -1315,8 +1315,8 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 
 /** COOKIE BANNER HANDLING ***/
-user_pref("cookiebanners.service.mode", 1);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1);
+user_pref("cookiebanners.service.mode", 2);
+user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 
 /** FULLSCREEN NOTICE ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -1384,7 +1384,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
 user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", false);
 user_pref("browser.search.suggest.enabled.private", true);
 user_pref("browser.theme.dark-private-windows", false);
-user_pref("browser.toolbars.bookmarks.visibility", "newtab");
+// user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 user_pref("browser.translations.panelShown", false);
 user_pref("browser.urlbar.suggest.addons", false);
 user_pref("browser.urlbar.suggest.mdn", false);
@@ -1477,7 +1477,7 @@ user_pref("userChrome.rounding.square_tab",           false);
 // -- User Chrome --------------------------------------------------------------
 // user_pref("userChrome.theme.private",                       true);
 // user_pref("userChrome.theme.proton_color.dark_blue_accent", true);
-// user_pref("userChrome.theme.monospace",                     true);
+user_pref("userChrome.theme.monospace",                     true);
 // user_pref("userChrome.theme.transparent.frame",             true);
 // user_pref("userChrome.theme.transparent.menu",              true);
 // user_pref("userChrome.theme.transparent.panel",             true);
@@ -1492,8 +1492,8 @@ user_pref("userChrome.rounding.square_tab",           false);
 // user_pref("userChrome.autohide.tab.opacity",                true);
 // user_pref("userChrome.autohide.tab.blur",                   true);
 // user_pref("userChrome.autohide.tabbar",                     true);
-// user_pref("userChrome.autohide.navbar",                     true);
-// user_pref("userChrome.autohide.bookmarkbar",                true);
+user_pref("userChrome.autohide.navbar",                     true);
+user_pref("userChrome.autohide.bookmarkbar",                true);
 // user_pref("userChrome.autohide.sidebar",                    true);
 // user_pref("userChrome.autohide.fill_urlbar",                true);
 // user_pref("userChrome.autohide.back_button",                true);
@@ -1508,7 +1508,7 @@ user_pref("userChrome.hidden.tabbar",                       true);
 // user_pref("userChrome.hidden.navbar",                       true);
 // user_pref("userChrome.hidden.private_indicator",            true);
 user_pref("userChrome.hidden.titlebar_container",           true);
-// user_pref("userChrome.hidden.sidebar_header",               true);
+user_pref("userChrome.hidden.sidebar_header",               true);
 // user_pref("userChrome.hidden.sidebar_header.vertical_tab_only", true);
 // user_pref("userChrome.hidden.urlbar_iconbox",               true);
 // user_pref("userChrome.hidden.urlbar_iconbox.label_only",    true);
@@ -1519,7 +1519,7 @@ user_pref("userChrome.hidden.titlebar_container",           true);
 // user_pref("userChrome.centered.tab",                        true);
 // user_pref("userChrome.centered.tab.label",                  true);
 // user_pref("userChrome.centered.urlbar",                     true);
-// user_pref("userChrome.centered.bookmarkbar",                true);
+user_pref("userChrome.centered.bookmarkbar",                true);
 
 // user_pref("userChrome.counter.tab",                         true);
 // user_pref("userChrome.counter.bookmark_menu",               true);
