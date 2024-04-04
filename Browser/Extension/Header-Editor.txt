@@ -656,6 +656,18 @@
 			"isFunction": false,
 			"action": "redirect",
 			"to": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/$1"
+		},
+		{
+			"enable": true,
+			"name": "DuckDuckGO Bangs",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "^https://duckduckgo.com/l/\\?uddg=(.*)&rut=(.*)",
+			"exclude": "",
+			"group": "Outgoing Link Redirect",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "$1"
 		}
 	],
 	"sendHeader": [
@@ -1470,13 +1482,13 @@
 			"name": "View FDF in Browser",
 			"ruleType": "modifyReceiveHeader",
 			"matchType": "regexp",
-			"pattern": "^(.*).pdf",
+			"pattern": "^https?://(.*)\\.pdf",
 			"exclude": "",
 			"group": "Outgoing Link Redirect",
 			"isFunction": false,
 			"action": {
-				"name": "content-disposition",
-				"value": "null"
+				"name": "content-disposition:attachment",
+				"value": "Content-Disposition: inline"
 			}
 		}
 	],

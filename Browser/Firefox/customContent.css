@@ -1,0 +1,23 @@
+/* Sets background image and autoscale image to browser window. */
+@-moz-document url("about:newtab"), url("about:home"), url(about:privatebrowsing) {
+	
+	body{
+		background-image: url("https://api.dujin.org/bing/1920.php") !important;
+		background-size: cover !important;
+		background-repeat: no-repeat !important;
+		background-attachment: fixed !important;
+		background-position-x: center !important;
+		background-position-y: bottom !important;
+	}
+	
+	 Changes pinned shortcuts background and text colors 
+	.top-site-outer .tile {
+		background-color: #2f3542 !important;
+	}
+	
+	
+	 When hovering over a pinned shortcut 
+	.top-site-outer:hover {
+		background-color: #57606f !important;
+	}
+}
