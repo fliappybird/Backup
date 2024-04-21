@@ -5,12 +5,11 @@ AdGuard Browser Assistant|fbohpolgemkbfphodcfgnpjcmedcjhpn
 Vimium C - All by Keyboard|hfjbmagddngcpeloejdejnfgbamkjaeg
 SearchJumper|hgepmblbgodbilmfdjkalkgofdcipkhh
 YouTube™ dual subtitles|hkbdddpiemdeibjoknnofflfgbgnebcm
-Distill Web Monitor|inlikjemeeknofckkjolnjbpehgadgge
 Violentmonkey|jinjaccalgkegednnccohejagnlnfdag
 Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml
-Vimium|dbepggeogbaibhgnhhndojpepiihcmeb
 Session Buddy|edacconmaakjimmfgnblocblbcdcpbko
-Better History|egehpkpgpgooebopjihjmnpejnjafefi
-SQLite Editor and Compiler|gikfdibniklcibhonhhdbnfhkmapibid
 ClearURLs|lckanjgmijmafbedllaakclkaicjfmnk
 Search all Tabs|ndfnfhnlgoocpbbjjjfmiojdfcgcfomn
+OpenDyslexic for Chrome|cdnapgfjopgaggbmfgbiinmmbdcglnam
+uBlacklist|pncfbmialoiaghdehhbnbhkkgmjanfhe
+遇见单词 MetWord|oanedhppmefhpgbbchicmlhkjeadijfp

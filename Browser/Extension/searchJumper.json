@@ -1,11 +1,11 @@
 {
-    "lastModified": 1711953608713,
+    "lastModified": 1713619123267,
     "prefConfig": {
         "altKey": false,
         "altToHighlight": true,
         "alwaysShow": false,
         "alwaysShowSiteLists": false,
-        "autoClose": false,
+        "autoClose": true,
         "autoDelay": 1000,
         "autoHide": false,
         "autoHideAll": false,
@@ -15,7 +15,7 @@
         "callBarCtrl": false,
         "callBarMeta": false,
         "callBarShift": false,
-        "configPage": "chrome-extension://hgepmblbgodbilmfdjkalkgofdcipkhh/config/index.html",
+        "configPage": "https://search.hoothin.com/config/",
         "ctrlKey": false,
         "currentTypeFirst": true,
         "customSize": 100,
@@ -70,7 +70,7 @@
         "inPageRule": {},
         "inPageWordsStyles": [],
         "initShow": false,
-        "lang": "zh-CN",
+        "lang": "0",
         "leftMouse": false,
         "limitInPageLen": 1,
         "limitPopupLen": 1,
@@ -127,18 +127,15 @@
             "icon": "image",
             "sites": [
                 {
-                    "icon": "http://www.google.cm/favicon.ico",
-                    "match": "www\\.google\\..*tbm=isch",
                     "name": "Google image",
-                    "url": "https://www.google.com/search?q=%s&tbm=isch"
+                    "url": "https://www.google.com/search?q=%s&tbm=isch",
+                    "icon": "https://www.google.com/favicon.ico",
+                    "match": "www\\.google\\..*tbm=isch"
                 },
                 {
                     "name": "Bing image",
-                    "url": "https://www.bing.com/images/search?q=%s"
-                },
-                {
-                    "name": "Pixiv",
-                    "url": "http://www.pixiv.net/search.php?word=%s"
+                    "url": "https://www.bing.com/images/search?q=%s",
+                    "icon": "https://www.bing.com/favicon.ico"
                 },
                 {
                     "name": "Flickr",
@@ -188,10 +185,6 @@
                     "url": "https://www.youtube.com/results?search_query=%s"
                 },
                 {
-                    "name": "Niconico",
-                    "url": "http://www.nicovideo.jp/search/%s"
-                },
-                {
                     "name": "豆瓣",
                     "url": "https://www.douban.com/search?source=suggest&q=%s.replace(/\\./g,\" \")"
                 },
@@ -201,9 +194,9 @@
                     "url": "https://www.yhdmz.org/list/?ex=1&kw=%s"
                 },
                 {
-                    "icon": "https://zxzj.vip/statics/img/favicon.ico",
                     "name": "在线之家",
-                    "url": "https://www.zxzj.org/vodsearch/-------------.html?wd=%s"
+                    "url": "https://www.zxzja.com/vodsearch/-------------.html?wd=%s",
+                    "icon": "https://zxzja.com/statics/img/favicon.ico"
                 },
                 {
                     "name": "小苹果影院",
@@ -256,19 +249,21 @@
             "icon": "language",
             "sites": [
                 {
-                    "icon": "https://www.deepl.com/img/favicon/favicon_96.png",
                     "name": "DeepL",
-                    "openInNewTab": 4,
-                    "url": "https://www.deepl.com/translator#*/en/%s"
+                    "url": "https://www.deepl.com/translator#en/zh/%s",
+                    "icon": "https://www.deepl.com/img/favicon/favicon_96.png",
+                    "openInNewTab": 4
                 },
                 {
-                    "match": "translate\\.google\\.com.*\\btext=",
                     "name": "Google translate",
-                    "url": "https://translate.google.com/?text=%s"
+                    "url": "https://translate.google.com/?text=%s",
+                    "icon": "https://translate.google.com/favicon.ico",
+                    "match": "translate\\.google\\.com.*\\btext="
                 },
                 {
                     "name": "Bing translate",
-                    "url": "http://www.bing.com/dict/search?q=%s"
+                    "url": "http://www.bing.com/dict/search?q=%s",
+                    "icon": "https://www.bing.com/favicon.ico"
                 },
                 {
                     "name": "Forvo",
@@ -324,9 +319,10 @@
             "icon": "book-open-reader",
             "sites": [
                 {
-                    "description": "The largest and most-read reference work in history.#wiki",
                     "name": "Wikipedia",
-                    "url": "http://en.wikipedia.org/wiki/%s"
+                    "url": "http://en.wikipedia.org/wiki/%s",
+                    "icon": "https://www.wikipedia.org/static/favicon/wikipedia.ico",
+                    "description": "The largest and most-read reference work in history.#wiki"
                 },
                 {
                     "name": "Quora",
@@ -619,24 +615,25 @@
                     "icon": "https://reddit.com/favicon.ico"
                 },
                 {
-                    "icon": "https://cdn.search.brave.com/serp/v1/static/brand/16c26cd189da3f0f7ba4e55a584ddde6a7853c9cc340ff9f381afc6cb18e9a1e-favicon-32x32.png",
-                    "name": "Brave",
-                    "url": "https://search.brave.com/search?safesearch=off&country=all&q=%s"
-                },
-                {
                     "hideNotMatch": true,
                     "match": "https://www\\.google\\..*/search",
                     "name": "Google advanced",
                     "url": "https://www.google.com/search?q=%s%input{Filetype, filetype:doc/ filetype:ppt/ filetype:xls/ filetype:pdf}%input{Limit lang/zh-CN/zh-TW/zh-ALL/JA/EN,&lr=lang_zh-CN/&lr=lang_zh-TW/&lr=lang_zh-CN|lang_zh-TW/&lr=lang_ja/&lr=lang_en}%input{Limit date/Last hour/Last day/Last week/Last month/Last year,&as_qdr=h1/&as_qdr=d1/&as_qdr=w1/&as_qdr=m1/&as_qdr=y1}&ie=utf-8&oe=utf-8"
                 },
                 {
-                    "name": "DuckDuckGo",
-                    "url": "https://duckduckgo.com/?kl=wt-wt&kp=-2&kaf=-1&kj=e3e3e3&k7=e3e3e3&kae=c&ka=b&k1=-1&q=%s"
-                },
-                {
-                    "name": "Gv2ex",
+                    "name": "v2ex",
                     "url": "https://www.google.com/search?hl=en&safe=off&gl=us&pws=0&filter=0&q=%s+site:www.v2ex.com/t",
                     "icon": "https://www.v2ex.com/static/favicon.ico"
+                },
+                {
+                    "name": "Ghihu",
+                    "url": "https://www.google.com/search?hl=en&safe=off&gl=us&pws=0&filter=0&q=%s+site:zhihu.com",
+                    "icon": "https://static.zhihu.com/heifetz/favicon.ico"
+                },
+                {
+                    "name": "Bilibili",
+                    "url": "https://search.bilibili.com/all?keyword=%s",
+                    "icon": "https://www.bilibili.com/favicon.ico?v=1"
                 }
             ],
             "type": "Search"
@@ -648,7 +645,8 @@
             "sites": [
                 {
                     "name": "Google ",
-                    "url": "[\"Google\"]"
+                    "url": "[\"Google\"]",
+                    "icon": "https://www.google.com/favicon.ico"
                 },
                 {
                     "name": "DDG Instant",
@@ -659,44 +657,31 @@
                     "url": "[\"DeepL\"]"
                 },
                 {
-                    "name": "📄  Copy",
-                    "url": "c:%sr"
-                },
-                {
-                    "name": "🔆 Find in page",
+                    "name": "Find in",
                     "url": "find:%sr"
                 },
                 {
-                    "kwFilter": "\\w.*[\\.。].*\\w|1[a-zA-Z0-9]{22,}",
-                    "name": "🔗  Open text link",
-                    "nobatch": true,
-                    "url": "%sr.replace(/。/g,\".\").replace(/[^ \\w\\-_\\.~!\\*'\\(\\);:@&=\\+\\$,\\/\\?#\\[\\]%]/g,\"\").replace(/ /g,\"\").replace(/^/,\"http://\").replace(/^http:\\/\\/(https?:)/,\"$1\")"
+                    "name": "!IMDB",
+                    "url": "showTips:https://www.imdb.com/find/?q=%s&exact=true.then{.find-title-result .ipc-metadata-list-summary-item__t}\n<h2 style=\"margin: 5px;\">\n{.hero__primary-text}\n<span style=\"position: absolute; right: 10px; color: orange;\">{.ipc-btn__text>div>div>div}</span>\n</h2>\n<div style=\"display: flex; font-size: 20px; width: 500px;\">\n<img style=\"height: fit-content;\" src=\"{.ipc-image|src}\"/>\n<div style=\"font-size: 16px; line-height: 1.5; text-align: left; margin: 5px;\">\n<div>{a.ipc-chip|<span style=\"white-space: nowrap;margin: 5px; font-size: 16px; border-radius: 5px; padding: 2px; box-shadow: 0px 0px 10px 0px #000;\">()</span>}</div>\n<div>Year: {h1+ul>li>.ipc-link}</div>\n<div>Director: {section>div>div>.title-pc-list>li:nth-child(1) li}</div>\n<div>Writer: {section>div>div>.title-pc-list>li:nth-child(2) li}</div>\n<div>Stars: {section>div>div>.title-pc-list>li:nth-child(3) li|()}</div>\n<div style=\"font-size: 16px; margin-top: 10px; border-top: 1px solid;\">{section>p>span}</div>\n</div>\n</div>",
+                    "icon": "https://ld.vern.cc/favicon.ico"
                 },
                 {
-                    "icon": "https://hoothin.com/qrcode/favicon.svg",
-                    "name": "Words to qrcode",
-                    "url": "https://hoothin.com/qrcode#%s"
+                    "name": "!Douban",
+                    "url": "showTips:https://www.douban.com/search?cat=1002&q=%s \n<p style=\"margin: 5px;\">\n{h3>a}\n<span style=\"position: absolute; right: 10px; color: orange;\">{.rating_nums}</span>\n</p>\n<div style=\"display: flex; font-size: 20px; width: 500px;\">\n<img src=\"https://images.weserv.nl/?url={.pic>a>img|src}\"/>\n<div>\n<div>{.subject-cast}</div>\n<div style=\"font-size: 16px; margin-top: 10px; border-top: 1px solid;\">{.content>p}</div>\n</div>\n</div>",
+                    "icon": "https://www.douban.com/favicon.ico"
                 },
                 {
-                    "name": "IMDb rating",
-                    "url": "showTips:https://www.imdb.com/find/?q=%s&exact=true.then{.find-title-result .ipc-metadata-list-summary-item__t}\n<h2 style=\"margin: 5px;\">\n{.hero__primary-text}\n<span style=\"position: absolute; right: 10px; color: orange;\">{.ipc-btn__text>div>div>div}</span>\n</h2>\n<div style=\"display: flex; font-size: 20px; width: 500px;\">\n<img style=\"height: fit-content;\" src=\"{.ipc-image|src}\"/>\n<div style=\"font-size: 16px; line-height: 1.5; text-align: left; margin: 5px;\">\n<div>{a.ipc-chip|<span style=\"white-space: nowrap;margin: 5px; font-size: 16px; border-radius: 5px; padding: 2px; box-shadow: 0px 0px 10px 0px #000;\">()</span>}</div>\n<div>Year: {h1+ul>li>.ipc-link}</div>\n<div>Director: {section>div>div>.title-pc-list>li:nth-child(1) li}</div>\n<div>Writer: {section>div>div>.title-pc-list>li:nth-child(2) li}</div>\n<div>Stars: {section>div>div>.title-pc-list>li:nth-child(3) li|()}</div>\n<div style=\"font-size: 16px; margin-top: 10px; border-top: 1px solid;\">{section>p>span}</div>\n</div>\n</div>"
-                },
-                {
-                    "icon": "https://www.douban.com/favicon.ico",
-                    "name": "Douban rating",
-                    "url": "showTips:https://www.douban.com/search?cat=1002&q=%s \n<p style=\"margin: 5px;\">\n{h3>a}\n<span style=\"position: absolute; right: 10px; color: orange;\">{.rating_nums}</span>\n</p>\n<div style=\"display: flex; font-size: 20px; width: 500px;\">\n<img src=\"https://images.weserv.nl/?url={.pic>a>img|src}\"/>\n<div>\n<div>{.subject-cast}</div>\n<div style=\"font-size: 16px; margin-top: 10px; border-top: 1px solid;\">{.content>p}</div>\n</div>\n</div>"
-                },
-                {
-                    "name": "维基百科预览",
+                    "name": "!维基百科",
                     "url": "showTips:https://zh.wikipedia.org/wiki/%s\n<div style=\"max-height: 500px; margin: 5px; overflow: hidden; font-size: large; text-align: left; font-weight: initial; line-height: initial;\">\n<img style=\"max-width: 250px; margin: 0 10px;\" align=\"left\" src=\"{.infobox img,figure>a>img|src}\"/>\n{.mw-parser-output>p}\n</div>"
                 },
                 {
-                    "name": "Preview wikipedia",
+                    "name": "!wikipedia",
                     "url": "showTips:https://en.wikipedia.org/wiki/%s\n<div style=\"max-height: 500px; margin: 5px; overflow: hidden; font-size: large; text-align: left; font-weight: initial; line-height: initial;\">\n<img style=\"max-width: 250px; margin: 0 10px;\" align=\"left\" src=\"{.infobox .image>img|src}\"/>\n{.mw-parser-output>p}\n</div>"
                 },
                 {
-                    "name": "Google Search in site",
-                    "url": "https://www.google.com/search?hl=en&safe=off&gl=us&pws=0&filter=0&q=%s%20site%3A%h"
+                    "name": "Google in site",
+                    "url": "https://www.google.com/search?hl=en&safe=off&gl=us&pws=0&filter=0&q=%s%20site%3A%h",
+                    "icon": "https://www.google.com/favicon.ico"
                 }
             ],
             "type": "Search in page"
@@ -817,10 +802,6 @@
                     "url": "https://3d.iqdb.org/?url=%t"
                 },
                 {
-                    "name": "Baidu Search by image",
-                    "url": "https://graph.baidu.com/details?isfromtusoupc=1&tn=pc&carousel=0&promotion_name=pc_image_shituindex&extUiData%5bisLogoShow%5d=1&image=%t"
-                },
-                {
                     "name": "Bing Search by image",
                     "url": "https://www.bing.com/images/search?view=detailv2&iss=sbi&form=SBIVSP&sbisrc=UrlPaste&q=imgurl:%t"
                 },
@@ -836,10 +817,6 @@
                     "icon": "https://trace.moe/favicon.png",
                     "name": "WhatAnime",
                     "url": "https://trace.moe/?url=%t"
-                },
-                {
-                    "name": "360 Search by image",
-                    "url": "http://st.so.com/stu?imgurl=%t"
                 },
                 {
                     "name": "ZXing QRCode",
@@ -887,8 +864,9 @@
                     "url": "http://rd.springer.com/search?query=%s"
                 },
                 {
-                    "name": "Wikipedia",
-                    "url": "https://en.wikipedia.org/w/index.php?search=%s&button=&title=Special%3ASearch"
+                    "name": "Wikipedia2",
+                    "url": "https://en.wikipedia.org/w/index.php?search=%s&button=&title=Special%3ASearch",
+                    "icon": "https://www.wikipedia.org/static/favicon/wikipedia.ico"
                 },
                 {
                     "name": "Internet Archive",
@@ -1070,7 +1048,7 @@
                 },
                 {
                     "name": "Google Search in site",
-                    "url": "[\"Google Search in site\"]"
+                    "url": "[\"Google in site\"]"
                 },
                 {
                     "name": "Metacritic rating",
@@ -1266,6 +1244,38 @@
                     "icon": "https://cdn-static.ecosia.org/static/icons/favicon.ico",
                     "name": "Ecosia",
                     "url": "https://www.ecosia.org/search?method=index&q=%s"
+                },
+                {
+                    "icon": "https://cdn.search.brave.com/serp/v1/static/brand/16c26cd189da3f0f7ba4e55a584ddde6a7853c9cc340ff9f381afc6cb18e9a1e-favicon-32x32.png",
+                    "name": "Brave",
+                    "url": "https://search.brave.com/search?safesearch=off&country=all&q=%s"
+                },
+                {
+                    "name": "DuckDuckGo",
+                    "url": "https://duckduckgo.com/?kl=wt-wt&kp=-2&kaf=-1&kj=e3e3e3&k7=e3e3e3&kae=c&ka=b&k1=-1&q=%s"
+                },
+                {
+                    "name": "📄  Copy",
+                    "url": "c:%sr"
+                },
+                {
+                    "kwFilter": "\\w.*[\\.。].*\\w|1[a-zA-Z0-9]{22,}",
+                    "name": "🔗  Open text link",
+                    "nobatch": true,
+                    "url": "%sr.replace(/。/g,\".\").replace(/[^ \\w\\-_\\.~!\\*'\\(\\);:@&=\\+\\$,\\/\\?#\\[\\]%]/g,\"\").replace(/ /g,\"\").replace(/^/,\"http://\").replace(/^http:\\/\\/(https?:)/,\"$1\")"
+                },
+                {
+                    "name": "Pixiv",
+                    "url": "http://www.pixiv.net/search.php?word=%s"
+                },
+                {
+                    "name": "Niconico",
+                    "url": "http://www.nicovideo.jp/search/%s"
+                },
+                {
+                    "icon": "https://hoothin.com/qrcode/favicon.svg",
+                    "name": "Words to qrcode",
+                    "url": "https://hoothin.com/qrcode#%s"
                 }
             ]
         }

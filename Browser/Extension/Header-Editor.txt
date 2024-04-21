@@ -281,7 +281,7 @@
 			"name": "WikiPedia to WikiWand",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "^https://(.*?)\\.wikipedia\\.org\\/(.*?)\\/(.*?)",
+			"pattern": "^https?://(en|zh)\\.wikipedia.org/(.*)/(.*)",
 			"exclude": "",
 			"isFunction": false,
 			"action": "redirect",
@@ -314,11 +314,11 @@
 			"_exclude": {}
 		},
 		{
-			"enable": true,
+			"enable": false,
 			"name": "Chrome WebStore to Crxsoso",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "^https://chrome\\.google\\.com/webstore/(.*)",
+			"pattern": "^https://chrome\\.google\\.com/webstore/(.+)",
 			"exclude": "",
 			"isFunction": false,
 			"action": "redirect",
@@ -495,7 +495,7 @@
 			"isFunction": true,
 			"action": "redirect",
 			"to": "https://gcore.jsdelivr.net/gh/$1$3",
-			"group": "Site Redirect",
+			"group": "重定向",
 			"code": "if (detail.type === \"main_frame\") {\n    return val.replace(\"raw.githubusercontent.com\", \"gcore.jsdelivr.net/gh\").replace(\"/master\",\"@master\").replace(\"/main\",\"@main\").replace(\"/dev\",\"@dev\").replace(\"/develop\",\"@develop\").replace(\"/public\",\"@public\");\n}"
 		},
 		{
@@ -562,11 +562,11 @@
 			"group": "Outgoing Link Redirect"
 		},
 		{
-			"enable": true,
+			"enable": false,
 			"name": "Chrome WebStore Old to Crxsoso",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "^https://chromewebstore\\.google\\.com/detail/(.*)",
+			"pattern": "^https://chromewebstore\\.google\\.com/detail/(.+)",
 			"exclude": "",
 			"isFunction": false,
 			"action": "redirect",
@@ -590,12 +590,12 @@
 			"name": "Hacker News Redirect",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "^https://news\\.ycombinator\\.com/item\\?id\\=(.*)",
+			"pattern": "^https://news\\.ycombinator\\.com/(.*)",
 			"exclude": "",
 			"group": "Site Redirect",
 			"isFunction": false,
 			"action": "redirect",
-			"to": "https://news.workers.tools/item?id=$1"
+			"to": "https://news.workers.tools/$1"
 		},
 		{
 			"enable": true,
@@ -614,19 +614,19 @@
 			"name": "Imgur Redirect",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "^https://(i.)?imgur.com/(.*)",
+			"pattern": "^https://(i.)?imgur.com/(.+)",
 			"exclude": "",
 			"group": "Site Redirect",
 			"isFunction": false,
 			"action": "redirect",
-			"to": "https://farside.link/rimgo/$2"
+			"to": "https://rimgo.privacyredirect.com/$2"
 		},
 		{
 			"enable": true,
 			"name": "Reddit Redirect",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "^https://(.*)\\.reddit\\.com/(.*)",
+			"pattern": "^https://(.*)\\.reddit\\.com/(.+)",
 			"exclude": "",
 			"group": "Site Redirect",
 			"isFunction": false,
@@ -638,7 +638,7 @@
 			"name": "Firefox Addon",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "^https://addons.mozilla.org/(.*)/firefox/addon/(.*)",
+			"pattern": "^https://addons.mozilla.org/(.*)/firefox/addon/(.+)",
 			"exclude": "",
 			"group": "Site Redirect",
 			"isFunction": false,
@@ -668,6 +668,67 @@
 			"isFunction": false,
 			"action": "redirect",
 			"to": "$1"
+		},
+		{
+			"enable": true,
+			"name": "IMDB Redirect",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "^https?://www.imdb.com/(.*)",
+			"exclude": "^https://www.imdb.com/chart/(.*)",
+			"group": "Site Redirect",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://ld.vern.cc/$1",
+			"_exclude": {}
+		},
+		{
+			"enable": true,
+			"name": "Reuters",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "^https://www.reuters.com/(.+)",
+			"exclude": "",
+			"group": "Site Redirect",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://neuters.de/$1"
+		},
+		{
+			"enable": true,
+			"name": "WeChat Redirect",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "^https?://mp\\.weixinbridge\\.com/mp/wapredirect\\?url=([^&]*)&action=(.*)",
+			"exclude": "",
+			"group": "Outgoing Link Redirect",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "$1 "
+		},
+		{
+			"enable": true,
+			"name": "V2ex",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "^https://links.pipecraft.net/(.+)",
+			"exclude": "",
+			"group": "重定向",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "$1"
+		},
+		{
+			"enable": true,
+			"name": "Medium",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "https://(.*).medium.com/(.+)",
+			"exclude": "",
+			"group": "Site Redirect",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://libmedium.batsense.net/$2"
 		}
 	],
 	"sendHeader": [

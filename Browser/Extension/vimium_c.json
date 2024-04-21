@@ -1,12 +1,13 @@
 {
 	"name": "Vimium C",
-	"@time": "4/3/2024, 10:54:30 AM",
-	"time": 1712112870369,
+	"@time": "4/21/2024, 5:52:02 PM",
+	"time": 1713693122109,
 	"environment": {
-		"extension": "1.99.997",
+		"extension": "1.99.994",
 		"platform": "mac",
-		"firefox": 124
+		"chromium": 124
 	},
+	"allBrowserUrls": true,
 	"clipSub": [
 		"p=^git@([^/:]+):=https://$1/=",
 		"s@^https://(?:www\\.)?google\\.com(?:\\.[^/]+)?/url\\?(?:[^&#]+&)*?url=([^&#]+)@$1@,matched,decodecomp",

@@ -105,6 +105,7 @@ host-suffix, itobsnssdk.com, direct
 host-suffix, jesor.me, direct
 host-suffix, k3k9.com, direct
 host-suffix, kaix.in, direct
+host-suffix, kaola.com, direct
 host-suffix, kuaikan-cdn4.com, direct
 host-suffix, lencr.org, direct
 host-suffix, liangzipic.com, direct
@@ -131,6 +132,7 @@ host-suffix, ruanyifeng.com, direct
 host-suffix, sentry.io, direct
 host-suffix, sharepoint.com, direct
 host-suffix, sjs474.com, direct
+host-suffix, sieyuan.com, direct
 host-suffix, socialgirls.im, direct
 host-suffix, szrtcpa.com, direct
 host-suffix, terobox.com, direct
