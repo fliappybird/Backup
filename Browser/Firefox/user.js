@@ -1394,23 +1394,12 @@ user_pref("browser.urlbar.suggest.yelp", false);
 user_pref("browser.urlbar.trimHttps", true);
 user_pref("font.default.x-western", "sans-serif");
 // user_pref("font.name-list.monospace.zh-CN, "PT Mono");
-user_pref("font.name.monospace.x-western", "Monaco");
-user_pref("font.name.monospace.zh-CN", "Monaco");
-user_pref("font.name.monospace.zh-HK", "Monaco");
-user_pref("font.name.monospace.zh-TW", "Monaco");
-user_pref("font.name.sans-serif.x-western", "Lucida Grande");
-user_pref("font.name.sans-serif.zh-CN", "Hiragino Sans GB");
-user_pref("font.name.sans-serif.zh-HK", "Hiragino Sans");
-user_pref("font.name.sans-serif.zh-TW", "Hiragino Sans");
-user_pref("font.name.serif.x-western", "Georgia");
-user_pref("font.name.serif.zh-CN", "PT Serif");
-user_pref("font.name.serif.zh-HK", "PT Serif");
-user_pref("font.name.serif.zh-TW", "PT Serif");
+
 user_pref("general.autoScroll", false);
 user_pref("media.autoplay.default", 5);
 user_pref("signon.firefoxRelay.feature", "disabled");
 user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
-// user_pref("widget.macos.native-context-menus", true);
+user_pref("widget.macos.native-context-menus", true);
 // ---------------------------------------------------------
 
 // ** Theme Default Options ****************************************************
@@ -1616,7 +1605,7 @@ user_pref("userChrome.centered.bookmarkbar",                true);
 // -- User Content -------------------------------------------------------------
 // user_pref("userContent.player.ui.twoline",                  true);
 
-// user_pref("userContent.newTab.hidden_logo",                 true);
+user_pref("userContent.newTab.hidden_logo",                 true);
 // user_pref("userContent.newTab.background_image",            true); // Need wallpaper image to `userContent.css`. :root { --uc-newTab-wallpaper: url("../icons/background_image.png"); }
 
 // user_pref("userContent.page.proton_color.dark_blue_accent", true);
