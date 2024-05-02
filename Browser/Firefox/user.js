@@ -1410,7 +1410,7 @@ user_pref("general.autoScroll", false);
 user_pref("media.autoplay.default", 5);
 user_pref("signon.firefoxRelay.feature", "disabled");
 user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
-user_pref("widget.macos.native-context-menus", true);
+// user_pref("widget.macos.native-context-menus", true);
 // ---------------------------------------------------------
 
 // ** Theme Default Options ****************************************************

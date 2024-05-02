@@ -586,16 +586,16 @@
 			"group": "重定向"
 		},
 		{
-			"enable": false,
+			"enable": true,
 			"name": "Hacker News Redirect",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "^https://news\\.ycombinator\\.com/(.*)",
+			"pattern": "^https://news.ycombinator.com/item\\?id=(.+)",
 			"exclude": "",
 			"group": "Site Redirect",
 			"isFunction": false,
 			"action": "redirect",
-			"to": "https://news.workers.tools/$1"
+			"to": "https://www.hckrnws.com/stories/$1"
 		},
 		{
 			"enable": true,
@@ -646,7 +646,7 @@
 			"to": "https://www.crxsoso.com/firefox/detail/$2"
 		},
 		{
-			"enable": true,
+			"enable": false,
 			"name": "GitHub Raw Proxy",
 			"ruleType": "redirect",
 			"matchType": "regexp",
