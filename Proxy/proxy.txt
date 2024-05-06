@@ -40,14 +40,14 @@ host-keyword, itunes, direct
 host-keyword, pikpak, direct
 host, www.bing.com, proxy
 host, cn.bing.com, direct
-host-suffix, deepl.com, direct
+;host-suffix, deepl.com, direct
 host-suffix, nextdns.io, direct
 
 ## Domestic
 ;host-suffix, waqi.info, direct
 host-keyword, axutongxue, direct
 host-keyword, ddys, direct
-host-keyword, fuliba, proxy
+host-keyword, fuliba, direct
 host-keyword, novipnoad, direct
 host-keyword, ocsp, direct
 host-keyword, sijishe, direct
@@ -133,7 +133,6 @@ host-suffix, sentry.io, direct
 host-suffix, sharepoint.com, direct
 host-suffix, sjs474.com, direct
 host-suffix, sieyuan.com, direct
-host-suffix, socialgirls.im, direct
 host-suffix, szrtcpa.com, direct
 host-suffix, terobox.com, direct
 host-suffix, thiscute.world, direct
