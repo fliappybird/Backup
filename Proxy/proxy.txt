@@ -50,7 +50,6 @@ host-keyword, ddys, direct
 host-keyword, fuliba, direct
 host-keyword, novipnoad, direct
 host-keyword, ocsp, direct
-host-keyword, sijishe, direct
 host-keyword, wnflb, direct
 host-keyword, yanaifei, direct
 host-keyword, yanetflix, direct
@@ -131,7 +130,7 @@ host-suffix, rainvi.com, direct
 host-suffix, ruanyifeng.com, direct
 host-suffix, sentry.io, direct
 host-suffix, sharepoint.com, direct
-host-suffix, sjs474.com, direct
+host-suffix, sixthtone.com, direct
 host-suffix, sieyuan.com, direct
 host-suffix, szrtcpa.com, direct
 host-suffix, terobox.com, direct
@@ -153,11 +152,12 @@ host-suffix, yaplayer.one, direct
 host-keyword, gh-proxy, direct
 host-keyword, ghproxy, direct
 host-keyword, moeyy, direct
+host-keyword, kkgithub, direct
 host-suffix, ddlc.top, direct
 host-suffix, eu.org, direct
 host-suffix, fgit.cf, direct
+host-suffix, yzuu.cf, direct
 host-suffix, gitclone.com, direct
-host-suffix, gitmirror.com, direct
-host-suffix, kkgithub.com, direct
+host-keyword, gitmirror, direct
 host-suffix, njaa.cf, direct
 host-suffix, slink.ltd, direct
