@@ -1,0 +1,45 @@
+[ADFS Adblock List]
+! Title: personal-block-list.txt
+! Homepage: https://github.com/fliappybird/AD-Block
+
+
+bilibili.com##.bpx-player-top-wrap, .video-tag-container, .main-reply-box, .reply-notice, .video-share, .van-popover__reference, #activity_vote
+chat.openai.com###__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden:nth-child(2) > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden:last-child > main.relative.h-full.w-full.flex-1.overflow-auto.transition-width > div.flex.h-full.flex-col:nth-child(2) > div.w-full.pt-2.md\\:pt-0.dark\\:border-white\\\/20.md\\:border-transparent.md\\:dark\\:border-transparent.md\\:w-\\[calc\\(100\\%-\\.5rem\\)\\]:last-child > form.stretch.mx-2.flex.flex-row.gap-3.last\\:mb-2.md\\:mx-4.md\\:last\\:mb-6.lg\\:mx-auto.lg\\:max-w-2xl.xl\\:max-w-3xl:first-child > div.relative.flex.h-full.flex-1.flex-col > div.absolute.bottom-full.left-0.right-0:first-child
+ddys.pro,ddys.mov##.hthb-row, .crp_related, .crp-rounded-thumbs
+developer.mozilla.org##.top-banner, .fallback, .article-footer
+fuliba.net,fuliba2023.net,fuliba2024.net##.shares, .style02, .no_webshot, .post-actions
+fuliba123.net##.auto-ad-url, .text-center, .my-4, .mx-2, .mb-n4, .mb-md-n5
+douban.com###landing-bar
+ghxi.com##.entry-action, .comment-form, .comment-respond, .entry-copyright, .vip-center-vip-show, .vipdown-form, .wpcom_ad_wrap, .ad_single_1
+google.com##.nD2EKb, .VEELad
+inoreader.com##.info_state, .top_notification, #sb_rp_upgrade_button, #sb_rp_gear, #sb_rp_notifications, #sb_rp_mark_read
+macosicons.com##.Box, .hero-wrapper
+moretothat.com##.et_bloom_form_container_wrapper, .clearfix
+roadmap.sh##div.bg-gray-50.pt-4.sm\\:pt-12:nth-child(5) > div.container.relative.\\!max-w-\\[1000px\\]:first-child > astro-island:last-child
+sspai.com##.el-row, .ss__feature__popover, .ss-comment-block, .comment-reply-wrapper, .rightSideTop
+t.me##.tgme_page_widget_actions_wrap, .stuck, .tgme_head_wrap
+v2ex.com###Rightbar > div.box:nth-child(2)
+weibo.com###composerEle, .LoginCard_wrap_18dK4.Card_bottomGap_2Xjqi.Card_wrap_2ibWe.woo-panel-left.woo-panel-bottom.woo-panel-right.woo-panel-top.woo-panel-main
+wiki.mbalib.com##.appxb-con, .unfold, .column-immobilization-top
+wikiwand.com##.footer_wrapper__zGJI_
+wjx.cn###divAward, .divheader
+yanaifei.me,yanetflix.one##.container-slide
+zxzja.com##.none, .stui-content__side
+||static.geetest.com\/v4\/gt4.js
+||m.weibo.cn\/manifest.json
+||m.weibo.cn\/api\/statuses\/repostTimeline*
+||passport.weibo.cn\/*
+||wx3.sinaimg.cn\/large\/53b515f0ly1gnlu3cynfmj20t306owhf.jpg
+||cpro.baidustatic.com\/cpro\/ui\/cm.js
+||smsLogin
+||m.weibo.cn\/login
+||m.weibo.cn\/status\/baiduad
+||m.weibo.cn\/status\/banner?*
+||h5.sinaimg.cn\/m\/weibo-lite\/workbox-v4.3.1\/*
+||h5.sinaimg.cn\/m\/weibo-lite\/manifest.fddbece56aea100821836a61f4c8ae91.js
+||h5.sinaimg.cn\/m\/weibo-lite\/js\/smsLogin.af9a381e.js
+||h5.sinaimg.cn\/m\/weibo-lite\/css\/smsLogin.1b26ffb0.css
+||h5.sinaimg.cn\/upload\/1005\/16\/2017\/11\/30\/wbp.js
+||static.cloudflareinsights.com^$third-party
+@@||ajax.googleapis.com^$important,third-party
+@@||image.baidu.com^$third-party
