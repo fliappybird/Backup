@@ -50,12 +50,14 @@ host-keyword, ddys, direct
 host-keyword, fuliba, direct
 host-keyword, novipnoad, direct
 host-keyword, ocsp, direct
+host-keyword, smzdm, direct
 host-keyword, wnflb, direct
 host-keyword, yanaifei, direct
 host-keyword, yanetflix, direct
 host-keyword, zxzj, direct
 host-suffix, 1000qm.vip, direct
 host-suffix, 1050qm.com, direct
+host-suffix, 3jdy.com, direct
 host-suffix, 51acg.buzz, direct
 host-suffix, arcloi.xyz, direct
 host-suffix, avdb.me, direct
@@ -102,6 +104,7 @@ host-suffix, immersivetranslate.com, direct
 host-suffix, iq.com, direct
 host-suffix, itobsnssdk.com, direct
 host-suffix, jesor.me, direct
+host-suffix, jiyuanqiaoyu.com, direct
 host-suffix, k3k9.com, direct
 host-suffix, kaix.in, direct
 host-suffix, kaola.com, direct
@@ -130,8 +133,8 @@ host-suffix, rainvi.com, direct
 host-suffix, ruanyifeng.com, direct
 host-suffix, sentry.io, direct
 host-suffix, sharepoint.com, direct
-host-suffix, sixthtone.com, direct
 host-suffix, sieyuan.com, direct
+host-suffix, sixthtone.com, direct
 host-suffix, szrtcpa.com, direct
 host-suffix, terobox.com, direct
 host-suffix, thiscute.world, direct

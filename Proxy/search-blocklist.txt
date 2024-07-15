@@ -7,7 +7,6 @@
 *://*.*://so.php?s=*/*
 *://*.*://so/*
 *://*.*://uselus.com/*
-*://*.incometwitter.com/*
 *://*.005i.com/*
 *://*.01-123.com/*
 *://*.01-800.cn/*
@@ -341,7 +340,6 @@
 *://*.hicaopan.com/*
 *://*.highdesertboutiquevendors.com/*
 *://*.hikaritraders.com/*
-*://*.hikaritraders.com/*
 *://*.hitalk.site/*
 *://*.hjpnc.com/*
 *://*.hjtoysco.cn/*
@@ -372,6 +370,7 @@
 *://*.ijinfa.cn/*
 *://*.ikue.info/*
 *://*.image.haosou.com/*
+*://*.incometwitter.com/*
 *://*.insideabritishmumskitchen.com/*
 *://*.integerworks.com/*
 *://*.intowuzhen.com/*
@@ -518,6 +517,7 @@
 *://*.pexim.vn/*
 *://*.photoplayhouse.com/*
 *://*.pigfun.cn/*
+*://*.pinduoduo.com/*
 *://*.pitalitobicentenario.com/*
 *://*.pjmrw.cn/*
 *://*.pjszy.com/*
@@ -654,6 +654,7 @@
 *://*.svzoew.xyz/*
 *://*.szredsafe.com/*
 *://*.tanghtine.com/*
+*://*.taobao.com/*
 *://*.taozx.cn/*
 *://*.tapatalk.com/*
 *://*.taptapdashonline.com/*
@@ -743,6 +744,7 @@
 *://*.xieetuuy.com/*
 *://*.xilr.uwudk.top/*
 *://*.xima.org/*
+*://*.ximalaya.com/*
 *://*.xinfuq.cn/*
 *://*.xinguge.cn/*
 *://*.xjdpg.cn/*
@@ -824,3 +826,23 @@
 *://*.zz759.com/*
 *://*.zzhesheng.com/*
 *://*.zzjwcf.com/*
+*://*/*/searchList.jsp?*
+*://*/*dictionary?p=*
+*://*/informat/*
+*://*/keyword/*
+*://*/s/*
+*://*/so.php
+*://*/so/*
+*://*/zhuanti/*
+*://bbs.huaweicloud.com/blogs/*
+*://cloud.tencent.com/developer/article/*
+*://developer.aliyun.com/article/*
+*://www.huoban.com/news/post/*
+*://www.ucloud.cn/yun/*.html
+*://www.yisu.com/zixun/*
+/(http:\/\/.*)/
+/.*:\/\/(wap|m)\..*/
+/.*\?keyword=.*/
+/.*\?q=.*/
+/.*\?s=.*/
+/.*collections\/.*\?.*/

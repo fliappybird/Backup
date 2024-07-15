@@ -35,8 +35,8 @@ user_pref("browser.startup.homepage", "about:home");
 user_pref("browser.newtabpage.enabled", true);
 // -------------------------------------
 // Disable sponsored content on Firefox Home (Activity Stream)
-user_pref("browser.newtabpage.activity-stream.showSponsored", false); // [FF58+] Pocket > Sponsored Stories
-user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Sponsored shortcuts
+user_pref("browser.newtabpage.activity-stream.showSponsored", false); // [FF58+] 
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Shortcuts>Sponsored shortcuts
 // -------------------------------------
 // Clear default topsites
 user_pref("browser.newtabpage.activity-stream.default.sites", "");
@@ -100,6 +100,7 @@ user_pref("toolkit.telemetry.shutdownPingSender.enabled", false); // [FF55+]
 user_pref("toolkit.telemetry.updatePing.enabled", false); // [FF56+]
 user_pref("toolkit.telemetry.bhrPing.enabled", false); // [FF57+] Background Hang Reporter
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false); // [FF57+]
+user_pref("browser.search.serpEventTelemetry.enabled",false); 
 // -------------------------------------
 // Skip checking omni.ja and other files
 user_pref("corroborator.enabled", false);
@@ -108,9 +109,6 @@ user_pref("corroborator.enabled", false);
 user_pref("toolkit.telemetry.coverage.opt-out", true); // [HIDDEN PREF]
 user_pref("toolkit.coverage.opt-out", true); // [FF64+] [HIDDEN PREF]
 user_pref("toolkit.coverage.endpoint.base", "");
-// -------------------------------------
-// Disable PingCentre telemetry (used in several System Add-ons) [FF57+]
-user_pref("browser.ping-centre.telemetry", false);
 // -------------------------------------
 // Disable Firefox Home (Activity Stream) telemetry
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
@@ -296,8 +294,8 @@ user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF] [DEFAULT: "" 
 // user_pref("network.proxy.allow_bypass", false);
 // -------------------------------------
 // Disable DNS-over-HTTPS (DoH)[FF60+]
-user_pref("network.trr.mode", 5);
-user_pref("network.trr.confirmationNS", "");
+user_pref("network.trr.mode", 2);
+//user_pref("network.trr.confirmationNS", "https://223.5.5.5/dns-query");
 // -------------------------------------
 // Disable skipping DoH when parental controls are enabled
 user_pref("network.trr.uri", "");
@@ -311,6 +309,7 @@ user_pref("network.trr.custom_uri", "");
 user_pref("browser.urlbar.speculativeConnect.enabled", true);
 // -------------------------------------
 // Disable location bar contextual suggestions
+user_pref("browser.urlbar.quicksuggest.enabled", true); // [FF92+] [DEFAULT: false]
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", true); // [FF95+]
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false); // [FF92+]
 // -------------------------------------
@@ -445,7 +444,7 @@ user_pref("security.pki.crlite_mode", 0);
 // user_pref("security.mixed_content.block_display_content", true); // Defense-in-depth
 // -------------------------------------
 // Enable HTTPS-Only mode in all windows
-user_pref("dom.security.https_only_mode", true); // [FF76+]
+user_pref("dom.security.https_only_mode", false); // [FF76+]
 // user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
 // -------------------------------------
 // Enable HTTPS-Only mode for local resources [FF77+]
@@ -488,6 +487,8 @@ user_pref("privacy.userContext.ui.enabled", true);
 // Set behavior on "+ Tab" button to display container menu on left click [FF74+]
 // user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
 //
+// Set external links to open in site-specific containers [FF123+]
+// user_pref("browser.link.force_default_user_context_id_for_external_opens", true);
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // PLUGINS / MEDIA / WEBRTC
 // >>>>>>>>>>>>>>>>>>>>>
@@ -553,6 +554,9 @@ user_pref("pdfjs.enableScripting", false); // [FF86+]
 // Disable middle click on new tab button opening URLs or searches using clipboard [FF115+]
 user_pref("browser.tabs.searchclipboardfor.middleclick", true); // [DEFAULT: false NON-LINUX]
 // -------------------------------------
+// Disable content analysis by DLP (Data Loss Prevention) agents
+user_pref("browser.contentanalysis.default_allow", false); // [FF124+] [DEFAULT: false]
+// -------------------------------------
 // Disable the default checkedness for "Save card and address to Firefox" checkboxes
 user_pref("dom.payments.defaults.saveAddress", false);
 user_pref("dom.payments.defaults.saveCreditCard", false);
@@ -613,8 +617,9 @@ user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT: true]
-user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [DEFAULT: true]
 // user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
+// user_pref("privacy.clearOnShutdown_v2.siteSettings", false); // [FF128+] [DEFAULT: false]
 // -------------------------------------
 // Set Session Restore to clear on shutdown [FF34+]
 // user_pref("privacy.clearOnShutdown.openWindows", true);
@@ -624,27 +629,39 @@ user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
 // Set "Cookies" and "Site Data" to clear on shutdown
 user_pref("privacy.clearOnShutdown.cookies", true); // Cookies
 user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
+user_pref("privacy.clearOnShutdown.sessions", true);  // Active Logins [DEFAULT: true]
+user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", true); // Cookies, Site Data, Active Logins [FF128+]
 //
-// SANITIZE MANUAL: IGNORES "ALLOW" SITE EXCEPTIONS
+// SANITIZE SITE DATA: IGNORES "ALLOW" SITE EXCEPTIONS
 //
-// Reset default items to clear with Ctrl-Shift-Del
+// Set manual "Clear Data" items [FF128+]
+user_pref("privacy.clearSiteData.cache", true);
+user_pref("privacy.clearSiteData.cookiesAndStorage", false); // keep false until it respects "allow" site exceptions
+user_pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
+// user_pref("privacy.clearSiteData.siteSettings", false);
+//
+// SANITIZE HISTORY: IGNORES "ALLOW" SITE EXCEPTIONS | clearHistory migration is FF128+
+//
+// Set manual "Clear History" items, also via Ctrl-Shift-Del
 user_pref("privacy.cpd.cache", true); // [DEFAULT: true]
+user_pref("privacy.clearHistory.cache", true);
 user_pref("privacy.cpd.formdata", true); // Form & Search History
 user_pref("privacy.cpd.history", true); // Browsing & Download History
-user_pref("privacy.cpd.offlineApps", true); // Offline Website Data
+// user_pref("privacy.cpd.downloads", true); // not used, see note above
+user_pref("privacy.clearHistory.historyFormDataAndDownloads", true);
+user_pref("privacy.cpd.cookies", false);
 user_pref("privacy.cpd.sessions", true); // [DEFAULT: true]
 user_pref("privacy.cpd.offlineApps", true); // [DEFAULT: false]
-user_pref("privacy.cpd.cookies", true);
-// user_pref("privacy.cpd.downloads", true); // not used
+user_pref("privacy.clearHistory.cookiesAndStorage", false);
 // user_pref("privacy.cpd.openWindows", false); // Session Restore
 // user_pref("privacy.cpd.passwords", false);
 // user_pref("privacy.cpd.siteSettings", false);
+// user_pref("privacy.clearHistory.siteSettings", false);
 // -------------------------------------
-// Clear Session Restore data when sanitizing on shutdown or manually [FF34+]
-// user_pref("privacy.clearOnShutdown.openWindows", true);
-// user_pref("privacy.cpd.openWindows", true);
-// -------------------------------------
-// Reset default "Time range to clear" for "Clear Recent History"
+//
+// SANITIZE MANUAL: TIMERANGE
+//
+// set "Time range to clear" for "Clear Data" and "Clear History"
 // 0=everything, 1=last hour, 2=last two hours, 3=last four hours, 4=today
 user_pref("privacy.sanitize.timeSpan", 0);
 //
@@ -656,7 +673,9 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // -------------------------------------
 // Set global FPP overrides [FF114+]
 // user_pref("privacy.fingerprintingProtection.overrides", "");
-//
+// -------------------------------------
+// Disable remote FPP overrides [FF127+]
+// user_pref("privacy.fingerprintingProtection.remoteOverrides.enabled", false);
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // RFP (resistFingerprinting)
 // >>>>>>>>>>>>>>>>>>>>>
@@ -678,6 +697,10 @@ user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 // -------------------------------------
 // Experimental RFP [FF91+]
 // user_pref("privacy.resistFingerprinting.exemptedDomains", "*.example.invalid");
+// -------------------------------------
+// Enable RFP spoof english prompt [FF59+]
+// 0=prompt, 1=disabled, 2=enabled (requires RFP)
+user_pref("privacy.spoof_english", 2);
 // -------------------------------------
 // Disable using system colors
 // user_pref("browser.display.use_system_colors", false); // [DEFAULT: false NON-WINDOWS]
@@ -969,6 +992,9 @@ user_pref("dom.push.userAgentID", "");
 // -------------------------------------
 // Disable WebRTC (Web Real-Time Communication)
 user_pref("media.peerconnection.enabled", false);
+// -------------------------------------
+// Enable GPC (Global Privacy Control) in non-PB windows
+// user_pref("privacy.globalprivacycontrol.enabled", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T BOTHER: FINGERPRINTING
@@ -1073,7 +1099,6 @@ user_pref("browser.tabs.firefox-view", false); // Firefox-view
 // user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
-user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon [FF69+]
 user_pref("browser.urlbar.showSearchTerms.enabled", true);
 user_pref("browser.sessionstore.interval", 30000); // minimum interval between session save operations
 user_pref("network.manage-offline-status", false);
@@ -1126,6 +1151,16 @@ user_pref("security.family_safety.mode", 0);
 // -------------------------------------
 // Disable skipping DoH when parental controls are enabled [FF70+]
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+//
+// FF123
+//
+// Disable PingCentre telemetry (used in several System Add-ons) [FF57+]
+user_pref("browser.ping-centre.telemetry", false);
+//
+// FF126
+//
+// Disable What's New toolbar icon [FF69+]
+user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 //
 
 /****************************************************************************
@@ -1376,8 +1411,8 @@ user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this
  * END: BETTERFOX                                                           *
 ****************************************************************************/
 
-// ------------------------ Personal Config  ---------------------------------
-// user_pref("browser.bookmarks.addedImportButton", true);
+//********* Personal Config ****************************************************
+
 user_pref("browser.display.use_document_fonts", 1);
 user_pref("browser.fullscreen.autohide", true);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
@@ -1400,7 +1435,7 @@ user_pref("media.autoplay.default", 5);
 user_pref("signon.firefoxRelay.feature", "disabled");
 user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
 user_pref("widget.macos.native-context-menus", true);
-// ---------------------------------------------------------
+// ****************************************************
 
 // ** Theme Default Options ****************************************************
 // userchrome.css usercontent.css activate
@@ -1481,7 +1516,7 @@ user_pref("userChrome.theme.monospace",                     true);
 // user_pref("userChrome.autohide.tab.opacity",                true);
 // user_pref("userChrome.autohide.tab.blur",                   true);
 // user_pref("userChrome.autohide.tabbar",                     true);
-user_pref("userChrome.autohide.navbar",                     true);
+// user_pref("userChrome.autohide.navbar",                     true);
 user_pref("userChrome.autohide.bookmarkbar",                true);
 // user_pref("userChrome.autohide.sidebar",                    true);
 // user_pref("userChrome.autohide.fill_urlbar",                true);
@@ -1493,10 +1528,10 @@ user_pref("userChrome.autohide.bookmarkbar",                true);
 
 // user_pref("userChrome.hidden.tab_icon",                     true);
 // user_pref("userChrome.hidden.tab_icon.always",              true);
-user_pref("userChrome.hidden.tabbar",                       true);
+// user_pref("userChrome.hidden.tabbar",                       true);
 // user_pref("userChrome.hidden.navbar",                       true);
 // user_pref("userChrome.hidden.private_indicator",            true);
-user_pref("userChrome.hidden.titlebar_container",           true);
+// user_pref("userChrome.hidden.titlebar_container",           true);
 user_pref("userChrome.hidden.sidebar_header",               true);
 // user_pref("userChrome.hidden.sidebar_header.vertical_tab_only", true);
 // user_pref("userChrome.hidden.urlbar_iconbox",               true);

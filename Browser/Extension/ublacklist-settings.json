@@ -10,16 +10,31 @@
     "#ddeeff"
   ],
   "linkColor": "default",
-  "skipBlockDialog": false,
+  "skipBlockDialog": true,
   "subscriptions": [
     {
-      "name": "ublacklist",
-      "url": "https://git.io/ublacklist",
+      "name": "",
+      "url": "https://github.com/eallion/uBlacklist-subscription-compilation/raw/main/uBlacklist.txt",
       "enabled": true
     },
     {
-      "name": "Blocklist",
+      "name": "",
       "url": "https://github.com/fliappybird/Backup/raw/main/Proxy/search-blocklist.txt",
+      "enabled": true
+    },
+    {
+      "name": "",
+      "url": "https://github.com/Paxxs/Google-Blocklist/raw/develop/uBlacklist_subscription.txt",
+      "enabled": true
+    },
+    {
+      "name": "",
+      "url": "https://github.com/zweie/some-rules-for-ublacklist/raw/main/Annoyingbastard.txt",
+      "enabled": true
+    },
+    {
+      "name": "",
+      "url": "https://github.com/youzeliang/uBlacklist-Subscription/raw/main/list.txt",
       "enabled": true
     }
   ],
@@ -29,5 +44,5 @@
   "syncInterval": 15,
   "syncSubscriptions": false,
   "updateInterval": 1440,
-  "version": "8.5.1"
+  "version": "8.8.2"
 }

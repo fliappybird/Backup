@@ -1,15 +1,16 @@
-眺览 TillGlance|aomnlmcemihejgfkeplljkcelfpneakg
+AdGuard Browser Assistant|fbohpolgemkbfphodcfgnpjcmedcjhpn
+Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml
+Circle Read
+ClearURLs|lckanjgmijmafbedllaakclkaicjfmnk
 Dark Reader|eimadpbcbfnmbkopoojfekhnkhdbieeh
 Header Editor|eningockdidmgiojffjmkdblpjocbhgh
-AdGuard Browser Assistant|fbohpolgemkbfphodcfgnpjcmedcjhpn
-Vimium C - All by Keyboard|hfjbmagddngcpeloejdejnfgbamkjaeg
-SearchJumper|hgepmblbgodbilmfdjkalkgofdcipkhh
-YouTube™ dual subtitles|hkbdddpiemdeibjoknnofflfgbgnebcm
-Violentmonkey|jinjaccalgkegednnccohejagnlnfdag
-Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml
-Session Buddy|edacconmaakjimmfgnblocblbcdcpbko
-ClearURLs|lckanjgmijmafbedllaakclkaicjfmnk
-Search all Tabs|ndfnfhnlgoocpbbjjjfmiojdfcgcfomn
 OpenDyslexic for Chrome|cdnapgfjopgaggbmfgbiinmmbdcglnam
+Search all Tabs|ndfnfhnlgoocpbbjjjfmiojdfcgcfomn
+SearchJumper|hgepmblbgodbilmfdjkalkgofdcipkhh
+Session Buddy|edacconmaakjimmfgnblocblbcdcpbko
+Vimium C - All by Keyboard|hfjbmagddngcpeloejdejnfgbamkjaeg
+Violentmonkey|jinjaccalgkegednnccohejagnlnfdag
+YouTube™ dual subtitles|hkbdddpiemdeibjoknnofflfgbgnebcm
 uBlacklist|pncfbmialoiaghdehhbnbhkkgmjanfhe
+眺览 TillGlance|aomnlmcemihejgfkeplljkcelfpneakg
 遇见单词 MetWord|oanedhppmefhpgbbchicmlhkjeadijfp
