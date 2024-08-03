@@ -1,14 +1,16 @@
 AdGuard Browser Assistant|fbohpolgemkbfphodcfgnpjcmedcjhpn
 Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml
-Circle Read
 ClearURLs|lckanjgmijmafbedllaakclkaicjfmnk
 Dark Reader|eimadpbcbfnmbkopoojfekhnkhdbieeh
+Drag to Preview
+Ease Bookmarks
 Header Editor|eningockdidmgiojffjmkdblpjocbhgh
 OpenDyslexic for Chrome|cdnapgfjopgaggbmfgbiinmmbdcglnam
 Search all Tabs|ndfnfhnlgoocpbbjjjfmiojdfcgcfomn
 SearchJumper|hgepmblbgodbilmfdjkalkgofdcipkhh
 Session Buddy|edacconmaakjimmfgnblocblbcdcpbko
 Vimium C - All by Keyboard|hfjbmagddngcpeloejdejnfgbamkjaeg
+Vtab
 Violentmonkey|jinjaccalgkegednnccohejagnlnfdag
 YouTube™ dual subtitles|hkbdddpiemdeibjoknnofflfgbgnebcm
 uBlacklist|pncfbmialoiaghdehhbnbhkkgmjanfhe

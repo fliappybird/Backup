@@ -1,0 +1,213 @@
+spring:
+  application:
+    name: ad-filters-subscriber
+  profiles:
+    active: prod  #切换至 dev 即可输出调试信息
+
+logging:
+  file:
+    path: ./logs
+
+application:
+  config:
+    expected_quantity: 2000000  #预期规则数量
+    fault_tolerance: 0.001 #容错率
+    warn_limit: 6 #警告阈值, 原始规则长度小于该值时会输出警告日志
+
+  # 规则源配置，remote为远程规则，local为本地规则，支持多个规则源
+  rule:
+    #远程订阅规则 （！使用前请删除下方示例配置, 注意缩进）
+    remote:  
+      - name: 'Adguard Base filter'
+        path: 'https://filters.adtidy.org/mac_v2/filters/2.txt'
+#     - name: 'Adguard Tracking Protection filter'
+#       path: 'https://filters.adtidy.org/mac_v2/filters/3.txt'           
+      - name: 'Adguard Social Media filter'
+        path: 'https://filters.adtidy.org/mac_v2/filters/4.txt'
+      - name: 'Adguard Experimental filter'
+        path: 'https://filters.adtidy.org/mac_v2/filters/5.txt'
+      - name: 'Adguard Filter unblocking search ads and self-promotions'
+        path: 'https://filters.adtidy.org/mac_v2/filters/10.txt'
+      - name: 'Adguard Mobile Ads filter'
+        path: 'https://filters.adtidy.org/mac_v2/filters/11.txt'                
+      - name: 'Adguard Annyoyances'
+        path: 'https://filters.adtidy.org/mac_v2/filters/14.txt'                 
+      - name: 'Adguard DNS filter'
+        path: 'https://filters.adtidy.org/mac_v2/filters/15.txt'
+#     - name: 'Adguard URL Tracking Parameters filter'
+#       path: 'https://filters.adtidy.org/mac_v2/filters/17.txt'                        
+      - name: 'Adguard Chinese filter'
+        path: 'https://filters.adtidy.org/mac_v2/filters/224.txt'      
+      - name: 'EasyList Chat Widgets'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/thirdparties/easylist-chat.txt'
+      - name: 'EasyList Cookie List'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/thirdparties/easylist-cookies.txt'
+      - name: 'EasyList Newsletter List'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/thirdparties/easylist-newsletters.txt'
+      - name: 'EasyList Notifications List'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/thirdparties/easylist-notifications.txt'
+      - name: 'EasyList Other Annoyances List'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/thirdparties/easylist-annoyances.txt'
+      - name: 'EasyList Social List'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/thirdparties/easylist-social.txt'  
+      - name: 'Fanboy Annoyances'
+        path: 'https://secure.fanboy.co.nz/fanboy-annoyance_ubo.txt'
+      - name: 'uBlock Filters - AD'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/filters/filters.min.txt'
+      - name: 'uBlock Filters - Annoyances'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/filters/annoyances.txt'
+      - name: 'uBlock Filters - Cookie Notices'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/annoyances-cookies.txt'
+      - name: 'uBlock Filters - Other Annoyances'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/raw/main/filters/annoyances-others.txt'        
+      - name: 'uBlock Filters - Privacy'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/blob/main/filters/privacy.min.txt'      
+      - name: 'uBlock Filters - Quick Fixes'
+        path: 'https://github.com/uBlockOrigin/uAssetsCDN/blob/main/filters/quick-fixes.min.txt'
+      - name: 'uBlock Filters - Unbreak'
+        path: 'https://ublockorigin.pages.dev/filters/unbreak.min.txt'
+      - name: 'TG-Twilight/AWAvenue-Ads-Rule'
+        path: 'https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/main/AWAvenue-Ads-Rule.txt'         
+      - name: 'Crystal-RainSlide/Additional Filters CN'
+        path: 'https://github.com/Crystal-RainSlide/AdditionalFiltersCN/raw/master/CN.txt'
+      - name: 'Crystal-RainSlide/Additional Filters Intl'
+        path: 'https://github.com/Crystal-RainSlide/AdditionalFiltersCN/raw/master/Intl.txt'
+      - name: 'Crystal-RainSlide/Additional Filters Other'
+        path: 'https://github.com/Crystal-RainSlide/AdditionalFiltersCN/raw/master/RainSlide.txt'
+      - name: 'dlingyu/ad-wars'
+        path: 'https://github.com/jdlingyu/ad-wars/raw/master/hosts'        
+      - name: 'paulgb/BarbBlock'
+        path: 'https://github.com/paulgb/BarbBlock/raw/main/blocklists/ublock-origin.txt'
+      - name: 'blackmatrix7/Block HTTP DNS'
+        path: 'https://github.com/blackmatrix7/ios_rule_script/raw/release/rule/AdGuard/BlockHttpDNS/BlockHttpDNS.txt'                              
+      - name: 'magnolia1234/bypass-paywalls-clean-filters'
+        path: 'https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt'
+      - name: 'Dandelion Sprouts Annoyances List'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/AnnoyancesList'
+      - name: 'Dandelion Sprouts Staying On The Phone Browser'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/stayingonbrowser/Staying%20On%20The%20Phone%20Browser'          
+      - name: 'Dandelion Sprouts Anti-Amazon List for Twitch'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/AntiAmazonListForTwitch.txt'          
+      - name: 'Dandelion Sprouts Anti-Elsagate List'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/Anti-Elsagate%20List.txt'          
+      - name: 'Dandelion Sprouts Browse Websites Without Logging In'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/BrowseWebsitesWithoutLoggingIn.txt' 
+      - name: 'Dandelion Sprouts deviantART Quality Art Magnifier'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/DeviantARTQualityArtMagnifier.txt'          
+      - name: 'Dandelion Sprouts Empty Padding Remover'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/EmptyPaddingRemover.txt'          
+      - name: 'Dandelion Sprouts Extremely Condensed Adblocking List'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/ExtremelyCondensedList.txt'          
+      - name: 'Dandelion Sprouts Falukorv List'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/FalukorvList.txt'          
+      - name: 'Dandelion SproutsI Dont Want to Download Your Browser'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/I%20Don%27t%20Want%20to%20Download%20Your%20Browser.txt'          
+      - name: 'Dandelion Sprouts Anti-Asset Flip Shovelware List'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/IHateOverpromotedGames.txt'          
+      - name: 'Dandelion Sprouts Reddit Trash Removal Service'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/RedditTrashRemovalService.txt'          
+      - name: 'Dandelion Sprouts Lightweight Anti-Social share List'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/SocialShareList.txt'          
+      - name: 'Dandelion Sprouts Stop Autoplay On Video Sites'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/StopAutoplayOnYouTube.txt'          
+      - name: 'Dandelion Sprouts Twitch: Pure Viewing Experience'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/TwitchPureViewingExperience.txt'          
+      - name: 'Dandelion Sprouts Twitter: Pure Reading Experience'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/TwitterPureReadingExperience.txt'          
+      - name: 'Dandelion Sprouts Wikia: Pure Browsing Experience'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/WikiaPureBrowsingExperience.txt'         
+      - name: 'Dandelion Sprouts YouTube: Even More Pure Video Experience'
+        path: 'https://github.com/DandelionSprout/adfilt/raw/master/YouTubeEvenMorePureVideoExperience.txt'         
+      - name: 'afwfv/DD-AD'
+        path: 'https://github.com/afwfv/DD-AD/raw/main/rule/DD-AD.txt'   
+      - name: 'Dupontjoy'
+        path: 'https://github.com/dupontjoy/Customization/raw/main/Rules/uBlock/ubo-cinglist.txt' 
+      - name: 'I Dont Care About Cookies'
+        path: 'https://www.i-dont-care-about-cookies.eu/abp/'
+      - name: 'JCleanlist'
+        path: 'https://github.com/jiayiming/jCleanList/raw/master/jCleanList_all.txt'        
+      - name: 'Jiekou AD DNS'
+        path: 'https://github.com/damengzhu/banad/raw/main/dnslist.txt'
+#      - name: 'Jiekou AD'
+#        path: 'https://github.com/damengzhu/banad/raw/main/jiekouAD.txt'                
+#     - name: 'Legitimate URL Shortener List'
+#       path: 'https://github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt' 
+#      - name: 'No App Download'
+#        path: 'https://github.com/Noyllopa/NoAppDownload/raw/master/NoAppDownload.txt' 
+      - name: 'Peter Lowes Ad and tracking server list'
+        path: 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=0&startday=01&startmonth=01&startyear=2000&mimetype=plaintext'
+      - name: 'yokoffing annoyance list'
+        path: 'https://github.com/yokoffing/filterlists/raw/main/annoyance_list.txt'
+      - name: 'yokoffing block third party fonts'
+        path: 'https://github.com/yokoffing/filterlists/raw/main/block_third_party_fonts.txt'        
+      - name: '奶酪 网页水印过滤规则'
+        path: 'https://github.com/runningcheese/RunningCheese-Firefox/raw/master/Restore/Adblock_Watermark.txt'
+      - name: '奶酪 网页弹窗过滤规则'
+        path: 'https://github.com/runningcheese/RunningCheese-Firefox/raw/master/Restore/Adblock_Popup.txt'
+      - name: 'Cats-Team/AdRules AdBlock List Plus Cats-Team'
+        path: 'https://github.com/Cats-Team/AdRules/raw/main/adblock_plus.txt'
+      - name: 'Cats-Team/AdRules AdBlock DNS List Plus Cats-Team'
+        path: 'https://github.com/Cats-Team/AdRules/raw/main/dns.txt'
+      - name: 'privacy-protection-tools/anti-AD for AdGuard'
+        path: 'https://github.com/privacy-protection-tools/anti-AD/raw/master/anti-ad-adguard.txt'
+      - name: 'HaGeZis Ultimate DNS Blocklist'
+        path: 'https://github.com/hagezi/dns-blocklists/raw/main/adblock/ultimate.txt'
+      - name: 'hblock'
+        path: 'https://hblock.molinero.dev/hosts_adblock.txt'
+      - name: 'HalfLife ad block list'
+        path: 'https://github.com/o0HalfLife0o/list/raw/master/ad-pc.txt'
+      - name: 'Oisd Big'
+        path: 'https://big.oisd.nl/'
+      - name: 'XXXKiller'
+        path: 'https://github.com/DoingDog/XXKiller/raw/main/n.txt'        
+      - name: 'yhosts'
+        path: 'https://github.com/VeleSila/yhosts/raw/master/hosts.txt'
+#     - name: '1Host Pro'
+#       path: 'https://o0.pages.dev/Pro/adblock.txt'
+      - name: '217heidai/adblockfilters'
+        path: 'https://github.com/217heidai/adblockfilters/raw/main/rules/adblockfilters.txt'
+      - name: '217heidai/adblockfilters DNS'
+        path: 'https://github.com/217heidai/adblockfilters/raw/main/rules/adblockdns.txt'
+      - name: '8680/GOODBYEADS Allow'
+        path: 'https://github.com/8680/GOODBYEADS/raw/master/allow.txt'
+      - name: '8680/GOODBYEADS DNS'
+        path: 'https://github.com/8680/GOODBYEADS/raw/master/dns.txt'
+      - name: '8680/GOODBYEADS'
+        path: 'https://github.com/8680/GOODBYEADS/raw/master/rules.txt'                        
+
+
+    #本地规则文件
+    local:
+      - name: 'Personal Block List'
+        path: 'rule/personal-block-list.txt' #支持绝对/相对路径
+
+  #输出配置
+  output:
+    #生成的规则文件头部内容, 占位符${name}将被替换为文件名，如all.txt,  ${date} 将被替换为当前日期
+    file_header: |
+      [ADFS Adblock List]
+      ! Title: AdBlock List - ${name}
+      ! Description: Compilation of Some Most Used AdBlock Lists
+      ! TimeUpdated: ${date}
+      ! Homepage: https://github.com/fliappybird/AD-Block
+
+    path: rule #输出规则文件的路径，支持绝对/相对路径
+    #输出规则文件列表 （！注意缩进）
+    files:
+#      all.txt: #输出文件名
+#         - DOMAIN  #域名规则，仅完整域名
+#         - REGEX   #正则规则，包含正则的域名规则
+#         - MODIFY  #修饰规则，添加了一些修饰符号的规则
+#         - HOSTS   #Hosts规则
+      dns.txt:
+        - DOMAIN
+        - REGEX
+        - HOSTS
+#      hosts.txt:
+#        - HOSTS
+#      regex.txt:
+#        - REGEX
+#      domain.txt:
+#        - DOMAIN
+      modify.txt:
+        - MODIFY

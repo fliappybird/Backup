@@ -1,5 +1,5 @@
 {
-  "blacklist": "",
+  "blacklist": "@*://*.douban.com/*",
   "blockColor": "default",
   "blockWholeSite": true,
   "dialogTheme": "default",
@@ -21,21 +21,6 @@
       "name": "",
       "url": "https://github.com/fliappybird/Backup/raw/main/Proxy/search-blocklist.txt",
       "enabled": true
-    },
-    {
-      "name": "",
-      "url": "https://github.com/Paxxs/Google-Blocklist/raw/develop/uBlacklist_subscription.txt",
-      "enabled": true
-    },
-    {
-      "name": "",
-      "url": "https://github.com/zweie/some-rules-for-ublacklist/raw/main/Annoyingbastard.txt",
-      "enabled": true
-    },
-    {
-      "name": "",
-      "url": "https://github.com/youzeliang/uBlacklist-Subscription/raw/main/list.txt",
-      "enabled": true
     }
   ],
   "syncAppearance": false,
@@ -44,5 +29,5 @@
   "syncInterval": 15,
   "syncSubscriptions": false,
   "updateInterval": 1440,
-  "version": "8.8.2"
+  "version": "8.9.2"
 }
